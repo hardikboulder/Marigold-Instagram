@@ -32,7 +32,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
 import {
-  CATEGORY_FIELDS,
+  // CATEGORY_FIELDS, // unused
   MICRO_CATEGORIES,
   NICHE_OTHER_SENTINEL,
   UNIVERSAL_CLOSING_FIELDS,
