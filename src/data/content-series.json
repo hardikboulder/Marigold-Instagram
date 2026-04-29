@@ -1,0 +1,1375 @@
+[
+  {
+    "slug": "bridezilla-vs-momzilla",
+    "pillar": "engage",
+    "name": "Bridezilla vs. Momzilla",
+    "description": "Split-screen comparisons of the bride's take vs. mom's take on a wedding decision. Engagement driver — relatable, comment-bait, sharable.",
+    "purpose": "engagement",
+    "supported_formats": ["story", "post"],
+    "grid_color_profile": "pink",
+    "content_mix_category": "engagement",
+    "is_active": true,
+    "sort_order": 1,
+    "episode_seed_data": {
+      "topic_bank": [
+        "Guest list size",
+        "Lehenga / outfit color",
+        "Mandap décor",
+        "Food menu",
+        "DJ vs. live band",
+        "Venue selection",
+        "Who walks in first",
+        "Honeymoon destination",
+        "Photography style",
+        "Wedding timeline",
+        "Sangeet choreography",
+        "Return gifts"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Bridezilla vs. Momzilla episode. Pick a topic (or use the user-provided topic) and write two opposing quotes — the BRIDE's take and the MOM's take — that capture the generational tension in a desi wedding decision. The bride's voice is modern, intentional, slightly exhausted. The mom's voice is maximalist, status-conscious, and absolutely sure she is right. Each quote should be 1-2 short sentences. Each quote needs a Caveat-style annotation (a short aside in handwritten voice, max ~40 chars) — e.g. 'she said, confidently' or 'and that's just dad's side'. The annotation is the punchline, not the quote. Output: episodeNumber (integer, increment from last), episodeTopic (string), brideQuote, brideAnnotation, momQuote, momAnnotation."
+  },
+  {
+    "slug": "confessional",
+    "pillar": "engage",
+    "name": "The Confessional",
+    "description": "Anonymous confessions on sticky notes. UGC pipeline + high engagement. Always ships as a Story sequence (title → 3 cards → submit CTA).",
+    "purpose": "ugc",
+    "supported_formats": ["story"],
+    "grid_color_profile": "cream",
+    "content_mix_category": "engagement",
+    "is_active": true,
+    "sort_order": 2,
+    "episode_seed_data": {
+      "scenario_seeds": [
+        "MIL added guests behind the bride's back",
+        "Bride lied about a vendor being booked to end a debate",
+        "Sibling drama over the wedding party order",
+        "Hiding the actual budget from parents",
+        "Faking a vendor email to escape an in-law demand",
+        "Secret diet/skincare regimen confessions",
+        "Drama about the auspicious date / muhurat",
+        "Groom confessions about overspending or hiding a vice",
+        "Friend group drama over the bridesmaid lineup",
+        "Lies told to keep peace with the sangeet choreographer"
+      ]
+    },
+    "ai_generation_prompt": "Generate an anonymous wedding confession in The Marigold's voice. The confession is rendered in Caveat (handwritten) on a sticky note — it should read like a real DM from a real bride or groom. Rules: (1) Specific, not generic — name the actual thing (mandap photos, the caterer, the muhurat, MIL's WhatsApp group). (2) Self-deprecating, not mean — the bride/groom is the one who did the chaotic thing. (3) 1-2 sentences, max ~180 characters. (4) Attribution is always '— ANONYMOUS BRIDE, {YEAR}' or '— ANONYMOUS GROOM, {YEAR}' or '— ANONYMOUS MIL, {YEAR}'. (5) Vary the variant across a sequence: blush → gold → lavender. Output: confessionNumber, confessionText, attribution, variant."
+  },
+  {
+    "slug": "discover-your",
+    "pillar": "engage",
+    "name": "Discover Your...",
+    "description": "Open-ended personality/discovery quiz engine. Each episode picks a quiz theme (Bride Energy, Wedding Style, Décor Personality, Color Palette, etc.) and ships a title slide plus 3-5 shareable result cards. Shareability driver — results get reposted to followers' stories and to the grid.",
+    "purpose": "shares",
+    "supported_formats": ["story", "post"],
+    "grid_color_profile": "colorful",
+    "content_mix_category": "community",
+    "is_active": true,
+    "sort_order": 3,
+    "episode_seed_data": {
+      "background_color_options": [
+        "wine",
+        "deep-pink",
+        "mint",
+        "gold-light",
+        "lavender",
+        "peach",
+        "blush",
+        "sky",
+        "cream"
+      ],
+      "icon_options": [
+        "crown",
+        "flower",
+        "paintbrush",
+        "disco-ball",
+        "temple",
+        "compass",
+        "heart",
+        "star",
+        "palette"
+      ],
+      "result_archetypes_legacy": [
+        { "type": "zen", "label": "Zen Queen", "background": "mint" },
+        { "type": "typeA", "label": "Type-A Goddess", "background": "gold-light (lined)" },
+        { "type": "creative", "label": "Creative Visionary", "background": "lavender" },
+        { "type": "party", "label": "Party Starter", "background": "peach" }
+      ],
+      "quiz_themes": [
+        {
+          "id": "wedding-style",
+          "title": "What's Your Wedding Style?",
+          "headerAnnotation": "pick the one you can't stop thinking about",
+          "backgroundColor": "lavender",
+          "results": [
+            { "resultType": "classic-elegance", "resultLabel": "Classic Elegance", "iconType": "crown", "backgroundColor": "blush" },
+            { "resultType": "boho-garden", "resultLabel": "Boho Garden", "iconType": "flower", "backgroundColor": "mint" },
+            { "resultType": "modern-minimalist", "resultLabel": "Modern Minimalist", "iconType": "compass", "backgroundColor": "cream" },
+            { "resultType": "royal-maximalist", "resultLabel": "Royal Maximalist", "iconType": "temple", "backgroundColor": "wine" },
+            { "resultType": "rustic-charm", "resultLabel": "Rustic Charm", "iconType": "heart", "backgroundColor": "peach" }
+          ]
+        },
+        {
+          "id": "decor-personality",
+          "title": "What's Your Décor Personality?",
+          "headerAnnotation": "answer fast. don't overthink it.",
+          "backgroundColor": "deep-pink",
+          "results": [
+            { "resultType": "the-maximalist", "resultLabel": "The Maximalist", "iconType": "palette", "backgroundColor": "deep-pink" },
+            { "resultType": "the-minimalist", "resultLabel": "The Minimalist", "iconType": "compass", "backgroundColor": "cream" },
+            { "resultType": "the-romantic", "resultLabel": "The Romantic", "iconType": "flower", "backgroundColor": "blush" },
+            { "resultType": "the-modernist", "resultLabel": "The Modernist", "iconType": "star", "backgroundColor": "sky" },
+            { "resultType": "the-traditionalist", "resultLabel": "The Traditionalist", "iconType": "temple", "backgroundColor": "gold-light" }
+          ]
+        },
+        {
+          "id": "wedding-season",
+          "title": "What Wedding Season Are You?",
+          "headerAnnotation": "the season picks you. trust it.",
+          "backgroundColor": "sky",
+          "results": [
+            { "resultType": "winter-sparkle", "resultLabel": "Winter Sparkle", "iconType": "star", "backgroundColor": "sky" },
+            { "resultType": "spring-bloom", "resultLabel": "Spring Bloom", "iconType": "flower", "backgroundColor": "mint" },
+            { "resultType": "monsoon-magic", "resultLabel": "Monsoon Magic", "iconType": "heart", "backgroundColor": "lavender" },
+            { "resultType": "autumn-glow", "resultLabel": "Autumn Glow", "iconType": "palette", "backgroundColor": "peach" }
+          ]
+        },
+        {
+          "id": "color-palette",
+          "title": "What's Your Color Palette?",
+          "headerAnnotation": "the screenshot you keep coming back to",
+          "backgroundColor": "blush",
+          "results": [
+            { "resultType": "blush-and-gold", "resultLabel": "Blush & Gold", "iconType": "palette", "backgroundColor": "blush" },
+            { "resultType": "jewel-tones", "resultLabel": "Jewel Tones", "iconType": "star", "backgroundColor": "wine" },
+            { "resultType": "pastels-and-sage", "resultLabel": "Pastels & Sage", "iconType": "flower", "backgroundColor": "mint" },
+            { "resultType": "bold-and-bright", "resultLabel": "Bold & Bright", "iconType": "disco-ball", "backgroundColor": "deep-pink" },
+            { "resultType": "ivory-and-champagne", "resultLabel": "Ivory & Champagne", "iconType": "crown", "backgroundColor": "cream" }
+          ]
+        },
+        {
+          "id": "couple-vibe",
+          "title": "What Kind of Couple Are You?",
+          "headerAnnotation": "be honest. nobody's watching.",
+          "backgroundColor": "wine",
+          "results": [
+            { "resultType": "the-power-couple", "resultLabel": "The Power Couple", "iconType": "crown", "backgroundColor": "wine" },
+            { "resultType": "the-chill-duo", "resultLabel": "The Chill Duo", "iconType": "compass", "backgroundColor": "mint" },
+            { "resultType": "the-romantics", "resultLabel": "The Romantics", "iconType": "heart", "backgroundColor": "blush" },
+            { "resultType": "the-party-animals", "resultLabel": "The Party Animals", "iconType": "disco-ball", "backgroundColor": "deep-pink" },
+            { "resultType": "the-old-souls", "resultLabel": "The Old Souls", "iconType": "temple", "backgroundColor": "gold-light" }
+          ]
+        },
+        {
+          "id": "bride-energy",
+          "title": "What's Your Bride Energy?",
+          "headerAnnotation": "take this totally scientific quiz",
+          "backgroundColor": "wine",
+          "results": [
+            { "resultType": "zen-queen", "resultLabel": "Zen Queen", "iconType": "flower", "backgroundColor": "mint" },
+            { "resultType": "type-a-goddess", "resultLabel": "Type-A Goddess", "iconType": "compass", "backgroundColor": "gold-light" },
+            { "resultType": "creative-visionary", "resultLabel": "Creative Visionary", "iconType": "paintbrush", "backgroundColor": "lavender" },
+            { "resultType": "party-starter", "resultLabel": "Party Starter", "iconType": "disco-ball", "backgroundColor": "peach" }
+          ]
+        },
+        {
+          "id": "sangeet-energy",
+          "title": "What's Your Sangeet Energy?",
+          "headerAnnotation": "the dance floor doesn't lie",
+          "backgroundColor": "deep-pink",
+          "results": [
+            { "resultType": "the-choreographer", "resultLabel": "The Choreographer", "iconType": "star", "backgroundColor": "deep-pink" },
+            { "resultType": "front-row-energy", "resultLabel": "Front Row Energy", "iconType": "disco-ball", "backgroundColor": "peach" },
+            { "resultType": "backstage-mvp", "resultLabel": "Backstage MVP", "iconType": "compass", "backgroundColor": "lavender" },
+            { "resultType": "freestyle-forever", "resultLabel": "Freestyle Forever", "iconType": "heart", "backgroundColor": "mint" }
+          ]
+        },
+        {
+          "id": "vendor-comms",
+          "title": "What's Your Vendor Communication Style?",
+          "headerAnnotation": "pick the one your fiance would tag",
+          "backgroundColor": "gold-light",
+          "results": [
+            { "resultType": "the-briefer", "resultLabel": "The Briefer", "iconType": "compass", "backgroundColor": "gold-light" },
+            { "resultType": "pinterest-poet", "resultLabel": "Pinterest Poet", "iconType": "paintbrush", "backgroundColor": "lavender" },
+            { "resultType": "the-voice-noter", "resultLabel": "The Voice-Noter", "iconType": "heart", "backgroundColor": "peach" },
+            { "resultType": "the-ghoster", "resultLabel": "The Ghoster", "iconType": "star", "backgroundColor": "wine" }
+          ]
+        },
+        {
+          "id": "budget-energy",
+          "title": "What's Your Budget Energy?",
+          "headerAnnotation": "your spreadsheet already knows",
+          "backgroundColor": "mint",
+          "results": [
+            { "resultType": "the-spreadsheet", "resultLabel": "The Spreadsheet", "iconType": "compass", "backgroundColor": "mint" },
+            { "resultType": "the-splurger", "resultLabel": "The Splurger", "iconType": "crown", "backgroundColor": "wine" },
+            { "resultType": "the-negotiator", "resultLabel": "The Negotiator", "iconType": "star", "backgroundColor": "gold-light" },
+            { "resultType": "vibes-only-bride", "resultLabel": "Vibes-Only Bride", "iconType": "heart", "backgroundColor": "blush" }
+          ]
+        },
+        {
+          "id": "mil-management",
+          "title": "What's Your MIL Management Style?",
+          "headerAnnotation": "may the WhatsApp gods be with you",
+          "backgroundColor": "lavender",
+          "results": [
+            { "resultType": "the-diplomat", "resultLabel": "The Diplomat", "iconType": "compass", "backgroundColor": "lavender" },
+            { "resultType": "the-firewall", "resultLabel": "The Firewall", "iconType": "star", "backgroundColor": "wine" },
+            { "resultType": "the-best-friend", "resultLabel": "The Best Friend", "iconType": "heart", "backgroundColor": "blush" },
+            { "resultType": "fiance-shield", "resultLabel": "Fiancé Shield", "iconType": "temple", "backgroundColor": "gold-light" }
+          ]
+        }
+      ]
+    },
+    "ai_generation_prompt": "Generate a 'Discover Your...' quiz episode. Inputs: a quiz theme from the quiz_themes bank (or a user-supplied theme of the same shape — a 'What's Your X?' question that maps to 3-5 personality archetypes). Voice rules: (1) The quizTheme is a single 'What's Your X?' or 'What kind of X are you?' question — short, punchy, the last 2 words render italic. (2) headerAnnotation is a short Caveat aside (~30-50 chars) that nudges the reader to take the quiz — never directive, always playful. (3) Each option (3-5 items) is a single letter (A-E), a 2-4 word label, and an optional ~6-10 word subtitle that hints at the personality. Options must read as parallel choices, not a hierarchy. (4) Each result card has: a free-form resultType slug, a 1-3 word resultLabel (first word italic), an optional resultEmoji (use sparingly), a Caveat resultQuote in first-person (~80 chars), a Space Grotesk resultDescription (~2-3 sentences) that paints the personality in detail, and a productTieIn (~1-2 sentences) that names a specific Marigold feature (vendor briefs, moodboards, 13-phase planner, 582-task checklist, workspaces). (5) Pick a backgroundColor and iconType per result that match the personality — bold for confident archetypes (deep-pink, wine, disco-ball, crown), soft for romantic ones (blush, mint, flower, heart), neutral for minimalist ones (cream, sky, compass, star). Output: quizTheme, headerAnnotation, backgroundColor, options array (3-5 of { letter, label, subtitle }), and results array (3-5 of { resultType, resultLabel, resultEmoji, resultQuote, resultDescription, productTieIn, backgroundColor, iconType })."
+  },
+  {
+    "slug": "vendor-spotlight",
+    "pillar": "convert",
+    "name": "Vendor Spotlight",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "aesthetic",
+    "description": "Features real wedding vendors — their work, tips, and personality. Relationship-building series: vendors reshare these to their own audiences, expanding The Marigold's reach.",
+    "purpose": "awareness",
+    "supported_formats": ["post", "reel"],
+    "is_active": true,
+    "sort_order": 4,
+    "episode_seed_data": {
+      "vendor_categories": [
+        "Photographer",
+        "Decorator",
+        "Caterer",
+        "Makeup Artist",
+        "Mehendi Artist",
+        "Choreographer",
+        "DJ / Live Band",
+        "Florist",
+        "Wedding Planner",
+        "Outfit Designer",
+        "Jeweler",
+        "Pandit"
+      ],
+      "tip_seed_topics": [
+        "Booking timelines",
+        "What to brief on",
+        "Pricing red flags",
+        "What to bring to the trial",
+        "What ruins the photos / food / look",
+        "Trends the vendor wishes brides would skip",
+        "Vendor-to-vendor communication",
+        "How to keep the vendor on schedule"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Vendor Spotlight episode. Inputs: a vendor category (photographer, decorator, etc.) and the template variant (feature-post | tip-carousel | quote-reel). Voice rules: (1) The vendor speaks in first person, plainly — they are an expert, not a marketer. (2) Specific, not generic — name actual things (the muhurat at 4am, the haldi stains, the 14-WhatsApp-group brief). (3) The Marigold is the connector, not the hero — vendors are the stars. Output by variant: feature-post → vendorCategory (UPPERCASE), vendorName (real-sounding studio/person name), vendorLocation (city + 'Destination' if relevant), vendorQuote (a short Caveat pull quote, ~60 chars, sounds like the vendor's tagline). tip-carousel → vendorCategory, vendorName, vendorHandle (@-prefixed), and 4 tips, each with a 4-7 word headline (Instrument Serif), 2-3 sentence detail (Space Grotesk), and a short Caveat annotation (~30 chars). quote-reel → vendorCategory, vendorName, and a 1-2 sentence quote (~140 chars) that captures wisdom unique to that vendor's craft."
+  },
+  {
+    "slug": "this-or-that",
+    "pillar": "engage",
+    "name": "This or That",
+    "grid_color_profile": "pink",
+    "content_mix_category": "engagement",
+    "description": "Quick-fire visual polls — two wedding options side by side. Engagement driver for stories and posts. Drives taps, replies, and saves.",
+    "purpose": "engagement",
+    "supported_formats": ["story", "post"],
+    "is_active": true,
+    "sort_order": 5,
+    "episode_seed_data": {
+      "topic_bank": [
+        "Lehenga vs. Saree",
+        "Outdoor vs. Indoor ceremony",
+        "Big wedding vs. Intimate wedding",
+        "Live band vs. DJ",
+        "Traditional mandap vs. Modern mandap",
+        "Gold jewelry vs. Diamond jewelry",
+        "Destination wedding vs. Hometown wedding",
+        "Morning ceremony vs. Evening ceremony",
+        "Joint family choreography vs. Solo couple dance",
+        "Buffet vs. Plated dinner",
+        "Pastel decor vs. Bold colors",
+        "Mehndi on both hands vs. One hand only"
+      ],
+      "color_schemes": ["pink-wine", "cream-blush", "gold-lavender"]
+    },
+    "ai_generation_prompt": "Generate a This or That episode — a quick-fire visual poll that pits two wedding options against each other. Inputs: a topic from the topic_bank (or a user-supplied topic of the same shape: 'X vs. Y'). Voice rules: (1) The topicLabel is a 2-3 word UPPERCASE category framing (e.g. 'WEDDING VIBES', 'CEREMONY STYLE', 'WHAT'S YOUR PICK'). (2) optionA and optionB are short — 1-3 words each — pulled directly from the topic. They render in Instrument Serif so they should look elegant in print. (3) Each annotation is a Caveat handwritten aside (~20-30 chars) that nudges the viewer toward a feeling, not a verdict — e.g. 'classic move', 'main character energy', 'safe but stunning'. The annotation is the personality, not a description. (4) Pick a colorScheme that fits the topic's mood: pink-wine (default, bold), cream-blush (soft, romantic), gold-lavender (luxe, dreamy). Output: topicLabel, optionA, optionAAnnotation, optionB, optionBAnnotation, colorScheme."
+  },
+  {
+    "slug": "the-countdown",
+    "pillar": "educate",
+    "name": "The Countdown",
+    "grid_color_profile": "wine",
+    "content_mix_category": "value",
+    "description": "Milestone-based planning content — '12 months out: do this', '6 months out: panic about this'. Positions The Marigold as the expert guide while staying entertaining. Mix of standalone posts/stories and full-timeline carousels.",
+    "purpose": "awareness",
+    "supported_formats": ["post", "story", "carousel"],
+    "is_active": true,
+    "sort_order": 6,
+    "episode_seed_data": {
+      "milestone_bank": [
+        { "number": 12, "unit": "months", "topic": "Lock down your venue" },
+        { "number": 9, "unit": "months", "topic": "Book photographer & decorator" },
+        { "number": 6, "unit": "months", "topic": "Outfits, invites, and the muhurat" },
+        { "number": 3, "unit": "months", "topic": "Final guest list & menu tasting" },
+        { "number": 1, "unit": "months", "topic": "Vendor confirmations & seating" },
+        { "number": 2, "unit": "weeks", "topic": "Welcome bags & rehearsal logistics" },
+        { "number": 1, "unit": "weeks", "topic": "Final fittings & breathing exercises" },
+        { "number": 3, "unit": "days", "topic": "Pack the emergency kit" }
+      ],
+      "urgency_levels": [
+        { "level": "chill", "appliesAt": "9+ months out", "tone": "casual, encouraging" },
+        { "level": "getting-real", "appliesAt": "3-9 months out", "tone": "focused, no-nonsense" },
+        { "level": "panic", "appliesAt": "<3 months out", "tone": "urgent, comedic, GO NOW" }
+      ],
+      "annotation_seeds": [
+        "yes, it's already late. go.",
+        "future-you will thank past-you",
+        "this is the easy part",
+        "breathe. then book.",
+        "stop scrolling, start emailing",
+        "the spreadsheet won't make itself"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Countdown episode — a milestone-based planning prompt rendered as a single post/story or as a multi-slide timeline carousel. Voice rules: (1) The Marigold is the expert guide who has seen this movie before — direct, warm, lightly comedic. Never preachy. (2) Concrete tasks, never platitudes — name the actual thing (lock the venue, send the muhurat to the pandit, taste the caterer's paneer). (3) The Caveat annotation is the personality — short (~30 chars), often self-aware (e.g. 'yes, it's already late. go.'). (4) Pick urgencyLevel by the time horizon: 9+ months → chill (mint/gold), 3-9 months → getting-real (pink/gold), <3 months → panic (hot-pink/wine). Output for single post/story: countdownNumber (integer), countdownUnit ('months' | 'weeks' | 'days'), taskHeadline (3-5 words, Instrument Serif italic), taskDetail (2-3 sentences, Space Grotesk, ~50-80 words, practical advice with personality), annotation (~30 chars Caveat), urgencyLevel. Output for carousel: a milestones array of 6 entries, each with number, unit, and 3-4 short bullet tasks (each 4-8 words). The bullet voice is imperative — 'Sign the venue contract', not 'You should consider signing the venue contract'."
+  },
+  {
+    "slug": "mood-board",
+    "pillar": "inspire",
+    "name": "Mood Board",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "aesthetic",
+    "description": "Aesthetic inspiration content — beautiful, aspirational posts that balance the humor and engagement series. Mood boards, color palettes, and visual style cards that make the grid look gorgeous and serve as the 'breathing room' between text-heavy posts.",
+    "purpose": "awareness",
+    "supported_formats": ["post", "story"],
+    "is_active": true,
+    "sort_order": 7,
+    "episode_seed_data": {
+      "style_themes": [
+        "Romantic Garden Vibes",
+        "Modern Minimalist",
+        "Old Money Heirloom",
+        "Tropical Destination",
+        "Maximalist Mughal",
+        "Boho Marigold",
+        "Pastel Sunset",
+        "Forest Sanctuary",
+        "Coastal Elopement",
+        "Royal Jaipur"
+      ],
+      "palette_seeds": [
+        { "name": "Garden Romance", "season": "spring", "colors": ["#F4C2C2", "#E8B4A0", "#D4A853", "#A8B89F", "#FFF8F2"] },
+        { "name": "Dusty Mauve", "season": "fall", "colors": ["#C8A2A8", "#8A6070", "#D4A853", "#4B1528", "#FBEAF0"] },
+        { "name": "Champagne Bloom", "season": "summer", "colors": ["#F5E6C8", "#FFD8B8", "#E0D0F0", "#FFF8F2", "#D4A853"] },
+        { "name": "Marigold Heat", "season": "fall", "colors": ["#D4537E", "#993556", "#D4A853", "#F5E6C8", "#4B1528"] }
+      ],
+      "panel_label_seeds": [
+        "the table setting",
+        "the florals",
+        "the venue",
+        "the lighting",
+        "the linens",
+        "the stationery",
+        "the bridal entrance",
+        "the cake moment"
+      ],
+      "annotation_seeds": [
+        "for the bride who wants flowers in her hair",
+        "for the bride who saved the same cake on Pinterest five times",
+        "for the bride who whispers 'soft and feminine' in every meeting",
+        "for the bride planning around the light, not the date",
+        "for the bride who knows exactly which white"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Mood Board episode — pure aesthetic inspiration content meant to balance the humor and engagement posts on the grid. Inputs: the template variant (mood-post | mood-story | color-palette-post). Voice rules: (1) Aspirational, never preachy. (2) Specific visual references — name the actual aesthetic (a backlit lehenga at golden hour, marigold garlands at the mandap, hand-calligraphed escort cards). (3) Captions whisper, not shout — short, evocative, low-key. Output by variant: mood-post → styleLabel (UPPERCASE Syne, e.g. 'ROMANTIC GARDEN VIBES'), annotation (Caveat, ~50 chars, 'for the bride who…'), colorPalette (4-5 hex codes that match the mood), images (4 image URL strings — leave blank to render palette colors as placeholders). mood-story → styleLabel and panels (3 entries, each with a Caveat label like 'the florals' and an imageUrl). color-palette-post → paletteName (Instrument Serif italic, e.g. 'Garden Romance'), seasonNote (Caveat, e.g. 'perfect for a spring ceremony'), colors (5 entries, each { hex, name } where name is a Space Grotesk descriptor like 'Dusty Rose' or 'Champagne Gold')."
+  },
+  {
+    "slug": "real-bride-diaries",
+    "pillar": "connect",
+    "name": "Real Bride Diaries",
+    "grid_color_profile": "cream",
+    "content_mix_category": "engagement",
+    "description": "First-person diary snippets from real (or realistic AI-generated) brides at different planning stages. Builds emotional connection and community by surfacing the raw, unfiltered middle of wedding planning.",
+    "purpose": "engagement",
+    "supported_formats": ["post", "story", "reel"],
+    "is_active": true,
+    "sort_order": 8,
+    "episode_seed_data": {
+      "planning_stages": [
+        "12 months to go",
+        "9 months to go",
+        "6 months to go",
+        "4 months to go",
+        "3 months to go",
+        "2 months to go",
+        "1 month to go",
+        "2 weeks to go",
+        "1 week to go",
+        "the day before",
+        "the morning of"
+      ],
+      "diary_doodles": ["heart", "flower", "stressed", "sparkle", "ring"],
+      "bride_archetypes": [
+        "A., 27, Mumbai",
+        "R., 29, Bangalore",
+        "S., 26, Delhi",
+        "P., 31, Hyderabad",
+        "K., 28, Pune",
+        "N., 30, Chennai",
+        "M., 27, Kolkata",
+        "T., 29, Jaipur",
+        "D., 28, Ahmedabad",
+        "I., 32, London (destination Udaipur)",
+        "V., 26, Toronto (destination Goa)"
+      ],
+      "entry_themes": [
+        "First time the venue actually felt real",
+        "Crying over a vendor email at midnight",
+        "MIL surprise — the gift, the comment, the WhatsApp",
+        "The lehenga trial that broke me",
+        "Negotiating a budget line with my fiance",
+        "Realizing I forgot something on the checklist",
+        "A small, soft moment with mom",
+        "The auspicious date debate",
+        "Guest list cuts that hurt",
+        "The first dance song that made me cry",
+        "A friend showed up exactly when I needed them",
+        "Imposter syndrome about being a bride"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Real Bride Diaries entry — a first-person diary snippet rendered in Caveat (handwritten) on a torn-out journal page. Voice rules: (1) Raw, intimate, mid-thought — like a real DM or actual journal entry, never polished marketing copy. (2) Specific, not generic — name the actual moment (the third lehenga trial, the muhurat my pandit just texted, the way mom looked at the mandap render). (3) The bride is the narrator — vulnerable, sometimes funny, always honest. Self-aware, not self-pitying. (4) 3–5 short sentences, total ~280–360 chars. The first sentence should drop the reader straight into the moment; the last should leave a small emotional residue (relief, dread, love, exhaustion). (5) Pick a marginDoodle that fits the emotional beat: heart (love/family moments), flower (soft/tender), stressed (overwhelm/panic), sparkle (joy/relief), ring (commitment/fiance). (6) brideIdentifier is always 'Initial., age, City — planningStage' (e.g. 'A., 27, Mumbai — 4 months to go'). (7) dayOrWeek is informal labeling like 'Day 47', 'Week 18', or 'Tuesday'. dateLabel is a short Space Grotesk timestamp like 'Apr 14 · 11:42pm'. Output: dayOrWeek, dateLabel, diaryText, brideIdentifier, planningStage, marginDoodle (one of: heart, flower, stressed, sparkle, ring). For reels, also output wordsPerMinute (default 110 — slower than confessional, this is intimate journaling)."
+  },
+  {
+    "slug": "general-purpose",
+    "pillar": "engage",
+    "name": "General Purpose",
+    "grid_color_profile": "cream",
+    "content_mix_category": "value",
+    "description": "Flexible templates for one-off content — vendor quotes, stat callouts, feature announcements. Used to fill awareness and product-marketing slots.",
+    "purpose": "awareness",
+    "supported_formats": ["story", "post"],
+    "is_active": true,
+    "sort_order": 9,
+    "episode_seed_data": {
+      "use_cases": [
+        "Vendor quote (photographer, decorator, caterer, makeup artist) with a Marigold product tie-in",
+        "Stat callout — a single big number from product knowledge (e.g. 582 planning tasks, 13 phases)",
+        "Feature callout — a product feature framed as 'DID YOU KNOW' / 'NEW' / 'PRO TIP'"
+      ]
+    },
+    "ai_generation_prompt": "Generate content for a general-purpose template. Pick the template slug (vendor-quote, stat-callout, or feature-callout) and produce content tailored to it. Vendor quote → a punchy unfiltered quote from a wedding vendor + attribution + Caveat tagline that ties to a Marigold feature. Stat callout → a single number from brand_knowledge product stats + 2-4 word UPPERCASE label + Caveat description that explains the stat in voice. Feature callout → a 2-line headline (use *asterisks* to mark words for italic gold-light emphasis), a Caveat aside, and a CTA button label. Always ground claims in real product features from brand_knowledge."
+  },
+  {
+    "slug": "hot-takes",
+    "pillar": "engage",
+    "name": "Hot Takes",
+    "grid_color_profile": "wine",
+    "content_mix_category": "engagement",
+    "description": "Bold, slightly provocative wedding opinions that drive comments and debate. The content that makes people tag their friends and argue in the comments.",
+    "purpose": "engagement",
+    "supported_formats": ["post", "story", "carousel"],
+    "is_active": true,
+    "sort_order": 10,
+    "episode_seed_data": {
+      "topic_bank": [
+        "The baraat horse is overrated.",
+        "Nobody remembers what the centerpieces looked like.",
+        "Spending more on food and less on decor is always the right call.",
+        "If your lehenga doesn't have pockets, what's the point.",
+        "The sangeet is more important than the ceremony. I said what I said.",
+        "Matching bride and groom outfits look costumey.",
+        "Your photographer is more important than your venue.",
+        "A weekday wedding is not a flex — it's an inconvenience.",
+        "Buffet is always better than plated for desi weddings.",
+        "If the DJ can't transition from Bollywood to hip-hop seamlessly, find a new DJ."
+      ],
+      "response_prompt_seeds": [
+        "agree or fight me",
+        "tell me I'm wrong",
+        "no notes, only fights",
+        "come at me",
+        "I'll wait."
+      ],
+      "carousel_subtitle_seeds": [
+        "that will make your aunty gasp",
+        "your wedding planner won't say out loud",
+        "the comments section won't survive",
+        "your group chat needs to hear",
+        "we're tired of pretending aren't true"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Hot Takes episode — a bold, slightly provocative wedding opinion designed to drive comments and debate. Voice rules: (1) Confident, declarative, never hedging — no 'I think' or 'maybe'. The take is the take. (2) Specific, not generic — name the actual thing (the baraat horse, the centerpieces, the lehenga pockets). (3) Punchy and short — single-sentence hot takes hit hardest. Long ones lose the room. (4) Slightly provocative, never mean — punching at conventions, not at people. The aunty gasps; nobody gets hurt. (5) The responsePrompt is the personality — a Caveat-style nudge that invites the fight ('agree or fight me', 'tell me I'm wrong', 'I'll wait.'). Output by variant: post/story → hotTake (1 sentence, ~80-140 chars), responsePrompt (~20-30 chars Caveat), ctaText (Space Grotesk, low-opacity bottom line, ~30-40 chars). carousel → coverSubtitle (Caveat aside under '5 HOT TAKES', ~40 chars, e.g. 'that will make your aunty gasp') and takes (array of 5 single-sentence hot takes, each ~60-120 chars)."
+  },
+  {
+    "slug": "venue-spotlight",
+    "pillar": "inspire",
+    "name": "Venue Spotlight",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "aesthetic",
+    "description": "Real wedding venues featured with style profiles, practical details, and aspirational imagery. Awareness driver — venues reshare to their own audiences and The Marigold becomes the discovery platform for South Asian wedding venues.",
+    "purpose": "awareness",
+    "supported_formats": ["post", "carousel", "reel"],
+    "grid_color_category": "colorful",
+    "is_active": true,
+    "sort_order": 11,
+    "episode_seed_data": {
+      "venue_types": [
+        { "value": "palace", "label": "Palace" },
+        { "value": "garden", "label": "Garden" },
+        { "value": "beachfront", "label": "Beachfront" },
+        { "value": "farmhouse", "label": "Farmhouse" },
+        { "value": "ballroom", "label": "Ballroom" },
+        { "value": "heritage-haveli", "label": "Heritage Haveli" },
+        { "value": "rooftop", "label": "Rooftop" },
+        { "value": "resort", "label": "Resort" },
+        { "value": "temple-adjacent", "label": "Temple-Adjacent" }
+      ],
+      "venue_seed_examples": [
+        { "name": "Taj Falaknuma Palace", "type": "palace", "location": "Hyderabad, Telangana", "capacity": 400 },
+        { "name": "ITC Grand Bharat", "type": "resort", "location": "Gurgaon, Haryana", "capacity": 600 },
+        { "name": "Jai Mahal Palace", "type": "heritage-haveli", "location": "Jaipur, Rajasthan", "capacity": 300 },
+        { "name": "Alila Diwa", "type": "beachfront", "location": "Goa", "capacity": 250 },
+        { "name": "Olive Bar & Kitchen", "type": "garden", "location": "Bangalore, Karnataka", "capacity": 180 },
+        { "name": "The Leela Palace", "type": "ballroom", "location": "New Delhi", "capacity": 800 }
+      ],
+      "style_guides": [
+        { "style": "The Garden Wedding", "subtitle": "for the bride who wants sunlight and petals", "background": "mint" },
+        { "style": "The Palace Wedding", "subtitle": "for the bride who wants frescoes and a grand staircase", "background": "wine" },
+        { "style": "The Beachfront Wedding", "subtitle": "for the bride who wants barefoot vows at golden hour", "background": "peach" },
+        { "style": "The Heritage Haveli Wedding", "subtitle": "for the bride who wants courtyards and carved jharokhas", "background": "gold-light" },
+        { "style": "The Farmhouse Wedding", "subtitle": "for the bride who wants string lights and second helpings", "background": "blush" }
+      ],
+      "best_for_seeds": [
+        "grand ceremonies with a royal entrance",
+        "intimate sangeets under fairy lights",
+        "barefoot vows at golden hour",
+        "a baraat down a tree-lined drive",
+        "mehendi mornings with a courtyard breeze",
+        "destination weddings the family won't stop talking about",
+        "cocktails on a heritage rooftop"
+      ],
+      "verdict_seeds": [
+        "A for the photos, B for the food",
+        "A for the grandeur, B for the intimacy",
+        "A if your guests can travel, B if they can't",
+        "A for the ceremony, B for the after-party",
+        "A for the muhurat, B for the mood"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Venue Spotlight episode — a real (or realistic) South Asian wedding venue framed for discovery. Voice rules: (1) The Marigold is a curator with taste, not a listing site — every venue earns its spotlight with a specific reason. (2) Specific, not generic — name the actual feature (the marble jharokhas, the mango grove, the open sea on three sides, the chandelier from the 1920s). (3) Practical details are non-negotiable — capacity, location, and price tier are facts brides ask first. (4) Best-for line is the personality — Caveat aside that names the bride who belongs there ('grand ceremonies with a royal entrance', 'intimate sangeets under fairy lights'). Output by variant: feature-post → venueType (one of the venue_types values), venueName, venueLocation (City, State), capacity (integer), bestFor (~6-10 words Caveat), startingPrice (optional, integer in lakh). comparison-post → venueAName, venueBName, attribute rows for each (capacity, vibe, priceRange, bestFor — each 2-5 words), and a verdict (Caveat one-liner from verdict_seeds shape, ~30-50 chars). style-guide → venueStyle (Instrument Serif italic, e.g. 'The Garden Wedding'), styleSubtitle (Caveat 'for the bride who…'), and slides covering THE VIBE, BEST MONTHS, WATCH OUT FOR, BUDGET RANGE — each with a short body (~40-60 words Space Grotesk) and an annotation (~30 chars Caveat). dream-reel → venueName, venueLocation, venueStyle, capacity, hookText (defaults to 'imagine this.')."
+  },
+  {
+    "slug": "planner-spotlight",
+    "pillar": "convert",
+    "name": "Planner Spotlight",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "value",
+    "description": "Features wedding planners and coordinators — their expertise, advice, and personality. Educational and relationship-building: planners are key referral partners for The Marigold, and these posts give them content to reshare to their own audiences.",
+    "purpose": "awareness",
+    "supported_formats": ["post", "carousel"],
+    "grid_color_category": "cream-dominant",
+    "is_active": true,
+    "sort_order": 12,
+    "episode_seed_data": {
+      "specialty_bank": [
+        "DESTINATION",
+        "LUXURY",
+        "BUDGET-FRIENDLY",
+        "SOUTH INDIAN",
+        "MULTI-FAITH",
+        "INTIMATE",
+        "PALACE",
+        "OUTDOOR",
+        "MODERN MINIMALIST",
+        "TRADITIONAL"
+      ],
+      "advice_topic_bank": [
+        "Should I hire a day-of coordinator?",
+        "When should I book my planner?",
+        "How do I budget for a destination wedding?",
+        "What's the difference between a planner and a coordinator?",
+        "How early do I need to lock my vendors?",
+        "Do I really need a wedding website?",
+        "How do I handle conflicting family opinions?",
+        "What's actually worth splurging on?"
+      ],
+      "tip_seed_topics": [
+        "Timeline must-haves",
+        "Vendor coordination",
+        "Budget red flags",
+        "Family management",
+        "Day-of logistics",
+        "Pre-wedding checklists",
+        "Post-wedding wrap-up",
+        "Crisis prevention"
+      ],
+      "comparison_seeds": [
+        {
+          "type": "day-of",
+          "bullets": [
+            "Final timeline build (4-6 weeks out)",
+            "Vendor confirmations & contracts review",
+            "On-site coordination day-of (10-14 hrs)",
+            "Emergency kit + crisis management",
+            "Post-event vendor wrap-up"
+          ],
+          "priceRange": "₹50K – ₹1.5L"
+        },
+        {
+          "type": "full-service",
+          "bullets": [
+            "End-to-end planning from engagement to honeymoon",
+            "Venue + vendor sourcing & negotiation",
+            "Budget management across all events",
+            "Design, decor, and creative direction",
+            "On-site coordination for all functions"
+          ],
+          "priceRange": "₹5L – ₹25L+"
+        }
+      ]
+    },
+    "ai_generation_prompt": "Generate a Planner Spotlight episode — features a wedding planner or coordinator as an expert authority. Voice rules: (1) The planner is the expert; The Marigold is the connector. Planners reshare these to their own audiences, so the spotlight must feel earned, not promotional. (2) Specific, not generic — name actual specialties (multi-faith ceremonies, palace weddings in Rajasthan, sub-50-guest intimate dinners), not vague labels. (3) Educational over salesy — advice posts should answer a real question brides ask, not pitch a service. (4) The pull quote sounds like the planner's tagline — what they're known for in 1-2 short sentences. Output by variant: profile-post → plannerName, companyName, plannerLocation (City + 'Destination' if relevant), specialties (3-5 short UPPERCASE labels from specialty_bank), pullQuote (Instrument Serif italic, ~80-120 chars), weddingsPlanned (integer), yearsExperience (integer). advice-post → question (Instrument Serif italic, ~50-80 chars), answer (Space Grotesk, 3-4 sentences, ~180-260 chars, practical and direct), plannerName, companyName, accentColor (gold | pink | lavender). tips-carousel → plannerName, companyName, plannerHandle (@-prefixed), and 4-5 tips, each with a 4-7 word headline (Instrument Serif), 2-3 sentence detail (Space Grotesk), and a short Caveat annotation (~30 chars). day-of-vs-full → dayOfBullets (4-5 short imperative bullets of what's included), dayOfPriceRange (e.g. '₹50K – ₹1.5L'), fullServiceBullets (4-5 bullets), fullServicePriceRange, bottomLine (Caveat tagline, ~40 chars, defaults to 'The Marigold works with both.')."
+  },
+  {
+    "slug": "the-marigold-edit",
+    "pillar": "inspire",
+    "name": "The Marigold Edit",
+    "grid_color_profile": "cream",
+    "content_mix_category": "value",
+    "description": "Curated product picks, accessories, hidden gems, and trending finds for brides. The 'cool stuff we found' series — a wedding-focused fashion/lifestyle edit that builds taste authority and drives saves.",
+    "purpose": "value",
+    "supported_formats": ["post", "carousel", "reel"],
+    "grid_color_category": "cream-dominant",
+    "is_active": true,
+    "sort_order": 13,
+    "episode_seed_data": {
+      "category_bank": [
+        { "value": "bridal-jewelry", "label": "BRIDAL JEWELRY" },
+        { "value": "decor-find", "label": "DECOR FIND" },
+        { "value": "mehndi-inspo", "label": "MEHNDI INSPO" },
+        { "value": "outfit-accessory", "label": "OUTFIT ACCESSORY" },
+        { "value": "beauty-find", "label": "BEAUTY FIND" },
+        { "value": "stationery", "label": "STATIONERY" },
+        { "value": "favor-idea", "label": "FAVOR IDEA" },
+        { "value": "tech-tool", "label": "TECH TOOL" }
+      ],
+      "trend_categories": [
+        "decor",
+        "fashion",
+        "food",
+        "entertainment",
+        "stationery",
+        "beauty",
+        "venue"
+      ],
+      "why_we_love_it_seeds": [
+        "the clasp is magnetic so you won't fumble during pheras",
+        "weighs less than your phone — your neck will thank you",
+        "comes pre-strung so the mehendi artist can skip the prep",
+        "fits in a clutch and survives a sangeet",
+        "finally, a favor that won't end up at the back of a kitchen drawer"
+      ],
+      "editorial_take_seeds": [
+        "we're into it. your aunty won't be.",
+        "this one's earned the hype.",
+        "looks great on a moodboard, harder in person.",
+        "save this. screenshot this. tell a friend.",
+        "the photos will not do it justice."
+      ],
+      "cover_subtitle_seeds": [
+        "5 things we can't stop thinking about",
+        "the saves we're hoarding this month",
+        "what's worth the click this month",
+        "tabs we refuse to close",
+        "everything the algorithm got right"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Marigold Edit episode — curated product/find content for brides, framed like a fashion/lifestyle edit. Voice rules: (1) The Marigold has taste — every pick earns its spot with a specific reason. Never list-y or generic. (2) Specific, not generic — name the actual feature (the magnetic clasp, the unscented oil, the pre-strung garland), not vague descriptors. (3) Personality over polish — the 'why we love it' line is the hook. Self-aware, opinionated, brief. (4) Price is optional — only include it when it's part of the story. Leave blank for hidden gems and DIY tricks. Output by variant: product-pick → productName (Instrument Serif italic), category (one of category_bank values), price (optional, e.g. '₹2,800' or 'under ₹500'), whyWeLoveIt (Caveat, ~80 chars, names the actual reason), imageUrl (optional). trending-now → trendTitle (Instrument Serif italic, ~50-80 chars, e.g. 'Dried flower bouquets are having a moment'), trendDetails (3-4 short Space Grotesk bullets explaining the trend, each ~50-80 chars), editorialTake (Caveat, ~40 chars, the editorial verdict — 'we're into it. your aunty won't be.'), trendCategory (one of trend_categories). top-picks-carousel → monthName (Instrument Serif italic, e.g. 'May Finds'), subtitle (Caveat, ~50 chars), and picks (array of 5, each { productName, category, price, oneLiner, imageUrl }). bride-finds-reel → finds (array of 3-5, each { productName, category, price, imageUrl }) — fast-cut reel with one product per ~3s slot."
+  },
+  {
+    "slug": "budget-breakdown",
+    "pillar": "educate",
+    "name": "Budget Breakdown",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "value",
+    "description": "Real talk about wedding costs. The most Googled, most stressful, least transparent topic in wedding planning. Saved, shared, and referenced — value-driven content that builds trust by being plain about the numbers.",
+    "purpose": "value",
+    "supported_formats": ["post", "carousel"],
+    "grid_color_category": "cream-dominant",
+    "is_active": true,
+    "sort_order": 14,
+    "episode_seed_data": {
+      "category_split_default": [
+        { "name": "Venue", "percentage": 30, "color": "pink" },
+        { "name": "Catering", "percentage": 25, "color": "wine" },
+        { "name": "Decor", "percentage": 15, "color": "gold" },
+        { "name": "Photography", "percentage": 10, "color": "hot-pink" },
+        { "name": "Outfits", "percentage": 8, "color": "blush" },
+        { "name": "Music/Entertainment", "percentage": 5, "color": "lavender" },
+        { "name": "Invitations", "percentage": 3, "color": "mint" },
+        { "name": "Miscellaneous", "percentage": 4, "color": "mauve" }
+      ],
+      "save_seeds": [
+        "Save-the-dates (just text the group chat)",
+        "Welcome bag swag (a water bottle and a thank-you card is enough)",
+        "Mandap florals after sunset (nobody can see them)",
+        "Calligraphed escort cards (printed is fine)",
+        "Premium liquor at cocktail hour (switch after the first round)",
+        "Aisle runner (your photographer will tell you the same)",
+        "Cake-topper extras (one tier of real cake, the rest is decor)"
+      ],
+      "splurge_seeds": [
+        "Photographer (you'll look at these for 50 years)",
+        "Food (everyone remembers the food)",
+        "DJ or band (an empty dance floor is a wedding's death)",
+        "Bridal hair & makeup trial (do not skip this)",
+        "Mandap florals at the ceremony angle (the photo angle)",
+        "Venue acoustics (a beautiful venue with bad sound is a sad wedding)",
+        "A day-of coordinator (so your mom can actually enjoy it)"
+      ],
+      "city_examples": [
+        { "city": "Delhi", "venueRange": [8, 25], "cateringPerPlate": [1500, 4500], "decorRange": [4, 15], "photoRange": [1.5, 6] },
+        { "city": "Mumbai", "venueRange": [12, 35], "cateringPerPlate": [1800, 5500], "decorRange": [5, 18], "photoRange": [2, 8] },
+        { "city": "Bangalore", "venueRange": [6, 18], "cateringPerPlate": [1200, 3500], "decorRange": [3, 12], "photoRange": [1.2, 5] },
+        { "city": "Jaipur", "venueRange": [5, 20], "cateringPerPlate": [1100, 3800], "decorRange": [3, 14], "photoRange": [1, 4.5] },
+        { "city": "Hyderabad", "venueRange": [5, 16], "cateringPerPlate": [1000, 3200], "decorRange": [2.5, 11], "photoRange": [1, 4] },
+        { "city": "Goa", "venueRange": [7, 22], "cateringPerPlate": [1600, 4800], "decorRange": [3.5, 13], "photoRange": [1.5, 6] }
+      ],
+      "annotation_seeds": [
+        "your numbers will vary. your aunty's opinions won't.",
+        "the 'miscellaneous' line is where dreams go to negotiate",
+        "these are 2026 estimates and your decorator will still charge more",
+        "Nobody remembers the napkins. Everyone remembers the food.",
+        "save this. screenshot this. tell your fiance.",
+        "a budget is a plan, not a prophecy"
+      ],
+      "tip_seed_topics": [
+        "Negotiating with vendors",
+        "Off-season and weekday savings",
+        "DIY decor pitfalls to avoid",
+        "Catering: buffet vs. plated economics",
+        "Photography package decisions",
+        "Outfit rental vs. buy",
+        "When to splurge on the muhurat slot",
+        "Hidden costs nobody warns you about",
+        "How to tell a vendor 'too expensive' politely",
+        "Budget-tracking apps and sheets that actually work"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Budget Breakdown episode — plain-talk wedding cost content. Voice rules: (1) Numbers, not vibes — every claim has a figure. Vagueness is the enemy. (2) Specific, not generic — name the actual line item (the 4am muhurat surcharge, the per-plate jump for non-veg, the decor flip-fee). (3) Validating, not preachy — brides feel guilty about money; the Marigold makes it normal to talk about. (4) Caveat annotations are the personality — short, self-aware ('your numbers will vary. your aunty's opinions won't.'). Output by variant: budget-pie-post → budgetTotal (Instrument Serif italic, e.g. 'Based on a ₹30 lakh wedding'), categories (8 entries, each { name, percentage, color } using brand color tokens), annotation (~50 chars Caveat). save-vs-splurge-post → saveItems (4-5 strings, each ~30-50 chars, name the actual thing), splurgeItems (4-5 strings, same shape), bottomLine (Instrument Serif italic, ~60-100 chars, one-liner like 'Nobody remembers the napkins. Everyone remembers the food.'). budget-reality-post → categories (5-6 entries, each { name, planned, actual } as Indian-rupee strings or numeric in lakhs), annotation (~60 chars Caveat). cost-by-city-post → cityName (Instrument Serif italic), costs (4 entries, each { category, rangeLow, rangeHigh } where the unit makes sense for the category — lakh for venue/decor/photo, plain rupees for per-plate catering), disclaimer (~60 chars Caveat). budget-tips-carousel → tips (10 entries, each { title — 4-7 words Instrument Serif, detail — 1-2 sentences ~80-140 chars Space Grotesk}). Always ground numbers in 2026 Indian wedding market reality."
+  },
+  {
+    "slug": "planning-101",
+    "pillar": "educate",
+    "name": "Planning 101",
+    "grid_color_profile": "cream",
+    "content_mix_category": "value",
+    "description": "The comprehensive educational series. Covers every major topic in the desi wedding planning process — ceremony explainers, guest lists, vendor red flags, day-of timelines, negotiation tactics, event deep-dives, and quick-reference checklists. The 'save this post' content — high utility, high share value.",
+    "purpose": "value",
+    "supported_formats": ["post", "carousel", "story"],
+    "is_active": true,
+    "sort_order": 15,
+    "episode_seed_data": {
+      "ceremony_bank": [
+        { "name": "Mehndi", "headerColor": "mint", "duration": "3-5 hours" },
+        { "name": "Haldi", "headerColor": "gold", "duration": "1-2 hours" },
+        { "name": "Sangeet", "headerColor": "pink", "duration": "4-6 hours" },
+        { "name": "Pheras", "headerColor": "wine", "duration": "1-2 hours" },
+        { "name": "Reception", "headerColor": "gold-light", "duration": "4-6 hours" },
+        { "name": "Vidaai", "headerColor": "lavender", "duration": "30 min - 1 hour" },
+        { "name": "Baraat", "headerColor": "pink", "duration": "30-60 minutes" },
+        { "name": "Roka", "headerColor": "peach", "duration": "2-3 hours" }
+      ],
+      "header_color_options": ["mint", "gold", "pink", "wine", "gold-light", "lavender", "peach", "blush"],
+      "guest_management_seeds": [
+        "Set the cap before you set the date",
+        "Tier the list — A, B, C circles",
+        "Both sides agree on plus-one rules upfront",
+        "Track RSVPs in a single shared sheet",
+        "Diplomatic uninvitations script — keep it warm, keep it firm",
+        "Build the seating chart around the politics, not the alphabet",
+        "Day-of guest manager is non-negotiable"
+      ],
+      "red_flag_categories": [
+        { "value": "vendor", "label": "IN A VENDOR" },
+        { "value": "venue", "label": "IN A VENUE" },
+        { "value": "contract", "label": "IN A CONTRACT" },
+        { "value": "caterer", "label": "IN A CATERER" },
+        { "value": "photographer", "label": "IN A PHOTOGRAPHER" },
+        { "value": "decorator", "label": "IN A DECORATOR" }
+      ],
+      "red_flag_seeds": [
+        { "flag": "Won't put it in writing", "explanation": "If they won't email a quote, they won't honor it on the day." },
+        { "flag": "Vague portfolio", "explanation": "Two photos and 'trust me' is not a portfolio." },
+        { "flag": "Pressure to book today", "explanation": "Real demand doesn't need a fake clock." },
+        { "flag": "No backup plan", "explanation": "Ask what happens if they're sick. If there's no answer, walk." },
+        { "flag": "Cash-only deposits", "explanation": "Paper trail or no trail at all." }
+      ],
+      "timeline_event_bank": [
+        "Wedding Day",
+        "Mehndi",
+        "Sangeet",
+        "Haldi",
+        "Reception",
+        "Vendor Load-In Day"
+      ],
+      "vendor_negotiation_categories": [
+        "with your photographer",
+        "with your decorator",
+        "with your caterer",
+        "with your venue",
+        "with your makeup artist",
+        "with your DJ"
+      ],
+      "checklist_topic_bank": [
+        "Venue Visit",
+        "Vendor Meeting",
+        "Day-Before Prep",
+        "Bridal Emergency Kit",
+        "Final Fitting",
+        "Honeymoon Pack",
+        "Sangeet Rehearsal"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Planning 101 episode — comprehensive, save-worthy educational content for desi wedding planning. Voice rules: (1) The Marigold is the expert friend — direct, warm, specific. Never preachy, never generic. (2) Every tip names the actual thing — not 'communicate clearly' but 'send a one-page brief with three reference photos and a hex code'. (3) The Caveat aside is the personality — short, knowing, self-aware. (4) Practical over aspirational — every output should be screenshottable. Output by variant: ceremony-guide-post → ceremonyName (Instrument Serif italic), headerColor (one of the header_color_options), whatItIs (1-2 sentences Space Grotesk), keyTraditions (3-4 items), typicalDuration, proTip (Caveat, ~50 chars). guest-management-post → guideTitle, tips (array of { headline, detail, aside }). red-flags-post → flagCategory (one of red_flag_categories), flags (array of 5, each { flag, explanation }), bottomAdvice (Caveat). timeline-builder-post → eventName, entries (array of { time, activity, note }), headerAnnotation (Caveat). vendor-negotiation-post → vendorCategory (e.g. 'with your photographer'), tips (array of 4, each { headline, detail, aside }), bottomLine (Caveat, ~50 chars). event-breakdown-carousel → eventName, eventColor, slides for vibe / checklist / budget / timeline / mistakes / marigold tie-in. checklist-story → checklistTitle, items (array of 8-10 strings), annotation (Caveat)."
+  },
+  {
+    "slug": "marigold-platform",
+    "pillar": "convert",
+    "name": "The Marigold Platform",
+    "grid_color_profile": "wine",
+    "content_mix_category": "value",
+    "description": "Showcases the actual wedding planning software — feature drops, walkthroughs, before/after comparisons, and verified user testimonials. The series that drives signups and product awareness.",
+    "purpose": "conversion",
+    "supported_formats": ["post", "story", "carousel"],
+    "grid_color_category": "pink-dominant",
+    "is_active": true,
+    "sort_order": 16,
+    "episode_seed_data": {
+      "feature_label_options": [
+        { "value": "new", "label": "NEW ON THE MARIGOLD" },
+        { "value": "spotlight", "label": "FEATURE SPOTLIGHT" },
+        { "value": "coming-soon", "label": "COMING SOON" }
+      ],
+      "feature_seed_bank": [
+        "The Vendor Brief Builder",
+        "The 13-Phase Planner",
+        "The Moodboard Studio",
+        "The 582-Task Checklist",
+        "The Workspace Hub",
+        "The RSVP Manager",
+        "The Budget Tracker",
+        "The Day-Of Timeline Generator"
+      ],
+      "before_after_seeds": {
+        "before": [
+          "47 browser tabs",
+          "3am panic",
+          "WhatsApp chaos",
+          "Spreadsheet hell",
+          "Pinterest screenshots in Notes",
+          "Vendor emails buried in inbox",
+          "Lost the contract again",
+          "Mom asking 'when is the menu finalised'"
+        ],
+        "after": [
+          "one platform",
+          "you slept 8 hours",
+          "every vendor in one place",
+          "the timeline builds itself",
+          "moodboards by event",
+          "contracts you can find",
+          "checklists that update",
+          "mom has her own login"
+        ]
+      },
+      "comparison_seeds": [
+        { "oldWay": "Scattered Pinterest boards", "newWay": "One Moodboard per event" },
+        { "oldWay": "47-tab WhatsApp groups", "newWay": "Vendor threads in one place" },
+        { "oldWay": "Random spreadsheet for budget", "newWay": "Live budget tracker with line items" },
+        { "oldWay": "Trying to remember who agreed to what", "newWay": "Decisions logged with timestamps" },
+        { "oldWay": "Three different to-do apps", "newWay": "582-task checklist tied to your date" },
+        { "oldWay": "Pdf'd contracts in your downloads", "newWay": "Vendor docs filed by event" },
+        { "oldWay": "Manually nagging RSVPs", "newWay": "Automated guest reminders" },
+        { "oldWay": "A timeline you keep redoing", "newWay": "Day-of timeline that auto-builds" }
+      ],
+      "step_seed_bank": [
+        { "title": "Set your wedding date", "description": "We auto-build your 13-phase timeline around it." },
+        { "title": "Add your events", "description": "Mehndi, sangeet, pheras, reception — each gets its own workspace." },
+        { "title": "Invite the planning team", "description": "Mom, fiance, planner, coordinator — everyone with their own login." },
+        { "title": "Build your moodboards", "description": "Pin references, add hex codes, share with vendors." },
+        { "title": "Brief your vendors", "description": "Pre-filled briefs by category — no more 14-WhatsApp-group chaos." }
+      ],
+      "testimonial_seeds": [
+        { "text": "The Marigold replaced four spreadsheets, three group chats, and one therapist. My mom even logs in now.", "rating": 5, "attribution": "— P.K., December 2026 bride" },
+        { "text": "I planned a destination wedding in Udaipur from London using The Marigold. My planner had everything she needed before our first call.", "rating": 5, "attribution": "— I.S., 2026 destination bride" },
+        { "text": "Every vendor I worked with said the brief was the most organized they'd ever received. That was The Marigold doing the work, not me.", "rating": 5, "attribution": "— A.M., February 2026 bride" }
+      ],
+      "platform_stat_bank": [
+        { "value": "2 minutes", "context": "TO SET UP YOUR WEDDING", "detail": "Your date, your events, your team — done before the kettle boils." },
+        { "value": "582", "context": "PLANNING TASKS, AUTO-ASSIGNED", "detail": "Tied to your date, your events, your guest count. You'll never miss one." },
+        { "value": "13", "context": "PHASES OF PLANNING, BUILT IN", "detail": "From engagement to honeymoon — every milestone has its own playbook." },
+        { "value": "0", "context": "SPREADSHEETS REQUIRED", "detail": "Budget, RSVPs, vendors, timelines — all live, all in one place." }
+      ],
+      "annotation_seeds": [
+        "your vendors will actually cry happy tears",
+        "the spreadsheet era is over",
+        "your group chat will miss you. it'll be fine.",
+        "less time than it takes to explain the guest list to your dad",
+        "save this. tell every bride you know.",
+        "your mom will ask for her own login by week two"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Marigold Platform episode — product-focused content that drives signups and showcases the actual wedding planning software. Voice rules: (1) The product is the hero, but never in a salesy way — show the bride's life with vs. without the platform, not a feature list. (2) Specific, not generic — name the actual feature (the vendor brief builder, the 13-phase planner, the 582-task checklist), not vague capability claims. (3) Concrete proof over abstract benefits — '2 minutes to set up' beats 'fast and easy'. (4) Caveat annotations are the personality — short, self-aware, never preachy ('your vendors will actually cry happy tears'). Output by variant: feature-drop-post → featureLabel (one of new | spotlight | coming-soon), featureName (Instrument Serif italic, ~30 chars), benefits (3 bullets, each ~40-60 chars Space Grotesk), annotation (~50 chars Caveat), ctaText (Syne uppercase button, ~20 chars), mockupImageUrl (optional). before-after-post → beforeItems (array of 5-7 short messy strings), afterItems (array of 5-7 short clean strings). how-it-works-carousel → steps (array of 4, each { number, title, description, mockupImageUrl }), plus cover and close slide content. marigold-vs-old-way-post → comparisons (array of 6-8 { oldWay, newWay }), tagline (~50 chars Caveat). testimonial-post → testimonialText (3-4 sentences Instrument Serif italic, ~180-280 chars), rating (1-5), attribution (Space Grotesk, '— Initial., month year bride'), isVerified (boolean). platform-stat-story → statValue (Instrument Serif italic, e.g. '2 minutes'), statContext (Syne uppercase, ~30 chars), supportingDetail (Space Grotesk, 1-2 sentences), aside (~60 chars Caveat). Always ground claims in real product features."
+  },
+  {
+    "slug": "culture-corner",
+    "pillar": "educate",
+    "name": "Culture Corner",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "value",
+    "description": "Educational content explaining South Asian wedding traditions, regional differences, and cultural context. Serves brides learning about their own traditions and non-desi guests/partners who want to understand what's happening. Builds taste authority and inclusivity.",
+    "purpose": "value",
+    "supported_formats": ["post", "carousel"],
+    "grid_color_category": "wine-dominant",
+    "is_active": true,
+    "sort_order": 17,
+    "episode_seed_data": {
+      "tradition_bank": [
+        { "name": "The Kanyadaan", "icon": "diya" },
+        { "name": "The Mangalsutra", "icon": "lotus" },
+        { "name": "The Saptapadi (Seven Steps)", "icon": "diya" },
+        { "name": "The Sindoor Ceremony", "icon": "marigold-flower" },
+        { "name": "The Haldi", "icon": "marigold-flower" },
+        { "name": "The Mehndi", "icon": "henna-hand" },
+        { "name": "The Baraat", "icon": "paisley" },
+        { "name": "The Joota Chupai", "icon": "paisley" },
+        { "name": "The Kalash Sthapana", "icon": "kalash" },
+        { "name": "The Vidaai", "icon": "marigold-flower" },
+        { "name": "The Aarti", "icon": "diya" },
+        { "name": "The Rangoli Welcome", "icon": "rangoli" },
+        { "name": "The Var Mala / Jaimala", "icon": "marigold-flower" },
+        { "name": "The Granthi Bandhan / Gathbandhan", "icon": "paisley" },
+        { "name": "The Pheras", "icon": "om" }
+      ],
+      "decorative_icon_options": [
+        "diya",
+        "marigold-flower",
+        "paisley",
+        "lotus",
+        "kalash",
+        "rangoli",
+        "henna-hand",
+        "om"
+      ],
+      "region_bank": [
+        { "name": "Punjabi", "subtitle": "energy, emotion, and a LOT of dancing", "color": "deep-pink" },
+        { "name": "South Indian (Tamil)", "subtitle": "silk sarees, temple gold, and 4am muhurats", "color": "wine" },
+        { "name": "South Indian (Telugu)", "subtitle": "talambralu, jeelakarra, and family that travels", "color": "gold" },
+        { "name": "South Indian (Malayali)", "subtitle": "kasavu, kerala flowers, and quiet ceremony", "color": "mint" },
+        { "name": "South Indian (Kannada)", "subtitle": "kashi yatra, dhare, and unmatched feasts", "color": "peach" },
+        { "name": "Bengali", "subtitle": "shankha pola, conch shells, and shubho drishti", "color": "wine" },
+        { "name": "Gujarati", "subtitle": "garba nights, pithi mornings, and joota chupai chaos", "color": "hot-pink" },
+        { "name": "Marathi", "subtitle": "mundavalya, antarpat, and a green-and-gold palette", "color": "mint" },
+        { "name": "Rajasthani", "subtitle": "palace courtyards, bandhej, and a baraat on horseback", "color": "deep-pink" },
+        { "name": "Sindhi", "subtitle": "saanth, palav, and a community that rallies", "color": "gold" },
+        { "name": "Kashmiri", "subtitle": "wazwan, taranga, and the world's most delicate tilla", "color": "lavender" },
+        { "name": "Assamese", "subtitle": "biya, mekhela chador, and a tradition of grace", "color": "mint" },
+        { "name": "Goan", "subtitle": "chapel vows, sorpotel feasts, and a sea breeze", "color": "sky" },
+        { "name": "Sikh", "subtitle": "anand karaj, four laavan, and the langar that follows", "color": "gold-light" },
+        { "name": "Muslim (Nikah)", "subtitle": "mehr, qubool hai, and a walima to remember", "color": "wine" },
+        { "name": "South Asian Christian", "subtitle": "white sarees, church vows, and a desi reception", "color": "cream" },
+        { "name": "Jain", "subtitle": "pratham milan, vinayakyantra, and ahimsa at the core", "color": "gold-light" },
+        { "name": "Buddhist", "subtitle": "blessing chants, white offerings, and quiet vows", "color": "peach" },
+        { "name": "Parsi", "subtitle": "achu michu, chalk patterns, and a navjote feast", "color": "lavender" },
+        { "name": "Fusion / Interfaith", "subtitle": "two families, two traditions, one (very long) ceremony", "color": "blush" }
+      ],
+      "fusion_pairing_seeds": [
+        "Hindu + Catholic",
+        "Hindu + Muslim",
+        "Sikh + Hindu",
+        "Punjabi + South Indian",
+        "Gujarati + Bengali",
+        "Indian + Pakistani",
+        "Hindu + Jewish",
+        "Muslim + Christian",
+        "South Asian + East Asian",
+        "Hindu + Atheist"
+      ],
+      "blending_tip_seeds": [
+        "Pick one ceremony from each tradition — don't try to do all of them.",
+        "Agree on the muhurat first, then everything else slots in.",
+        "Brief both sets of family elders on the order of events together.",
+        "Let each side own their ritual fully — no editing for time.",
+        "Hire a coordinator who has done your specific pairing before.",
+        "Print a two-language program so guests can follow along.",
+        "Pick a fusion outfit that respects both — not a costume of either."
+      ],
+      "family_role_bank": [
+        { "title": "The Mama", "relationship": "maternal uncle", "annotation": "will give a speech. nobody asked." },
+        { "title": "The Mami", "relationship": "maternal uncle's wife", "annotation": "knows every cousin's situation." },
+        { "title": "The Bua", "relationship": "paternal aunt", "annotation": "has opinions about the menu." },
+        { "title": "The Phupha", "relationship": "paternal aunt's husband", "annotation": "first on the dance floor." },
+        { "title": "The Chacha", "relationship": "paternal uncle (younger)", "annotation": "the cool one. always." },
+        { "title": "The Chachi", "relationship": "paternal uncle's wife", "annotation": "runs the WhatsApp group." },
+        { "title": "The Tau", "relationship": "paternal uncle (elder)", "annotation": "the authority on everything." },
+        { "title": "The Taiji", "relationship": "elder uncle's wife", "annotation": "the auntie council president." },
+        { "title": "The Nani", "relationship": "maternal grandmother", "annotation": "will cry. you will too." },
+        { "title": "The Dadi", "relationship": "paternal grandmother", "annotation": "will feed you twice." },
+        { "title": "The Bhabhi", "relationship": "elder brother's wife", "annotation": "your secret co-conspirator." },
+        { "title": "The Saala", "relationship": "wife's brother", "annotation": "stealing the groom's shoes since 1900." }
+      ],
+      "annotation_seeds": [
+        "share this with your fiance's family",
+        "save this for the welcome brochure",
+        "for the bride still learning her own traditions",
+        "for the groom whose family is asking",
+        "send this to the friend who keeps asking 'why?'",
+        "tag the cousin planning the program"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Culture Corner episode — educational, respectful content explaining South Asian wedding traditions for two audiences: brides learning about their own heritage and non-desi guests/partners who want context. Voice rules: (1) Educational, never gatekeeping — assume the reader is curious and well-meaning, never test their knowledge. (2) Specific, not generic — name the actual ritual (the saptapadi, the joota chupai, the achu michu), the actual region, the actual item (the kalash, the mundavalya, the kasavu sari). (3) Honor the meaning, then meet the modern bride — every tradition gets its real significance AND a 'how couples are reinterpreting this today' note. (4) Caveat annotations carry warmth, not jokes about the culture. Output by variant: tradition-explained-post → traditionName (Instrument Serif italic, e.g. 'The Kanyadaan'), meaning (Space Grotesk, 2-3 sentences explaining what it is and its significance), modernContext (Caveat, ~80-120 chars, how contemporary couples reinterpret this), decorativeIcon (one of: diya, marigold-flower, paisley, lotus, kalash, rangoli, henna-hand, om). regional-spotlight-carousel → regionName (Instrument Serif, e.g. 'The Punjabi Wedding'), regionSubtitle (Caveat aside, ~50 chars), regionColor (brand color token), and slides covering CEREMONIES / FASHION / FOOD / MUSIC / DETAILS — each with a short body (~50-80 words) and an optional imageUrl. fusion-wedding-post → tradition1, tradition2 (e.g. 'Hindu + Catholic'), color1, color2, blendingTips (3-4 short imperative tips, each ~80-120 chars, name the actual move), annotation (Caveat aside, ~60 chars). family-roles-post → roles (array of 6-8 { title, relationship, description, annotation }) — each role names the relationship clearly so a non-desi reader can follow."
+  },
+  {
+    "slug": "bride-life",
+    "pillar": "connect",
+    "name": "Bride Life",
+    "grid_color_profile": "cream",
+    "content_mix_category": "community",
+    "description": "The emotional and lifestyle side of wedding planning — self-care, relationship dynamics, mental health, post-wedding reality. Builds deep community loyalty by speaking to how planning FEELS, not just how it gets done.",
+    "purpose": "community",
+    "supported_formats": ["post", "story"],
+    "grid_color_category": "blush-dominant",
+    "is_active": true,
+    "sort_order": 18,
+    "episode_seed_data": {
+      "self_care_icon_options": [
+        "leaf",
+        "book",
+        "bath",
+        "walk",
+        "coffee",
+        "music",
+        "sleep",
+        "call",
+        "journal",
+        "yoga"
+      ],
+      "self_care_seed_titles": [
+        "5 Things to Do This Week That Aren't Wedding-Related",
+        "Permission to Stop Planning for 24 Hours",
+        "Small Joys for the Overcommitted Bride",
+        "The Self-Care List Your Spreadsheet Won't Make"
+      ],
+      "self_care_bottom_notes": [
+        "the wedding will still be there tomorrow. your sanity might not be.",
+        "you're a person before you're a bride. start there.",
+        "rest is also a planning task.",
+        "the to-do list will wait. the burnout won't."
+      ],
+      "relationship_prompt_seeds": [
+        "When was the last time we talked about something that wasn't the wedding?",
+        "What do you actually want our marriage to feel like, not just our wedding?",
+        "What's a small thing I've done lately that you appreciated?",
+        "What's a fear about the wedding you haven't said out loud?",
+        "If we could cancel one tradition without anyone noticing, which one?",
+        "What does a perfect Sunday look like to you, post-wedding?"
+      ],
+      "relationship_activity_seeds": [
+        "Make a 30-minute dinner together, no phones, no spreadsheets.",
+        "Take a walk after sunset and don't bring up logistics once.",
+        "Watch a movie neither of you has seen. Pick by coin toss.",
+        "Order from your first-date restaurant and recreate the night.",
+        "Write each other one thing you're grateful for and trade notes."
+      ],
+      "emotional_topics_bank": [
+        "Post-wedding blues",
+        "Decision fatigue",
+        "Family guilt",
+        "Comparison spirals (other people's weddings on Instagram)",
+        "Body image pressure",
+        "Financial stress",
+        "Identity shift (when 'bride' becomes your whole personality)",
+        "Grief at weddings (missing loved ones)",
+        "The pressure to enjoy every moment"
+      ],
+      "emotional_signoff_seeds": [
+        "you're not ungrateful. you're human. there's a difference.",
+        "feeling tired isn't failing. it's planning a wedding.",
+        "you're allowed to grieve and celebrate in the same week.",
+        "the moment you didn't enjoy is also part of the story.",
+        "nobody's ever planned a wedding without crying once. nobody."
+      ],
+      "affirmation_seeds": [
+        "This wedding is yours. Not your mom's. Not Instagram's. Yours.",
+        "You are allowed to slow down. The day will still come.",
+        "You're not behind. You're exactly where this season needs you.",
+        "Your worth is not measured in centerpieces.",
+        "The right people will love you tired, dressed-down, and undone.",
+        "You don't have to earn rest. You're already enough."
+      ],
+      "affirmation_gradient_options": [
+        { "value": "blush-cream", "label": "Blush -> Cream" },
+        { "value": "lavender-cream", "label": "Lavender -> Cream" },
+        { "value": "gold-cream", "label": "Gold -> Cream" },
+        { "value": "mint-cream", "label": "Mint -> Cream" }
+      ],
+      "in_law_situation_seeds": [
+        "When your MIL wants to take over the décor",
+        "When your in-laws keep adding guests to the list",
+        "When your MIL critiques the menu in front of family",
+        "When your in-laws have a different vision for the muhurat",
+        "When your FIL volunteers your fiance for a speech he didn't agree to",
+        "When the in-laws want a ceremony the bride's side has never done",
+        "When your MIL's WhatsApp messages start at 6am"
+      ],
+      "in_law_step_seeds": [
+        "Acknowledge the love behind the suggestion before responding to it.",
+        "Loop your fiance in first — this is a team conversation, not a solo one.",
+        "Offer a small, specific compromise that costs you nothing.",
+        "Hold the line on the one thing that matters most to you. Calmly.",
+        "End the conversation with a warm, concrete next step."
+      ],
+      "in_law_note_seeds": [
+        "diplomacy is an art. you're about to become Picasso.",
+        "warm words. firm boundaries. that's the move.",
+        "you can love them and still say no.",
+        "calm is contagious. start there."
+      ]
+    },
+    "ai_generation_prompt": "Generate a Bride Life episode — emotional and lifestyle content for brides navigating the planning process. Voice rules: (1) Empathetic, never performative — these posts speak to how planning FEELS, not how it gets done. (2) Specific, not generic — name the actual feeling (the 6am MIL WhatsApp, the third Pinterest spiral, the moment you cried in the lehenga trial), never vague affirmations. (3) Validating, not preachy — the bride is doing her best; the Marigold makes that feel normal. (4) The Caveat note is the gentle punchline — knowing, warm, never saccharine. (5) Tone is muted and warm by default — soft palettes, generous whitespace, gentler typography. Output by variant: self-care-post → title (Instrument Serif italic, ~50-80 chars), items (array of 5 { text, icon }) where icon is one of leaf | book | bath | walk | coffee | music | sleep | call | journal | yoga, bottomNote (Caveat, ~80 chars). relationship-checkin-post → conversationPrompt (Instrument Serif italic, ~80-120 chars, a real question to ask your partner), activitySuggestion (Space Grotesk, ~80 chars, one specific thing to do tonight), annotation (Caveat, ~40 chars, gentle nudge). emotional-reality-post → topicTitle (Instrument Serif italic, ~30-50 chars, e.g. 'Post-Wedding Blues Are Real'), body (Space Grotesk, 3-4 sentences, ~200-320 chars, validating real talk), signoff (Caveat, ~80 chars, the gentle punchline). affirmation-story → affirmation (Instrument Serif italic, ~80-120 chars, first-person or second-person), gradientColors (one of blush-cream | lavender-cream | gold-cream | mint-cream). in-law-navigation-post → situation (Instrument Serif italic, ~50-80 chars, name the actual scenario), steps (array of 3, each ~80-140 chars Space Grotesk, practical and kind), note (Caveat, ~60 chars)."
+  },
+  {
+    "slug": "in-season",
+    "pillar": "inspire",
+    "name": "In Season",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "aesthetic",
+    "description": "Seasonal, timely, and trend-driven content that keeps the feed current and relevant. Festival tie-ins, seasonal trend reports, and wedding season prep — content that says 'we're paying attention right now'.",
+    "purpose": "awareness",
+    "supported_formats": ["story", "post", "carousel"],
+    "grid_color_category": "colorful",
+    "is_active": true,
+    "sort_order": 19,
+    "episode_seed_data": {
+      "season_palette": [
+        { "season": "Fall", "backgroundColor": "#C97A3F", "label": "warm gold for fall" },
+        { "season": "Winter", "backgroundColor": "#2F5D4E", "label": "deep green for winter" },
+        { "season": "Spring", "backgroundColor": "#ED93B1", "label": "pink for spring" },
+        { "season": "Summer", "backgroundColor": "#7FB6D9", "label": "sky blue for summer" }
+      ],
+      "trend_direction_options": [
+        { "value": "up", "label": "Trending up", "symbol": "↑" },
+        { "value": "steady", "label": "Steady", "symbol": "→" },
+        { "value": "emerging", "label": "Emerging", "symbol": "↗" }
+      ],
+      "festival_bank": [
+        { "name": "Diwali", "color": "#D4A853", "energy": "lights, gold, marigolds" },
+        { "name": "Holi", "color": "#ED93B1", "energy": "colors, joy, chaos" },
+        { "name": "Navratri", "color": "#993556", "energy": "9 nights of dance, garba, color rotation" },
+        { "name": "Eid", "color": "#2F5D4E", "energy": "moonlight, white, mehndi, sweets" },
+        { "name": "Onam", "color": "#C8EDDA", "energy": "pookalam florals, banana leaf feasts" },
+        { "name": "Pongal", "color": "#F5E6C8", "energy": "harvest gold, sugarcane, kolam" },
+        { "name": "Baisakhi", "color": "#FFD8B8", "energy": "harvest, bhangra, mustard fields" },
+        { "name": "Lohri", "color": "#C97A3F", "energy": "bonfire, peanuts, winter warmth" },
+        { "name": "Ganesh Chaturthi", "color": "#D4537E", "energy": "modaks, processions, red and gold" },
+        { "name": "Karva Chauth", "color": "#8A1538", "energy": "moonlight, mehndi, red and gold" },
+        { "name": "Makar Sankranti", "color": "#F5C842", "energy": "kites, til-gud, sunshine" }
+      ],
+      "monthly_roundup_icon_options": [
+        "trending",
+        "viral",
+        "marigold",
+        "alert",
+        "calendar",
+        "sparkle"
+      ],
+      "trend_seed_topics": [
+        "Pastel sarees for day ceremonies",
+        "Couple entrance reveals on horses",
+        "Live phulka stations at receptions",
+        "Mehndi played as live dance during sangeet",
+        "Coordinated grandparent looks",
+        "Mini bar carts at the haldi",
+        "Custom dupatta calligraphy",
+        "Personalized seating cards in regional scripts"
+      ],
+      "wedding_season_prep_categories": [
+        { "id": "book-now", "label": "BOOK NOW", "tone": "urgent — vendors that fill up fastest" },
+        { "id": "start-now", "label": "START NOW", "tone": "tasks to knock out before season chaos" },
+        { "id": "decide-now", "label": "DECIDE NOW", "tone": "decisions with long lead times" },
+        { "id": "relax-about", "label": "RELAX ABOUT", "tone": "things that can wait" }
+      ]
+    },
+    "ai_generation_prompt": "Generate an In Season episode — timely, seasonal, trend-driven content. Voice rules: (1) Current, never evergreen — every post is anchored to a specific season, festival, or month. The content rots on purpose; that's the point. (2) Specific, not generic — name the actual trend, the actual festival element, the actual viral moment. No 'florals are trending' — say 'pastel sarees for day ceremonies are everywhere'. (3) The Marigold is paying attention so the bride doesn't have to — we curate, she scrolls. (4) Caveat asides are the personality — knowing, current, slightly cheeky ('your mehndi night already has the Diwali energy built in'). Output by variant: seasonal-trend-post → season (Fall|Winter|Spring|Summer), year (e.g. '2026-27'), backgroundColor (hex matching the season palette), trends (array of 4-5 { trend: ~60-90 chars Space Grotesk, direction: up|steady|emerging }), editorialTake (Caveat, ~80 chars). festival-inspo-post → festivalName (e.g. 'Diwali-Inspired Décor'), festivalColor (hex from festival_bank), connections (array of 3 { festivalElement: 2-5 words, weddingApplication: 4-8 words }), note (Caveat, ~80 chars, the cultural punchline). wedding-season-prep-carousel → seasonName (e.g. 'Winter Wedding Season'), seasonDates (e.g. 'November 2026 — February 2027'), and per-slide content for cover (hypeText, dateRange), book-now/start-now/decide-now/relax-about (each: heading already fixed by category, items array of 3-5 strings ~60-100 chars), and platform-cta (headline, supportText, ctaLine). monthly-roundup-story → month (e.g. 'May'), year, items (array of 4-5 { text: ~80-120 chars, iconType: trending|viral|marigold|alert|calendar|sparkle })."
+  },
+  {
+    "slug": "community",
+    "pillar": "connect",
+    "name": "Community",
+    "grid_color_profile": "colorful",
+    "content_mix_category": "community",
+    "description": "User-generated content, community highlights, and audience participation. Builds belonging by giving real brides the spotlight, surfacing the audience's own voice, and celebrating shared milestones — turns followers into advocates.",
+    "purpose": "community",
+    "supported_formats": ["post", "story", "reel"],
+    "grid_color_category": "gold-dominant",
+    "is_active": true,
+    "sort_order": 20,
+    "episode_seed_data": {
+      "favorite_feature_options": [
+        "The Vendor Brief Builder",
+        "The Budget Tracker",
+        "The Guest List Manager",
+        "The Day-Of Timeline",
+        "The Mood Board",
+        "The Vendor Red Flags Library",
+        "The Mandap Decor Planner",
+        "The Muhurat Calendar"
+      ],
+      "milestone_label_seeds": [
+        "BRIDES IN THE MARIGOLD COMMUNITY",
+        "VENDORS ON THE PLATFORM",
+        "WEDDINGS PLANNED ON MARIGOLD",
+        "ANONYMOUS CONFESSIONS SHARED",
+        "MOOD BOARDS CREATED",
+        "BUDGETS TRACKED THIS SEASON"
+      ],
+      "gratitude_message_seeds": [
+        "every story, every screenshot, every late-night dm. thank you.",
+        "you built this. we just made the spreadsheet.",
+        "ten thousand brides, one shared group chat. we're so glad you're here.",
+        "this number means nothing without you. literally. we would have stopped at 47."
+      ],
+      "submission_button_options": [
+        { "value": "link-in-bio", "label": "LINK IN BIO" },
+        { "value": "dm-us", "label": "DM US" },
+        { "value": "tag-us", "label": "TAG US" },
+        { "value": "email-us", "label": "EMAIL US" }
+      ],
+      "series_reference_seeds": [
+        "THE CONFESSIONAL",
+        "REAL BRIDE DIARIES",
+        "BRIDE OF THE WEEK",
+        "POLL OF THE WEEK",
+        "ASK A BRIDE",
+        "VENDOR REVIEWS"
+      ],
+      "submission_step_seeds": [
+        "Tap the link in our bio.",
+        "Fill out the 4-question form. Takes 2 minutes.",
+        "We'll DM you before we post — your name stays private.",
+        "Send us a voice note or a screenshot. Whichever feels easier.",
+        "Tag @themarigold in your story. We'll repost the best ones."
+      ],
+      "editorial_comment_seeds": [
+        "the people have spoken. and they're right.",
+        "we expected closer. it wasn't.",
+        "no notes. carry on.",
+        "the audience always knows."
+      ]
+    },
+    "ai_generation_prompt": "Generate a Community episode — UGC and audience-participation content for The Marigold. Voice rules: (1) Specific, not generic — real names, real places, real numbers; no stock-photo prose. (2) The Marigold is the host, not the hero — every post centers a real bride, a real vote, a real milestone. (3) Caveat asides are the editorial voice — short, knowing, never sycophantic. (4) Gratitude is concrete, never performative — thank brides for the *thing they did*, not for 'being part of our journey'. Output by variant: bride-of-the-week-post → brideName (~10-20 chars, can be 'Meet Ananya' style), brideLocation (e.g. 'Delhi bride'), weddingDate (e.g. 'December 2026'), guestCount (e.g. '400 guests'), advice (Caveat, ~50-90 chars, one-line specific advice), favoriteFeature (one of favorite_feature_options), imageUrl (string, optional). poll-results-post → question (Instrument Serif italic, ~40-80 chars, the original poll question), optionA (~20-40 chars), optionAPercent (0-100), optionB (~20-40 chars), optionBPercent (0-100, sums to 100 with A), totalVotes (e.g. '2,847 votes'), editorialComment (Caveat, ~50-80 chars, the editorial take). milestone-post → milestoneNumber (e.g. '10,000'), milestoneLabel (one of milestone_label_seeds), gratitudeMessage (Caveat, ~80-140 chars, concrete thank-you). user-story-reel → storyText (~200-400 chars first-person bride storytelling, the lyric engine word-splits this), brideName, brideIdentifier (e.g. '— bangalore bride, 2026'), wordsPerMinute (default 120 — slower for emotion). submission-cta-story → seriesReference (one of series_reference_seeds), callToAction (Instrument Serif italic, ~40-80 chars), steps (array of 2-3 strings ~50-90 chars each), buttonText (one of link-in-bio | dm-us | tag-us | email-us)."
+  },
+  {
+    "slug": "bride-connect",
+    "pillar": "connect",
+    "name": "Bride Connect",
+    "grid_color_profile": "pink",
+    "content_mix_category": "community",
+    "description": "Marketing the bride-to-bride matchmaking feature — Hinge for brides. Profiles of real brides looking for planning besties, celebrated matches, and explainer content. Two jobs: (1) make the community feel personal and alive, and (2) drive signups for the matching feature.",
+    "purpose": "community",
+    "supported_formats": ["post", "story", "reel"],
+    "grid_color_category": "blush-dominant",
+    "is_active": true,
+    "sort_order": 20,
+    "episode_seed_data": {
+      "looking_for_tag_options": [
+        "Vendor Recs",
+        "Lehenga Shopping Buddy",
+        "Someone Who Gets It",
+        "Budget Planning Partner",
+        "Sangeet Choreo Partner",
+        "Decor Inspo Swap",
+        "Mehndi Date Buddy",
+        "Same-Venue Coordinator",
+        "MIL Coping Group",
+        "Vendor Brief Swap",
+        "Pinterest Accountability",
+        "Late-Night Planning Texts"
+      ],
+      "prompt_question_seeds": [
+        "The thing I'm most stressed about is...",
+        "My wedding planning red flag is...",
+        "The vendor I'd marry instead of my fiance is...",
+        "My most unhinged Pinterest board is...",
+        "My biggest wedding planning win so far is...",
+        "The tradition I'm most nervous about is...",
+        "My wedding vibe in three words is...",
+        "The thing my mom and I disagree on most is...",
+        "If I could redo one decision, it would be...",
+        "The hardest thing nobody warned me about is..."
+      ],
+      "prompt_answer_seeds": [
+        "convincing my mom that 200 guests IS a big wedding",
+        "the seating chart. it has been 4 weeks.",
+        "my florist. her vibe is unmatched.",
+        "47 boards. 12 are just lehenga close-ups.",
+        "negotiated the photographer down 30%. she's everything.",
+        "the kanyadaan. emotionally not ready.",
+        "warm, loud, and slightly chaotic.",
+        "the muhurat. she wants 4am, I want oxygen.",
+        "the venue. should've waited.",
+        "how political the guest list gets."
+      ],
+      "city_seeds": [
+        "Jaipur",
+        "Udaipur",
+        "Mumbai",
+        "Delhi",
+        "Bangalore",
+        "Hyderabad",
+        "Chennai",
+        "Kolkata",
+        "Pune",
+        "Goa",
+        "Lucknow",
+        "Chandigarh"
+      ],
+      "wedding_month_options": [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC"
+      ],
+      "shared_quote_seeds": [
+        "We're both planning December weddings in Udaipur — now we're sharing vendor lists and sanity.",
+        "Same venue, two weeks apart. We're literally splitting the decorator.",
+        "Met for chai. Left with a co-ordinated mehndi date.",
+        "Both of us were quietly losing it. Turns out we just needed each other.",
+        "Started with a vendor recommendation. Now we send each other voice notes at 1am."
+      ],
+      "explainer_slide_seeds": {
+        "cover_subtitle": "The Marigold's bride matching — because your college friends are tired of hearing about centerpieces.",
+        "create_profile": "Share your city, wedding date, vibe, and what you're looking for. Two minutes, no pressure.",
+        "get_matched": "Matched with brides planning in the same city, same timeframe, or same vibe. You pick who to message.",
+        "connect_plan": "Chat, share vendor lists, go lehenga shopping together, coordinate if you're using the same venue.",
+        "real_connections": "500+ brides matched this month. Every match starts with one swipe.",
+        "close_headline": "Your wedding planning buddy is waiting"
+      },
+      "personal_note_seeds": [
+        "the chaos of planning a desi wedding — the guest list drama, the vendor hunt, all of it",
+        "someone who actually understands why I cried over centerpieces last Tuesday",
+        "the grind of vendor calls and a friend who'll send me her shortlist",
+        "another bride who gets that the muhurat conversation is its own personality test",
+        "a planning buddy who won't judge my 47 Pinterest boards"
+      ]
+    },
+    "ai_generation_prompt": "Generate a Bride Connect episode — content marketing The Marigold's bride-to-bride matching feature. Voice rules: (1) First-person and specific — real cities, real wedding months, real anxieties. No 'community' or 'journey' language. (2) Hinge-coded but for wedding planning — the prompts are the punchline. (3) Self-deprecating, not braggy — brides admit the chaos, the spreadsheets, the 47 Pinterest boards. (4) The Marigold is the matchmaker, not the protagonist — every post centers two real brides (one looking, one matched). Output by variant: bride-match-profile-post → brideName (~10-20 chars), brideAge (number 22-35), planningCity (one of city_seeds), weddingMonth (one of wedding_month_options), weddingYear (e.g. 2026), lookingFor (array of 3-4 strings from looking_for_tag_options), promptQuestion (one of prompt_question_seeds), promptAnswer (~40-100 chars, voice-matched to prompt_answer_seeds), imageUrl (optional). bride-match-story → all profile fields plus extraPrompts (array of 2 { question, answer } objects). bride-match-duo-post → brideAName / brideACity / brideADate, brideBName / brideBCity / brideBDate, sharedQuote (Instrument Serif italic, ~80-160 chars from shared_quote_seeds voice), brideAImageUrl / brideBImageUrl (optional). bride-connect-explainer-carousel → slideIndex (1-6), and the explainer copy fields keyed off explainer_slide_seeds; testimonialQuote (~80-160 chars), statsNumber (e.g. '500+'). bride-connect-reel → brideName, planningCity, weddingMonth, weddingYear, personalNote (~120-220 chars from personal_note_seeds voice — first-person, the lyric engine word-splits this), imageUrl (optional)."
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "color_palette": {
+    "config_key": "color_palette",
+    "description": "Brand color tokens. CSS variables (--pink, --wine, etc.) in src/lib/theme.ts are the runtime source of truth — this entry mirrors them so the AI and the Brand Settings UI can reason about colors as data.",
+    "config_value": {
+      "pink": "#D4537E",
+      "hotPink": "#ED93B1",
+      "deepPink": "#993556",
+      "blush": "#FBEAF0",
+      "cream": "#FFF8F2",
+      "wine": "#4B1528",
+      "mauve": "#8A6070",
+      "gold": "#D4A853",
+      "goldLight": "#F5E6C8",
+      "lavender": "#E0D0F0",
+      "mint": "#C8EDDA",
+      "peach": "#FFD8B8",
+      "sky": "#C8DFF5"
+    }
+  },
+  "typography": {
+    "config_key": "typography",
+    "description": "Four-font system. Each font has one role and is never used outside it. See SPEC §1.3.",
+    "config_value": {
+      "display": "Instrument Serif",
+      "ui": "Syne",
+      "body": "Space Grotesk",
+      "handwritten": "Caveat"
+    }
+  },
+  "brand_voice": {
+    "config_key": "brand_voice",
+    "description": "Voice guide consumed by the AI system prompt. Tone descriptors, do/don't rules, and example phrases that capture the Marigold's voice.",
+    "config_value": {
+      "tone": [
+        "playful",
+        "irreverent",
+        "insider",
+        "culturally specific",
+        "slightly chaotic",
+        "self-deprecating"
+      ],
+      "pillars": [
+        "Best-friend-who-just-got-married energy — speaks from inside the chaos, not from above it.",
+        "Culturally specific by default — baraat, mandap, sangeet, mehndi, MIL politics, lehenga drama. Never generic 'wedding'.",
+        "Organized mess aesthetic — sticky notes, pins, tape, handwritten asides. The brand looks like a mood board on the bride's bedroom wall.",
+        "Real talk over corporate polish — short sentences, clear feeling, never marketing-speak."
+      ],
+      "do": [
+        "Reference desi-specific details (baraat horse, mandap décor, MIL guest list, sangeet choreo, return gifts).",
+        "Use the bride's POV. Speak to her, not about her.",
+        "End captions with a question, prompt, or CTA.",
+        "Use Caveat-tone asides for the punchline ('she said, confidently')."
+      ],
+      "dont": [
+        "Don't sound corporate or aspirational-luxury.",
+        "Don't be mean about specific cultures, families, or traditions — punch up at the chaos, not at people.",
+        "Don't use generic wedding language ('your big day', 'walking down the aisle').",
+        "Don't over-emoji. 1-2 max in a caption."
+      ],
+      "example_phrases": [
+        "anonymous. unfiltered. very real.",
+        "we have a tab for both of you",
+        "your secret is safe with 10,000 brides",
+        "anonymous. judgment-free. pinky promise.",
+        "take this totally scientific quiz"
+      ]
+    }
+  },
+  "content_strategy": {
+    "config_key": "content_strategy",
+    "description": "Posting cadence and content pillar mix targets. The calendar generator balances pillars across a week; series remain useful for grouping related templates within a pillar.",
+    "config_value": {
+      "posting_cadence": [
+        { "format": "story", "per_week": 3 },
+        { "format": "post", "per_week": 2 },
+        { "format": "reel", "per_week": 1 }
+      ],
+      "pillar_mix": [
+        { "pillar_slug": "engage", "share": 0.30 },
+        { "pillar_slug": "educate", "share": 0.25 },
+        { "pillar_slug": "inspire", "share": 0.20 },
+        { "pillar_slug": "connect", "share": 0.15 },
+        { "pillar_slug": "convert", "share": 0.10 }
+      ],
+      "notes": [
+        "Mix targets: 30% Engage (comments, shares, taps), 25% Educate (saves), 20% Inspire (aesthetic breathing room), 15% Connect (community, UGC), 10% Convert (product, signups).",
+        "Confessional title + cards + CTA should ship as a single Story sequence on the same day.",
+        "Quiz title slide is required when posting a quiz result card the same week.",
+        "Avoid placing 3 same-pillar posts adjacent on the grid — alternate pillars across each row of 3 for visual rhythm."
+      ]
+    }
+  }
+}

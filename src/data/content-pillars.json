@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "engage",
+    "name": "Engage",
+    "description": "Content that gets people talking, commenting, tagging friends, tapping polls, and sharing.",
+    "tagline": "Spark conversation. Earn taps, comments, and shares.",
+    "color": "#ED93B1",
+    "default_share": 0.30,
+    "sort_order": 1
+  },
+  {
+    "slug": "educate",
+    "name": "Educate",
+    "description": "Content that teaches, informs, and gets saved. The \"I need to screenshot this\" content.",
+    "tagline": "Teach the thing. Earn the screenshot, the save, the share.",
+    "color": "#D4A853",
+    "default_share": 0.25,
+    "sort_order": 2
+  },
+  {
+    "slug": "inspire",
+    "name": "Inspire",
+    "description": "Content that's beautiful, aspirational, and makes the feed gorgeous. The aesthetic breathing room.",
+    "tagline": "Make the feed gorgeous. Aspirational, mood-led, image-first.",
+    "color": "#C4A8D4",
+    "default_share": 0.20,
+    "sort_order": 3
+  },
+  {
+    "slug": "connect",
+    "name": "Connect",
+    "description": "Content that builds community and makes followers feel like they belong.",
+    "tagline": "Build the community. Spotlight brides, invite belonging.",
+    "color": "#F5D6E0",
+    "default_share": 0.15,
+    "sort_order": 4
+  },
+  {
+    "slug": "convert",
+    "name": "Convert",
+    "description": "Content that drives signups, product awareness, and positions The Marigold as the solution.",
+    "tagline": "Drive the signup. Position The Marigold as the answer.",
+    "color": "#D4537E",
+    "default_share": 0.10,
+    "sort_order": 5
+  }
+]

@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+
+  --pink: #d4537e;
+  --hot-pink: #ed93b1;
+  --deep-pink: #993556;
+  --blush: #fbeaf0;
+  --cream: #fff8f2;
+  --wine: #4b1528;
+  --mauve: #8a6070;
+  --gold: #d4a853;
+  --gold-light: #f5e6c8;
+  --lavender: #e0d0f0;
+  --mint: #c8edda;
+  --peach: #ffd8b8;
+  --sky: #c8dff5;
+
+  --font-display: "Instrument Serif", serif;
+  --font-ui: "Syne", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-handwritten: "Caveat", cursive;
+
+  --shell-topbar-height: 60px;
+  --shell-content-max: 1440px;
+  --shell-content-pad: 48px;
+  --shell-panel-width: 320px;
+}
+
+html,
+body {
+  background: var(--cream);
+  color: var(--wine);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App shell ----------------------------------------------------------- */
+
+.marigold-shell {
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+.marigold-shell__main {
+  min-height: 100vh;
+  background: var(--cream);
+  padding-top: var(--shell-topbar-height);
+}
+
+.marigold-shell__content {
+  max-width: var(--shell-content-max);
+  margin: 0 auto;
+  padding: 0 var(--shell-content-pad);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .marigold-shell__content {
+    padding: 0 18px;
+  }
+}
+
+/* Top nav ------------------------------------------------------------- */
+
+.marigold-topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--shell-topbar-height);
+  background: var(--cream);
+  border-bottom: 1px solid rgba(75, 21, 40, 0.08);
+  z-index: 50;
+}
+
+.marigold-topnav__inner {
+  height: 100%;
+  max-width: var(--shell-content-max);
+  margin: 0 auto;
+  padding: 0 var(--shell-content-pad);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.marigold-topnav__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.marigold-topnav__center {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+
+.marigold-topnav__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.marigold-topnav__link {
+  font-family: "Syne", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mauve);
+  text-decoration: none;
+  padding: 4px 0;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.marigold-topnav__link:hover {
+  color: var(--wine);
+}
+
+.marigold-topnav__link.is-active {
+  color: var(--wine);
+  font-weight: 700;
+}
+
+.marigold-topnav__link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background: var(--wine);
+}
+
+.marigold-topnav__menu {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.marigold-topnav__menu:hover {
+  background: rgba(75, 21, 40, 0.05);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --shell-content-pad: 32px;
+  }
+  .marigold-topnav__center {
+    gap: 24px;
+  }
+  .marigold-topnav__link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --shell-content-pad: 18px;
+  }
+  .marigold-topnav__inner {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  .marigold-topnav__center {
+    display: none;
+  }
+  .marigold-topnav__right > span {
+    display: none;
+  }
+}
+
+/* Slide-out panel ----------------------------------------------------- */
+
+.marigold-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--shell-panel-width);
+  max-width: 92vw;
+  background: var(--cream);
+  border-left: 1px solid rgba(75, 21, 40, 0.08);
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.25s ease-out;
+  box-shadow: -8px 0 24px rgba(75, 21, 40, 0.05);
+}
+
+.marigold-panel.is-open {
+  transform: translateX(0);
+}
+
+.marigold-panel__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(75, 21, 40, 0.15);
+  border: none;
+  padding: 0;
+  z-index: 65;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out;
+}
+
+.marigold-panel__backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.marigold-panel__nav {
+  display: none;
+  flex-direction: column;
+  padding: 4px 12px 12px;
+}
+
+.marigold-panel__navlink {
+  font-family: "Syne", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mauve);
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 4px;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.marigold-panel__navlink:hover {
+  background: rgba(75, 21, 40, 0.04);
+  color: var(--wine);
+}
+
+.marigold-panel__navlink.is-active {
+  color: var(--wine);
+  font-weight: 700;
+  background: rgba(75, 21, 40, 0.06);
+}
+
+@media (max-width: 768px) {
+  .marigold-panel__nav {
+    display: flex;
+  }
+}
+
+.marigold-panel__item {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13.5px;
+  color: var(--wine);
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 11px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.marigold-panel__item:hover {
+  background: rgba(75, 21, 40, 0.05);
+}
+
+.marigold-panel__item.is-danger {
+  color: var(--deep-pink);
+}
+
+.marigold-panel__item.is-danger:hover {
+  background: rgba(153, 53, 86, 0.06);
+}
+
+/* Skeleton ------------------------------------------------------------ */
+
+@keyframes marigold-skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.marigold-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(75, 21, 40, 0.06) 0%,
+    rgba(75, 21, 40, 0.12) 50%,
+    rgba(75, 21, 40, 0.06) 100%
+  );
+  background-size: 200% 100%;
+  animation: marigold-skeleton-pulse 1.4s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+/* Blog form spinner --------------------------------------------------- */
+
+@keyframes marigold-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive helpers -------------------------------------------------- */
+
+.marigold-editor-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 460px) 1fr;
+  flex: 1;
+  min-height: 0;
+}
+
+.marigold-editor-left {
+  overflow-y: auto;
+  max-height: calc(100vh - var(--shell-topbar-height));
+}
+
+.marigold-editor-right {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - var(--shell-topbar-height));
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .marigold-editor-layout {
+    grid-template-columns: 1fr;
+  }
+  .marigold-editor-left {
+    max-height: none;
+  }
+  .marigold-editor-right {
+    position: static;
+    height: auto;
+    min-height: 70vh;
+  }
+}
+
+.marigold-page-pad {
+  padding: 32px 0 96px;
+}
+
+@media (max-width: 720px) {
+  .marigold-page-pad {
+    padding: 20px 0 64px;
+  }
+}

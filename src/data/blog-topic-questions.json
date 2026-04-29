@@ -1,0 +1,832 @@
+{
+  "_meta": {
+    "description": "Topic-question mappings for the public Vendor Blog Post intake form at /submit/blog. Each topic id maps to a question set the AI uses to assemble a polished blog post. Add new topics by appending to a category's array under `categories`.",
+    "version": 1
+  },
+  "categories": {
+    "photographer": {
+      "label": "Photographer",
+      "topics": [
+        {
+          "id": "photographer-how-to-choose",
+          "title": "How to Choose Your Wedding Photographer",
+          "description": "Help couples understand what to look for beyond just a pretty portfolio. What questions should they ask? What red flags should they watch for?",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What's the single most important thing a couple should look for in a wedding photographer (besides liking the photos)?", "placeholder": "The thing most couples don't think to ask about...", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "What questions do you wish couples asked you on the first call — but rarely do?", "placeholder": "Two or three would be plenty.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What are the biggest red flags you've seen couples miss when hiring a photographer?", "placeholder": "Things that suggest a bad fit or worse.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How should couples evaluate a portfolio? What separates 'good' from 'great' work?", "placeholder": "What you look for when you see another photographer's work.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What does the contract conversation usually miss? Anything couples should insist on in writing?", "placeholder": "Backups, second shooters, delivery times — whatever you've seen go sideways.", "maxLength": 300 },
+            { "id": "q6", "question": "Share a real story of a couple who hired well — and one who didn't. What changed for each?", "placeholder": "No names needed — just the lesson.", "maxLength": 500 },
+            { "id": "q7", "question": "If a couple is choosing between two photographers and stuck, what tiebreaker do you give them?", "placeholder": "Your honest gut answer.", "maxLength": 250 }
+          ]
+        },
+        {
+          "id": "photographer-shot-list",
+          "title": "The Shot List You Didn't Know You Needed",
+          "description": "The moments couples forget to ask for but always wish they had. Behind-the-scenes, detail shots, family candids.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the one shot couples never ask for but always thank you for after the wedding?", "placeholder": "The one nobody requests but everyone loves.", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "List 3-5 'detail' shots you make sure to capture — even when no one asks.", "placeholder": "Rings, mehndi, jewelry, shoes... your essentials.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What family/group portraits do couples typically forget to plan for?", "placeholder": "The combinations that come up after the day.", "maxLength": 300, "required": true },
+            { "id": "q4", "question": "What behind-the-scenes moments do you actively look for?", "placeholder": "Getting ready, parents reactions, candid laughs.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Any ceremony moments couples don't realize they want photographed?", "placeholder": "Ritual details, guest reactions, in-between beats.", "maxLength": 300 },
+            { "id": "q6", "question": "Reception shots that always make it into highlight albums?", "placeholder": "First dance reactions, parents watching, dance floor energy.", "maxLength": 300 },
+            { "id": "q7", "question": "Tell us about a specific shot you almost missed but ended up being the couple's favorite.", "placeholder": "The story behind it.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "photographer-engagement-shoot",
+          "title": "Why Your Engagement Shoot Matters More Than You Think",
+          "description": "It's not just pretty photos. It's how you build comfort with your photographer before the big day.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Why do you actually push couples to do an engagement shoot — beyond the photos?", "placeholder": "The non-obvious reason.", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "What changes between the first 10 minutes of a shoot and the last 10? What does that teach you?", "placeholder": "How couples warm up — and why that matters on the wedding day.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should couples plan for the shoot — wardrobe, location, time of day?", "placeholder": "Practical advice from someone who's done many.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the biggest mistake couples make leading up to an engagement shoot?", "placeholder": "The one you wish they'd asked you about.", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "Share a moment from an engagement shoot that ended up shaping the wedding day photos.", "placeholder": "A specific story from a real couple.", "maxLength": 500 },
+            { "id": "q6", "question": "Any tips for camera-shy couples doing their first proper shoot?", "placeholder": "What you tell them on the call.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "photographer-lighting-timing",
+          "title": "Lighting, Timing, and Why Your 2pm Ceremony Will Look Different Than Your 6pm One",
+          "description": "Educate couples on how time of day affects their photos and what to plan around.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through how the same ceremony would look at 2pm vs 6pm vs after sunset — visually.", "placeholder": "What changes about colour, mood, contrast, faces.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What ceremony time would you pick if visuals were the only consideration?", "placeholder": "Your gold standard — and why.", "maxLength": 300, "required": true },
+            { "id": "q3", "question": "How does Indian-summer harsh light change your approach? What can a couple do to plan around it?", "placeholder": "Practical rather than theoretical.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the deal with golden hour — and how should couples actually use it on a wedding day?", "placeholder": "When to schedule the couple shoot.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What lighting questions should couples ask the venue before booking?", "placeholder": "Skylights, windows, ceiling height, allowed flash.", "maxLength": 300 },
+            { "id": "q6", "question": "Share a specific wedding where timing/lighting made or broke the day.", "placeholder": "What happened and what you learned.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "photographer-what-i-wish-couples-knew",
+          "title": "What I Wish Every Couple Knew Before Their Wedding Day",
+          "description": "Your honest, experienced take on the things that make or break great wedding photos.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the #1 thing you wish couples understood about wedding photography that most don't?", "placeholder": "The thing you find yourself explaining over and over...", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "What's a common mistake couples make on their wedding day that affects their photos?", "placeholder": "e.g., scheduling too little time between ceremony and reception", "maxLength": 300, "required": true },
+            { "id": "q3", "question": "Share a specific moment from a real wedding that taught you something important.", "placeholder": "A story that illustrates your point — couples love real examples", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "If you could give a couple one piece of timeline/scheduling advice, what would it be?", "placeholder": "", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "What should couples look for when evaluating a photographer's portfolio — beyond just liking the photos?", "placeholder": "The things that separate good from great", "maxLength": 300, "required": true },
+            { "id": "q6", "question": "Any practical tips for looking relaxed and natural in photos?", "placeholder": "Your go-to advice for camera-shy couples", "maxLength": 300, "required": true },
+            { "id": "q7", "question": "Is there anything about wedding photography pricing that couples often misunderstand?", "placeholder": "Only if you want to address this — it's a common question", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "photographer-indoor-vs-outdoor",
+          "title": "Indoor vs. Outdoor: How Your Venue Choice Affects Your Photos",
+          "description": "Real talk about what works, what doesn't, and how to make any space look beautiful.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What does a typical indoor venue do well — visually — that outdoor venues struggle with?", "placeholder": "And vice versa.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "What are the most common indoor venue challenges you photograph around?", "placeholder": "Low ceilings, ugly carpets, tungsten lighting...", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How do you turn a 'basic' banquet hall into beautiful photos? Any tricks couples can ask their photographer to do?", "placeholder": "Real techniques.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the biggest outdoor venue risk people underestimate?", "placeholder": "Weather, light, location logistics.", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "Tell us about a venue that surprised you — looked tough on paper, photographed beautifully.", "placeholder": "Or the reverse.", "maxLength": 500 },
+            { "id": "q6", "question": "If a couple is between two venues, what should they ask before deciding?", "placeholder": "Photographer-perspective questions.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "photographer-camera-shy",
+          "title": "How to Look Natural in Photos When You're Camera-Shy",
+          "description": "Tips and tricks from someone who's coached hundreds of nervous couples.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "What's the first thing you say to a camera-shy couple to help them relax?", "placeholder": "Your opening line.", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "Walk us through 2-3 prompts you use that consistently get natural reactions.", "placeholder": "Your go-to playbook.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What should couples NOT do when they're trying to look natural?", "placeholder": "The classic mistakes.", "maxLength": 300, "required": true },
+            { "id": "q4", "question": "How does posture change everything? Any quick, practical tips?", "placeholder": "Hands, shoulders, weight distribution.", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "Share a story of a nervous couple whose photos turned out incredible.", "placeholder": "What clicked.", "maxLength": 500 },
+            { "id": "q6", "question": "Anything practice-able couples can do in the weeks before the wedding?", "placeholder": "Mirror time, mock photoshoot, etc.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "photographer-real-cost",
+          "title": "The Real Cost of Wedding Photography — and What You're Actually Paying For",
+          "description": "Break down the value beyond just showing up with a camera.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What does a typical wedding photographer's day actually look like — from booking to delivery?", "placeholder": "Hours of work nobody sees.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What's the breakdown of where the money actually goes? (Gear, editing, time, taxes, etc.)", "placeholder": "Be honest — couples appreciate transparency.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "Why do prices vary so much between photographers? What does the difference actually buy?", "placeholder": "Experience, gear, team, edit quality.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the most common pricing question you get — and your honest answer?", "placeholder": "The one you've answered a hundred times.", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "What's a 'cheap photographer' usually skipping? What should couples watch for?", "placeholder": "The corners that get cut.", "maxLength": 400, "required": true },
+            { "id": "q6", "question": "If a couple has a tight budget, what's the smartest way to spend it on photography?", "placeholder": "Your real advice.", "maxLength": 400, "required": true }
+          ]
+        }
+      ]
+    },
+    "videographer": {
+      "label": "Videographer",
+      "topics": [
+        {
+          "id": "videographer-cinematic-vs-documentary",
+          "title": "Cinematic vs. Documentary: Which Wedding Video Style Is Right for You?",
+          "description": "Help couples understand what they're actually choosing between.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "In your own words, what's the difference between cinematic and documentary wedding video?", "placeholder": "How you explain it on a discovery call.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "Who is each style actually best for? (Couple personalities, wedding types, etc.)", "placeholder": "The fit questions.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What's a common misconception about each style?", "placeholder": "What couples assume but isn't true.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How does the day itself feel different depending on which style you're shooting?", "placeholder": "From the couple's perspective.", "maxLength": 300, "required": true },
+            { "id": "q5", "question": "Share a wedding where you knew immediately which style fit — and why.", "placeholder": "A specific story.", "maxLength": 500 },
+            { "id": "q6", "question": "If a couple is torn between the two, how do you help them decide?", "placeholder": "Questions you'd ask them.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "videographer-watch-more-than-you-think",
+          "title": "Why You'll Watch Your Wedding Video More Than You Think",
+          "description": "The emotional case for investing in video, from someone who's seen couples react to their films.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "Why do most couples skip video at first — and then regret it?", "placeholder": "The pattern you've watched.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "Tell us about the moment a couple watches their wedding film for the first time. What's that like?", "placeholder": "A real story.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What does video capture that photos genuinely cannot?", "placeholder": "Sound, motion, time, voice.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "Have couples come back years later and told you what the video means now?", "placeholder": "If yes, share that.", "maxLength": 500, "required": true },
+            { "id": "q5", "question": "What would you say to a couple who's on the fence about video right now?", "placeholder": "Your honest pitch.", "maxLength": 300, "required": true }
+          ]
+        },
+        {
+          "id": "videographer-great-highlight-reel",
+          "title": "What Makes a Great Wedding Highlight Reel",
+          "description": "Behind the scenes of how a 5-minute film gets crafted from 12 hours of footage.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "How does a 5-minute highlight reel actually get made? Walk us through your edit process.", "placeholder": "The rough timeline from shoot to delivery.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What separates a 'fine' highlight reel from a great one?", "placeholder": "The craft details.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How do you choose which moments make the cut?", "placeholder": "Your editing instincts.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How important is music selection — and how do you approach it?", "placeholder": "Music, licensing, mood.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What can couples do during the day to give you better highlight material?", "placeholder": "Advice they can act on.", "maxLength": 300, "required": true }
+          ]
+        },
+        {
+          "id": "videographer-same-day-edits",
+          "title": "Same-Day Edits: What They Are and Whether You Need One",
+          "description": "The logistics, the wow factor, and the honest trade-offs.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Explain a same-day edit in your own words — what is it and what should couples expect?", "placeholder": "Your standard explanation.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "When is a same-day edit truly worth it? When isn't it?", "placeholder": "Your honest take.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What does a same-day edit cost in terms of crew, gear, and trade-offs?", "placeholder": "What changes about the day to make it possible.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "Share a story of a same-day reveal that hit perfectly.", "placeholder": "How the room reacted.", "maxLength": 500 },
+            { "id": "q5", "question": "Has a same-day edit ever gone sideways? What would you change?", "placeholder": "Real lesson.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "videographer-vows-on-camera",
+          "title": "How to Write Personal Vows That Sound Great on Camera",
+          "description": "The intersection of heartfelt and cinematic.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What separates vows that play beautifully on film from ones that fall flat?", "placeholder": "Why some vows make the highlight reel.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "How long should personal vows ideally be? Why?", "placeholder": "The sweet spot.", "maxLength": 300, "required": true },
+            { "id": "q3", "question": "Practical tip: how should couples deliver their vows so they're audible and emotional?", "placeholder": "Pace, breath, eye contact.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "Share an example (no names) of vows that became the heart of a wedding film.", "placeholder": "What worked about them.", "maxLength": 500, "required": true },
+            { "id": "q5", "question": "Any common vow mistakes you'd warn couples about?", "placeholder": "The things that don't translate.", "maxLength": 300, "required": true }
+          ]
+        }
+      ]
+    },
+    "decorator-floral": {
+      "label": "Decorator / Floral Designer",
+      "topics": [
+        {
+          "id": "decor-trends-worth-it",
+          "title": "The Décor Trends That Are Actually Worth It (and the Ones That Aren't)",
+          "description": "Your honest take on what's trending and what's a waste of budget.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What's a current décor trend you actually love — and would tell couples to spend on?", "placeholder": "Your favorite right now.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "What's a trend you think is overrated or a budget trap?", "placeholder": "Be honest.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What's a 'classic' element you think every wedding still benefits from?", "placeholder": "The thing that doesn't go out of style.", "maxLength": 300, "required": true },
+            { "id": "q4", "question": "How do you tell if a trend will photograph well vs. look great in person but flat in pictures?", "placeholder": "Your test.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a wedding where a 'trendy' choice paid off massively.", "placeholder": "Specific example.", "maxLength": 500 },
+            { "id": "q6", "question": "Any 'trend' you wish would just go away? Why?", "placeholder": "Your honest pet peeve.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "decor-brief-decorator",
+          "title": "How to Brief Your Decorator So You Actually Get What You Want",
+          "description": "The communication guide from the decorator's perspective.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the most useful thing a couple can bring to the first décor meeting?", "placeholder": "The thing that makes your job easier.", "maxLength": 300, "required": true },
+            { "id": "q2", "question": "What does a great Pinterest board look like — and what's a sign of a bad one?", "placeholder": "Tips and red flags.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should couples talk about budget without underselling themselves?", "placeholder": "How to be honest without limiting your options.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What questions do you wish couples asked at the brief stage?", "placeholder": "Things they only ask after.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a story where a vague brief almost cost the couple their dream look.", "placeholder": "How you saved it — or didn't.", "maxLength": 500 },
+            { "id": "q6", "question": "What's the right level of trust to give your decorator? When should they push back?", "placeholder": "Where you draw the line.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "decor-mandap-101",
+          "title": "Mandap Design 101: Styles, Flowers, and What to Consider",
+          "description": "A comprehensive guide to the centerpiece of the ceremony.",
+          "estimatedReadingTime": "7 min",
+          "questions": [
+            { "id": "q1", "question": "What are the main mandap styles couples should know about — and how do you describe each?", "placeholder": "Traditional, modern, fusion, floral, structural.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What's the first thing you consider when designing a mandap?", "placeholder": "The starting question.", "maxLength": 300, "required": true },
+            { "id": "q3", "question": "How do you choose flowers for a mandap? What lasts well under heat and lights?", "placeholder": "Practical floral logic.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "What scale considerations matter (ceiling height, guest count, photo angles)?", "placeholder": "What makes a mandap feel right vs. too big or small.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's the budget range for different mandap styles, generally?", "placeholder": "Approximate.", "maxLength": 400, "required": true },
+            { "id": "q6", "question": "Share a mandap design you're especially proud of, and why.", "placeholder": "What made it special.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "decor-banquet-hall-magic",
+          "title": "How to Transform a Basic Banquet Hall Into Something Magical",
+          "description": "Practical tips for working with less-than-perfect venues.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the first move you make when walking into a 'plain' banquet hall?", "placeholder": "Your starting framework.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "What are the highest-leverage décor moves for a basic venue (visually)?", "placeholder": "Drape, light, ceiling, focal points.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "How do you handle bad existing carpet, walls, or fixtures?", "placeholder": "Hide, cover, or work with.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the role of lighting in transforming a hall?", "placeholder": "Why it matters more than people think.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a hall you turned into something the couple still talks about.", "placeholder": "Before/after story.", "maxLength": 500, "required": true }
+          ]
+        },
+        {
+          "id": "decor-seasonal-flowers-india",
+          "title": "Seasonal Flowers in India: What's Available When (and What It Costs)",
+          "description": "The practical guide every bride needs before falling in love with out-of-season blooms.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through what's blooming locally in each Indian wedding season.", "placeholder": "Roughly month-by-month or season-by-season.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What flowers do couples ask for that are usually a bad idea — and what's a great alternative?", "placeholder": "The classic 'I want peonies in May' situations.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "How much does seasonality actually move the price?", "placeholder": "Ballpark.", "maxLength": 300, "required": true },
+            { "id": "q4", "question": "What flowers travel well? What wilts the second the AC goes off?", "placeholder": "Practical durability info.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Any underrated Indian flowers that brides should consider more often?", "placeholder": "Your love letter.", "maxLength": 400, "required": true }
+          ]
+        },
+        {
+          "id": "decor-real-vs-artificial",
+          "title": "Real vs. Artificial Flowers: An Honest Comparison",
+          "description": "Pros, cons, costs, and when each makes sense.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "When is real the right call? When does artificial actually win?", "placeholder": "Your honest framework.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What does the cost comparison actually look like?", "placeholder": "Including labor, prep, transport.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What are the visual giveaways of artificial flowers — and how do you avoid them?", "placeholder": "How couples can tell good faux from bad.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How does scent (or lack of it) factor into the decision?", "placeholder": "What couples don't think about.", "maxLength": 300 },
+            { "id": "q5", "question": "Share a wedding where artificial was the surprise hero — or where real was non-negotiable.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "caterer": {
+      "label": "Caterer",
+      "topics": [
+        {
+          "id": "caterer-menu-everyone-happy",
+          "title": "How to Plan a Wedding Menu That Makes Everyone Happy",
+          "description": "The vegetarian uncle, the vegan cousin, the kid who only eats paneer. Your strategy.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What's your framework for building a menu that covers a diverse Indian guest list?", "placeholder": "How you start.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What dietary considerations come up most often — and how do you handle them?", "placeholder": "Veg, vegan, Jain, gluten, allergies.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's a dish category every menu should include — and what's safe to skip?", "placeholder": "Your essentials and your 'nice-to-haves'.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How do you balance crowd-pleasers vs. signature/special dishes?", "placeholder": "The mix.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a wedding where the menu strategy genuinely changed the vibe.", "placeholder": "Story.", "maxLength": 500 },
+            { "id": "q6", "question": "How early should couples lock in the menu? What changes if they wait?", "placeholder": "Practical timing.", "maxLength": 300 }
+          ]
+        },
+        {
+          "id": "caterer-real-cost",
+          "title": "The Real Cost of Wedding Catering: A Per-Plate Breakdown",
+          "description": "Transparency about where the money goes.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What does a typical per-plate cost actually break down into?", "placeholder": "Food, labor, equipment, overhead, taxes.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "Why do per-plate prices vary so much from caterer to caterer?", "placeholder": "What you're really paying for.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What's the smartest place to save money on a menu? The worst place to cut?", "placeholder": "Honest tips.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What 'hidden' costs do couples not anticipate?", "placeholder": "Service charges, chafers, runners, etc.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "How does guest count affect per-plate cost — and where are the breakpoints?", "placeholder": "Small wedding vs big.", "maxLength": 300, "required": true }
+          ]
+        },
+        {
+          "id": "caterer-service-styles",
+          "title": "Live Stations vs. Buffet vs. Plated: Which Service Style Works for Your Wedding?",
+          "description": "The logistics, the guest experience, and the budget impact of each.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Compare the three styles — guest experience, cost, time, vibe.", "placeholder": "Your honest breakdown.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "Which style works best for big Indian weddings, and why?", "placeholder": "Your default.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What's a hybrid approach you'd recommend?", "placeholder": "Mixing styles for different events.", "maxLength": 400 },
+            { "id": "q4", "question": "What's the most common service-style mistake you see?", "placeholder": "What goes wrong.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a wedding where the service style created the wow factor.", "placeholder": "Specific story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "caterer-tasting-tips",
+          "title": "How to Do a Great Tasting (and What to Actually Pay Attention To)",
+          "description": "What matters beyond just liking the food.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "How should couples prepare for a tasting? What to bring/think about?", "placeholder": "Notebooks, appetite, questions.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "Beyond taste, what should they evaluate?", "placeholder": "Presentation, temperature, consistency.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's the right order to taste in?", "placeholder": "How to keep your palate fresh.", "maxLength": 300 },
+            { "id": "q4", "question": "What questions should couples ask during the tasting?", "placeholder": "The essentials.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's the most useful feedback a couple has ever given you?", "placeholder": "Story.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "caterer-late-night-snacks",
+          "title": "Late-Night Snack Ideas That Will Make Your Guests Love You",
+          "description": "The post-reception food that gets people talking.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "What are your top 3-5 late-night snacks that consistently get rave reactions?", "placeholder": "Your hit list.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What's the timing/logistics of late-night snacks at a typical reception?", "placeholder": "When and how to serve.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "Any creative or unexpected late-night ideas you love?", "placeholder": "The 'why didn't we do this' kind.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What snacks should couples avoid even though they sound fun?", "placeholder": "What doesn't work.", "maxLength": 300 },
+            { "id": "q5", "question": "Share a real moment when late-night snacks became the wedding's main story.", "placeholder": "The reaction you remember.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "caterer-feed-500",
+          "title": "How to Feed 500 Guests Without Losing Your Mind",
+          "description": "Large-scale wedding catering from someone who's done it.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What changes the moment guest count crosses 300-500?", "placeholder": "What people don't realize.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "How do you scale a menu without losing quality?", "placeholder": "Your method.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's your team setup for a 500-guest wedding?", "placeholder": "Staff per guest, stations, kitchen.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What goes wrong at scale that doesn't happen at smaller weddings?", "placeholder": "Practical pitfalls.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a 500+ guest wedding war story.", "placeholder": "How it went and what you learned.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "makeup-hair": {
+      "label": "Makeup Artist",
+      "topics": [
+        {
+          "id": "mua-bridal-timeline",
+          "title": "Your Bridal Makeup Timeline: What Happens and How Long It Actually Takes",
+          "description": "Set realistic expectations for the morning of.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through your typical bridal makeup timeline, hour by hour.", "placeholder": "From arrival to final touch-up.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "How long does bridal makeup actually take — and what makes it longer or shorter?", "placeholder": "Average + variables.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should the bride plan around her own timeline (eating, hair, outfit, photos)?", "placeholder": "Practical morning-of advice.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "What's the most common timeline mistake that throws everything off?", "placeholder": "What couples underestimate.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a wedding morning where the timeline saved the day — or didn't.", "placeholder": "Specific story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "mua-12-hour-makeup",
+          "title": "How to Choose a Makeup Look That Lasts 12 Hours",
+          "description": "Product types, techniques, and what to ask for.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What separates makeup that lasts 12 hours from makeup that doesn't?", "placeholder": "Products, technique, prep.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What products do you trust for long-wear bridal looks?", "placeholder": "Your kit's MVPs.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What should the bride ask the MUA at the trial about longevity?", "placeholder": "The right questions.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How do humidity, heat, and Indian ceremonies affect wear time?", "placeholder": "Practical realities.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's a touch-up kit a bride should keep handy?", "placeholder": "The essentials.", "maxLength": 300, "required": true }
+          ]
+        },
+        {
+          "id": "mua-bridal-trial",
+          "title": "The Bridal Trial: What to Bring, What to Ask, What to Watch For",
+          "description": "Make the most of this critical appointment.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What should every bride bring to her trial?", "placeholder": "The checklist.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "What questions should she ask during the trial?", "placeholder": "Beyond 'do you like it'.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should she evaluate the look — what to test, where, in what light?", "placeholder": "Your method.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "What's a common trial mistake that leads to wedding-day regret?", "placeholder": "What couples skip.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a trial that completely changed a bride's vision (for the better).", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "mua-skincare-prep",
+          "title": "Skincare Prep: What to Start 3 Months Before Your Wedding",
+          "description": "The routine your skin needs before makeup day.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What should a bride start doing 3 months out for her skin?", "placeholder": "The full timeline.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What treatments are worth the money — and which ones aren't?", "placeholder": "Honest take.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What should brides absolutely NOT try in the last month?", "placeholder": "Risky moves.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How does diet, sleep, and stress show up in bridal skin?", "placeholder": "What you've seen.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a bride whose skincare prep made a visible difference.", "placeholder": "Before/after story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "mua-makeup-lehenga",
+          "title": "How to Match Your Makeup to Your Lehenga Color",
+          "description": "Color theory meets bridal beauty.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the basic principle for matching makeup to lehenga color?", "placeholder": "Your starting framework.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "How does makeup change for warm-toned vs cool-toned outfits?", "placeholder": "Your adjustments.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What lehenga colors are tricky to flatter? How do you work around them?", "placeholder": "The hard ones.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How do you handle multi-event weddings with very different outfits?", "placeholder": "Multiple looks strategy.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a bride whose makeup elevated the lehenga to another level.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "mehndi": {
+      "label": "Mehndi Artist",
+      "topics": [
+        {
+          "id": "mehndi-darkest-stain",
+          "title": "How to Get the Darkest Mehndi Stain: Myths vs. What Actually Works",
+          "description": "The science and the tips from someone who does this daily.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What actually determines how dark mehndi stains? (Real science, real factors.)", "placeholder": "Heat, time, henna quality, skin chemistry.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What are the biggest myths people believe — and what's true instead?", "placeholder": "Lemon-sugar, clove smoke, etc.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What can the bride actually do (or avoid doing) to get the darkest stain?", "placeholder": "Your real recommendations.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "How does the type of henna paste itself affect the result?", "placeholder": "What you use and why.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a bride whose stain came out incredibly dark — what was different?", "placeholder": "Specific case.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "mehndi-bridal-design",
+          "title": "Choosing Your Bridal Mehndi Design: Styles, Timing, and What to Know",
+          "description": "The comprehensive guide.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through the main mehndi styles brides choose between.", "placeholder": "Indian, Arabic, Indo-Arabic, modern, etc.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "How should the bride pick a style? What should she think about?", "placeholder": "Personality, outfit, vibe.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How long does bridal mehndi typically take, and how should it be planned?", "placeholder": "Realistic timing.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What design elements are couples loving right now?", "placeholder": "Names, dates, portraits, motifs.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's a common bridal mehndi mistake to avoid?", "placeholder": "What you wish brides knew sooner.", "maxLength": 400, "required": true },
+            { "id": "q6", "question": "Share a design you're especially proud of and why.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "mehndi-care-timeline",
+          "title": "How to Care for Your Mehndi: A Timeline from Application to Wedding Day",
+          "description": "Hour-by-hour care instructions.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through what the bride should do hour-by-hour after application.", "placeholder": "First 24 hours.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What should she absolutely NOT do during peeling and staining?", "placeholder": "The don'ts.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should she care for the mehndi between application day and the wedding?", "placeholder": "Day 2 to day 7.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What aftercare products do you actually recommend?", "placeholder": "Be specific.", "maxLength": 400 },
+            { "id": "q5", "question": "What's a quick fix if the stain is patchy or lighter than hoped?", "placeholder": "Real options.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "mehndi-modern-trends",
+          "title": "Modern Mehndi Trends: What's New and What's Classic",
+          "description": "The evolution of mehndi design.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What new design trends are you seeing in bridal mehndi right now?", "placeholder": "What clients are asking for.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What classic elements are timeless — and why?", "placeholder": "The forever motifs.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "Are there styles you think are overused right now?", "placeholder": "Honest opinion.", "maxLength": 300 },
+            { "id": "q4", "question": "How are couples personalizing their mehndi these days?", "placeholder": "Names, places, story elements.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's a trend you wish more brides would try?", "placeholder": "Your favorite under-loved style.", "maxLength": 400, "required": true }
+          ]
+        }
+      ]
+    },
+    "dj": {
+      "label": "DJ / Music",
+      "topics": [
+        {
+          "id": "dj-multi-gen-playlist",
+          "title": "How to Build a Wedding Playlist That Keeps Every Generation Dancing",
+          "description": "The art of mixing Bollywood classics with current hits.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's your strategy for keeping every age group on the dance floor?", "placeholder": "Your honest approach.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What's the right ratio of throwback Bollywood, current Hindi, and English/Western?", "placeholder": "Your default mix.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What songs work magic across every generation?", "placeholder": "The universal floor-fillers.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How do you read a room and shift in real time?", "placeholder": "Your craft.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a moment where one song completely changed the night.", "placeholder": "The story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "dj-sangeet-music",
+          "title": "Sangeet Music Planning: From Choreography Tracks to Dance Floor Bangers",
+          "description": "A DJ's guide to the most music-intensive event.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "How do you structure music for a sangeet from start to finish?", "placeholder": "The arc of the night.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "How should families coordinate their performances and song picks with the DJ?", "placeholder": "Practical coordination.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What technical things do choreographers need from you in advance?", "placeholder": "Tracks, edits, queues.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "When and how should the DJ shift from performances to free dancing?", "placeholder": "The transition moment.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share your favorite sangeet moment of all time.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "dj-sound-setup-checklist",
+          "title": "The Sound Setup Checklist: What to Ask Your Venue Before Booking a DJ",
+          "description": "Technical stuff that matters but nobody thinks about.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "What sound/power questions should couples ask the venue before booking a DJ?", "placeholder": "Your checklist.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What venue restrictions catch couples off guard?", "placeholder": "Sound limits, curfews, wattage.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What does a 'good' venue setup look like vs. a difficult one?", "placeholder": "Practically speaking.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What can the DJ bring to compensate for a tough setup?", "placeholder": "Backup gear, smart placement.", "maxLength": 400 },
+            { "id": "q5", "question": "Share a venue surprise that almost broke the night.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "dj-handle-requests",
+          "title": "How to Handle Song Requests Without Losing Control of the Vibe",
+          "description": "The diplomatic DJ's guide.",
+          "estimatedReadingTime": "4 min",
+          "questions": [
+            { "id": "q1", "question": "What's your real policy on song requests at a wedding?", "placeholder": "Your honest line.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "How do you politely decline a request that would kill the floor?", "placeholder": "Your script.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What requests do you always say yes to (even if you've heard them too many times)?", "placeholder": "The non-negotiables.", "maxLength": 300, "required": true },
+            { "id": "q4", "question": "How should the couple set request expectations with their family?", "placeholder": "Pre-wedding alignment.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a request that turned out to be the surprise hit of the night.", "placeholder": "Story.", "maxLength": 400 }
+          ]
+        }
+      ]
+    },
+    "wedding-planner": {
+      "label": "Wedding Planner",
+      "topics": [
+        {
+          "id": "planner-first-5-things",
+          "title": "The First 5 Things to Do After Getting Engaged",
+          "description": "Your step-by-step starting guide from someone who's seen hundreds of couples begin this journey.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What are the first 5 things every newly engaged couple should do (in order)?", "placeholder": "Your real list.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What's the biggest mistake couples make in the first month of planning?", "placeholder": "What you wish they'd skipped.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What conversation should they have with each other before talking to vendors?", "placeholder": "The internal alignment.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What conversation should they have with their families early on?", "placeholder": "The harder one.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's the right pace? When should they slow down vs. move fast?", "placeholder": "Pacing wisdom.", "maxLength": 400, "required": true }
+          ]
+        },
+        {
+          "id": "planner-realistic-budget",
+          "title": "How to Create a Realistic Wedding Budget (and Actually Stick to It)",
+          "description": "The budgeting framework that works.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "How should couples actually build a wedding budget — your framework?", "placeholder": "Step by step.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What's the typical budget allocation by category?", "placeholder": "Percentages or rough splits.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What categories do couples chronically underestimate?", "placeholder": "The blind spots.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's the smartest place to splurge? The smartest place to save?", "placeholder": "Your honest take.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "How do you handle 'budget creep' once planning is underway?", "placeholder": "Your method.", "maxLength": 400, "required": true },
+            { "id": "q6", "question": "Share a couple who stuck to budget — what did they do differently?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "planner-day-of-vs-full",
+          "title": "Day-Of Coordinator vs. Full Planner: What You Actually Need",
+          "description": "Honest advice on the level of help that fits your situation.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Explain the difference between the levels of planning service in plain English.", "placeholder": "Day-of, partial, full.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "Who's a great fit for a day-of coordinator vs. a full planner?", "placeholder": "Honest profiles.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's the value couples don't realize they're getting from a full planner?", "placeholder": "The hidden hours.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "When does going without any planner make sense?", "placeholder": "The honest answer.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a wedding where the level of planning support saved (or sank) the day.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "planner-vendor-timeline",
+          "title": "The Vendor Hiring Timeline: When to Book What",
+          "description": "The calendar every couple needs.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through your ideal vendor booking timeline — from 12+ months out to wedding week.", "placeholder": "Categories by month.", "maxLength": 700, "required": true },
+            { "id": "q2", "question": "Which vendors should be locked in first, and why?", "placeholder": "Priority order.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "What happens if couples wait too long on key vendors?", "placeholder": "Real consequences.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "Are there vendors couples can wait on without much risk?", "placeholder": "The flexible ones.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Tell us about a couple who started late — what could and couldn't be saved?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "planner-family-expectations",
+          "title": "How to Manage Family Expectations Without Losing Your Mind",
+          "description": "The emotional side of planning that no checklist covers.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What's the most common family-expectations conflict you see — and how do you help couples navigate it?", "placeholder": "Real example.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "How should couples set expectations with parents early on?", "placeholder": "The first conversation.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's a useful framework when both families want different things?", "placeholder": "Your tactic.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How can a planner help shield the couple from the day-to-day pressure?", "placeholder": "Your role.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a couple who handled family pressure beautifully — what did they do?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "planner-destination-realistic",
+          "title": "Destination Wedding Planning: A Realistic Guide",
+          "description": "Logistics, budgets, and the things nobody tells you.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What changes immediately when a wedding is destination?", "placeholder": "Logistics, vendor pool, costs.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What costs are higher than couples expect?", "placeholder": "The real numbers.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How do you handle vendor sourcing across borders?", "placeholder": "Your process.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's a destination-wedding mistake you see often?", "placeholder": "What couples don't anticipate.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a destination wedding that worked beautifully — what made it work?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "pandit": {
+      "label": "Pandit / Officiant",
+      "topics": [
+        {
+          "id": "pandit-ceremony-guide",
+          "title": "Understanding Your Wedding Ceremony: A Guide to Hindu Rituals",
+          "description": "Explain each ritual's meaning for couples and their guests.",
+          "estimatedReadingTime": "8 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through the major rituals in a Hindu wedding ceremony, in order.", "placeholder": "Ganesh puja, kanyadaan, mangal phera, saptapadi, sindoor.", "maxLength": 800, "required": true },
+            { "id": "q2", "question": "What does each ritual actually mean — symbolically and practically?", "placeholder": "Meaning behind each step.", "maxLength": 800, "required": true },
+            { "id": "q3", "question": "What rituals do couples often misunderstand?", "placeholder": "What gets explained wrong.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How does a typical ceremony length break down?", "placeholder": "Realistic timing.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a ceremony moment that moved you — and why.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "pandit-personalize",
+          "title": "How to Personalize Your Wedding Ceremony (While Keeping It Traditional)",
+          "description": "The modern couple's guide to meaningful rituals.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What rituals can be personalized — and how — without losing tradition?", "placeholder": "Practical examples.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What's a personalization you've seen that was beautiful and meaningful?", "placeholder": "Specific moment.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's a personalization that goes too far — where does the line sit for you?", "placeholder": "Your honest perspective.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How should couples have this conversation with you (or any pandit)?", "placeholder": "How to ask for changes.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "How do you handle requests that don't align with the rituals' intent?", "placeholder": "Your approach.", "maxLength": 400 }
+          ]
+        },
+        {
+          "id": "pandit-non-indian-guests",
+          "title": "What Your Non-Indian Guests Need to Know About Your Wedding Ceremony",
+          "description": "A guide you can share with your guest list.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What does a non-Indian guest most need explained before the ceremony?", "placeholder": "The basics.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What guest behaviors should be encouraged? Discouraged?", "placeholder": "Etiquette and engagement.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "How can the couple set up their guests for a great experience?", "placeholder": "Programs, intros, signage.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What rituals do non-Indian guests respond to most?", "placeholder": "What lands.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a moment where a non-Indian guest 'got' something beautiful about the ceremony.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "choreographer": {
+      "label": "Choreographer",
+      "topics": [
+        {
+          "id": "choreographer-sangeet-timeline",
+          "title": "How to Plan a Sangeet Performance: A Step-by-Step Timeline",
+          "description": "From song selection to stage-ready.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through your full sangeet performance timeline — from first session to wedding night.", "placeholder": "Weeks-out plan.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "How long does a typical sangeet number take to learn?", "placeholder": "Realistic expectations.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How should families pick a song — and avoid disasters?", "placeholder": "Your tips.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What's a common timeline mistake you see groups make?", "placeholder": "Last-minute regret.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a sangeet that came together against the odds.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "choreographer-cant-dance",
+          "title": "Sangeet Ideas for People Who Say They Can't Dance",
+          "description": "Inclusive, fun choreography approaches.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What do you tell someone who insists they can't dance?", "placeholder": "Your real opening.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "What choreography approaches work for non-dancers?", "placeholder": "Your tools.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What's a song genre or style that's beginner-proof?", "placeholder": "What rarely fails.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How do you keep practice sessions fun — not painful?", "placeholder": "The vibe.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a 'non-dancer' who absolutely killed it on stage.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "choreographer-family-dance",
+          "title": "How to Coordinate a Family Dance Number Without Family Drama",
+          "description": "The diplomatic choreographer's playbook.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What's the most common family-dance drama you see?", "placeholder": "Patterns.", "maxLength": 400, "required": true },
+            { "id": "q2", "question": "How do you handle a member who wants more spotlight?", "placeholder": "Diplomatically.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How do you set boundaries that protect the performance?", "placeholder": "Your rules.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "What should the bride/groom do BEFORE the first practice to avoid drama?", "placeholder": "Pre-game.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a family that pulled it off beautifully — what helped?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    },
+    "jeweler": {
+      "label": "Jeweler",
+      "topics": [
+        {
+          "id": "jeweler-bridal-jewelry-guide",
+          "title": "A Guide to Indian Bridal Jewelry: What Goes Where and What It Means",
+          "description": "Maang tikka, nath, haar, chooda, kalire — the complete guide.",
+          "estimatedReadingTime": "7 min",
+          "questions": [
+            { "id": "q1", "question": "Walk us through every piece of traditional bridal jewelry, what it's called, and where it goes.", "placeholder": "Head to toe.", "maxLength": 800, "required": true },
+            { "id": "q2", "question": "What does each piece symbolize — culturally and historically?", "placeholder": "The meaning.", "maxLength": 700, "required": true },
+            { "id": "q3", "question": "How do regional styles differ (North, South, West, East)?", "placeholder": "What changes by region.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "What pieces are essentials? Which are optional?", "placeholder": "Your priority list.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a bride who picked her jewelry beautifully — what guided her?", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        },
+        {
+          "id": "jeweler-real-vs-fashion",
+          "title": "How to Choose Between Real and Fashion Jewelry for Your Wedding",
+          "description": "Budget, look, and practical considerations.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "When does real jewelry make sense? When does fashion make more sense?", "placeholder": "Your honest framework.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "What does the look difference actually look like — to a trained eye and to a guest?", "placeholder": "Visual reality.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "What about cost — real numbers, real ranges?", "placeholder": "Ballpark.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "How does long-term value factor in?", "placeholder": "Heirloom thinking.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's your honest recommendation for a couple choosing today?", "placeholder": "Your real take.", "maxLength": 500, "required": true }
+          ]
+        }
+      ]
+    },
+    "stationery": {
+      "label": "Invitation Designer",
+      "topics": [
+        {
+          "id": "stationery-etiquette",
+          "title": "Wedding Invitation Etiquette for Indian Weddings",
+          "description": "What to include, how to word it, when to send it.",
+          "estimatedReadingTime": "6 min",
+          "questions": [
+            { "id": "q1", "question": "What every Indian wedding invitation should absolutely include?", "placeholder": "The essentials.", "maxLength": 500, "required": true },
+            { "id": "q2", "question": "How do you handle multi-event invitations (mehndi, sangeet, ceremony, reception)?", "placeholder": "Single suite vs. multiple.", "maxLength": 500, "required": true },
+            { "id": "q3", "question": "How should couples word the invitation respectfully — given it usually mentions parents?", "placeholder": "Wording conventions.", "maxLength": 500, "required": true },
+            { "id": "q4", "question": "When should invitations actually be sent — and save the dates?", "placeholder": "Real timing.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "What's the most common etiquette mistake you see?", "placeholder": "What couples don't think about.", "maxLength": 400, "required": true }
+          ]
+        },
+        {
+          "id": "stationery-digital-vs-print",
+          "title": "Digital vs. Print Invitations: The Honest Comparison",
+          "description": "Cost, etiquette, eco-impact, and what your guests actually prefer.",
+          "estimatedReadingTime": "5 min",
+          "questions": [
+            { "id": "q1", "question": "What are the genuine pros and cons of digital vs. print invitations today?", "placeholder": "Honest tradeoffs.", "maxLength": 600, "required": true },
+            { "id": "q2", "question": "What does the cost actually compare to — at typical Indian guest counts?", "placeholder": "Real numbers.", "maxLength": 400, "required": true },
+            { "id": "q3", "question": "How do older relatives typically respond to digital invitations?", "placeholder": "Reality vs. assumption.", "maxLength": 400, "required": true },
+            { "id": "q4", "question": "Is hybrid (digital + a few key print) worth it?", "placeholder": "Your take.", "maxLength": 400, "required": true },
+            { "id": "q5", "question": "Share a couple who chose the unexpected option and made it work.", "placeholder": "Story.", "maxLength": 500 }
+          ]
+        }
+      ]
+    }
+  },
+  "defaultTopics": [
+    {
+      "id": "default-what-couples-should-know",
+      "title": "What Every Couple Should Know Before Hiring Someone Like You",
+      "description": "Your insider guide to your own industry.",
+      "estimatedReadingTime": "5 min",
+      "questions": [
+        { "id": "q1", "question": "What's the #1 thing couples don't know about working with someone in your field?", "placeholder": "The thing you wish they understood up front.", "maxLength": 400, "required": true },
+        { "id": "q2", "question": "What questions should they be asking you — but rarely do?", "placeholder": "The smart ones.", "maxLength": 400, "required": true },
+        { "id": "q3", "question": "What red flags should they watch for when hiring someone in your line of work?", "placeholder": "Your watchouts.", "maxLength": 400, "required": true },
+        { "id": "q4", "question": "What does great service look like in your industry vs. mediocre?", "placeholder": "Your distinction.", "maxLength": 400, "required": true },
+        { "id": "q5", "question": "Share a story of a couple who hired well — and one who didn't.", "placeholder": "What changed for each.", "maxLength": 500, "required": true },
+        { "id": "q6", "question": "If a couple is on the fence about hiring someone like you, what would you tell them?", "placeholder": "Your honest take.", "maxLength": 400 }
+      ]
+    },
+    {
+      "id": "default-top-mistakes",
+      "title": "The Top Mistakes Couples Make When Working With Your Type of Vendor",
+      "description": "Real talk from your experience.",
+      "estimatedReadingTime": "5 min",
+      "questions": [
+        { "id": "q1", "question": "What's the most common mistake couples make when hiring someone in your line of work?", "placeholder": "The one you see all the time.", "maxLength": 400, "required": true },
+        { "id": "q2", "question": "What mistake costs them the most — financially or experientially?", "placeholder": "Your honest answer.", "maxLength": 400, "required": true },
+        { "id": "q3", "question": "What mistake actually has nothing to do with the vendor — but is always blamed on them?", "placeholder": "The unfair one.", "maxLength": 400, "required": true },
+        { "id": "q4", "question": "What's the easiest mistake to avoid if couples just knew?", "placeholder": "The teachable one.", "maxLength": 400, "required": true },
+        { "id": "q5", "question": "Share a real story — without naming names — of a wedding where a small choice had a big consequence.", "placeholder": "The lesson.", "maxLength": 500, "required": true },
+        { "id": "q6", "question": "What's your one piece of advice for couples about to hire someone like you?", "placeholder": "Your closing line.", "maxLength": 300, "required": true }
+      ]
+    },
+    {
+      "id": "default-day-in-life",
+      "title": "Behind the Scenes: What Your Day Actually Looks Like",
+      "description": "Pull back the curtain on your craft.",
+      "estimatedReadingTime": "6 min",
+      "questions": [
+        { "id": "q1", "question": "Walk us through a typical wedding day from your perspective — start to finish.", "placeholder": "What couples don't see.", "maxLength": 700, "required": true },
+        { "id": "q2", "question": "How early do you start? How late do you stay?", "placeholder": "Real hours.", "maxLength": 300, "required": true },
+        { "id": "q3", "question": "What's the most physically demanding part of your job?", "placeholder": "The exhaustion couples don't see.", "maxLength": 400, "required": true },
+        { "id": "q4", "question": "What's the most rewarding part?", "placeholder": "Why you keep doing it.", "maxLength": 400, "required": true },
+        { "id": "q5", "question": "Share a wedding moment that made all the work worth it.", "placeholder": "The story.", "maxLength": 500, "required": true },
+        { "id": "q6", "question": "What's something couples could do that would make your job easier — and the wedding better?", "placeholder": "Your simple ask.", "maxLength": 400, "required": true }
+      ]
+    }
+  ]
+}

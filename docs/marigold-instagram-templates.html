@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Marigold — Instagram Template Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --pink: #D4537E; --hot-pink: #ED93B1; --deep-pink: #993556;
+    --blush: #FBEAF0; --cream: #FFF8F2; --wine: #4B1528; --mauve: #8A6070;
+    --gold: #D4A853; --gold-light: #F5E6C8;
+    --lavender: #E0D0F0; --mint: #C8EDDA; --peach: #FFD8B8; --sky: #C8DFF5;
+  }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #f0f0f0;
+    padding: 40px;
+    color: #333;
+  }
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 36px;
+    color: var(--wine);
+    margin-bottom: 8px;
+  }
+  h1 i { color: var(--pink); }
+  .page-sub {
+    font-size: 16px;
+    color: var(--mauve);
+    margin-bottom: 12px;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  .instructions {
+    background: var(--gold-light);
+    border: 2px dashed var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    max-width: 700px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--wine);
+  }
+  .instructions strong { color: var(--deep-pink); }
+
+  .series-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--pink);
+    margin-top: 60px;
+    margin-bottom: 6px;
+  }
+  .series-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    color: var(--wine);
+    margin-bottom: 8px;
+  }
+  .series-desc {
+    font-size: 14px;
+    color: var(--mauve);
+    margin-bottom: 24px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .template-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    align-items: flex-start;
+  }
+  .template-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--mauve);
+    margin-bottom: 8px;
+  }
+
+  /* ============================================ */
+  /* TEMPLATE FRAMES                              */
+  /* ============================================ */
+
+  /* Story = 1080x1920, scaled to 270x480 for preview */
+  .story-frame {
+    width: 270px;
+    height: 480px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .story-frame .inner {
+    width: 1080px;
+    height: 1920px;
+    transform: scale(0.25);
+    transform-origin: top left;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* Post = 1080x1080, scaled to 320x320 */
+  .post-frame {
+    width: 320px;
+    height: 320px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .post-frame .inner {
+    width: 1080px;
+    height: 1080px;
+    transform: scale(0.2963);
+    transform-origin: top left;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  /* ============================================ */
+  /* SHARED TEMPLATE ELEMENTS                     */
+  /* ============================================ */
+
+  .tpl-tape {
+    position: absolute;
+    width: 240px;
+    height: 64px;
+    background: rgba(255,235,200,0.65);
+    border: 2px solid rgba(212,168,83,0.12);
+    z-index: 10;
+  }
+  .tpl-pin {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  }
+  .tpl-pin.pink { background: radial-gradient(circle at 35% 35%, var(--hot-pink), var(--deep-pink)); }
+  .tpl-pin.red { background: radial-gradient(circle at 35% 35%, #ff6b6b, #c0392b); }
+  .tpl-pin.gold { background: radial-gradient(circle at 35% 35%, #ffd700, var(--gold)); }
+  .tpl-pin.blue { background: radial-gradient(circle at 35% 35%, #74b9ff, #3498db); }
+
+  .tpl-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    color: var(--wine);
+  }
+  .tpl-logo i { color: var(--pink); font-style: italic; }
+  .tpl-logo.white { color: white; }
+  .tpl-logo.white i { color: var(--gold-light); }
+
+  .tpl-handle {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tpl-cta-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: var(--wine);
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tpl-cta-bar .logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 44px;
+    color: var(--hot-pink);
+  }
+  .tpl-cta-bar .logo i { font-style: italic; }
+  .tpl-cta-bar .handle {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+
+<h1>The <i>Marigold</i> — Instagram Template Kit</h1>
+<p class="page-sub">Ready-to-use templates at exact Instagram dimensions. Screenshot each template or open in browser at full size and save as image. Swap the placeholder text for each post.</p>
+
+<div class="instructions">
+  <strong>How to use these:</strong><br/>
+  1. Right-click any template → "Open image in new tab" or screenshot it<br/>
+  2. For full resolution: inspect element → find the .inner div → change transform to scale(1) → screenshot at 1080px width<br/>
+  3. Or, zoom your browser to 400% and screenshot the template area<br/>
+  4. Swap the [BRACKETED TEXT] with your actual content each time<br/>
+  5. Keep the visual style consistent — same fonts, colors, tape/pin elements
+</div>
+
+<!-- ========================================================== -->
+<!-- SERIES 1: BRIDEZILLA VS. MOMZILLA                          -->
+<!-- ========================================================== -->
+
+<div class="series-title">SERIES 01</div>
+<h2 class="series-name">Bridezilla vs. Momzilla</h2>
+<p class="series-desc">Split-screen comparisons. Same moment, two perspectives. Post as Reels cover images, carousel posts, or Stories. Change the topic text for each episode.</p>
+
+<div class="template-row">
+
+  <!-- STORY: Bridezilla vs Momzilla -->
+  <div>
+    <div class="template-label">Story Template (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="display: flex; flex-direction: column; background: var(--cream);">
+        <!-- Top half: Bridezilla -->
+        <div style="flex: 1; background: var(--pink); padding: 80px 72px 40px; position: relative; display: flex; flex-direction: column; justify-content: flex-end;">
+          <div class="tpl-tape" style="top: -28px; left: 60px; transform: rotate(-6deg);"></div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">THE BRIDE</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 72px; color: white; line-height: 1.05; margin-bottom: 20px;">"80 people,<br/>max."</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 40px; color: var(--gold-light); transform: rotate(-2deg);">she said, confidently</div>
+        </div>
+
+        <!-- VS divider -->
+        <div style="height: 100px; background: var(--cream); display: flex; align-items: center; justify-content: center; position: relative; z-index: 5;">
+          <div style="font-family: 'Caveat', cursive; font-size: 72px; font-weight: 700; color: var(--gold); transform: rotate(-8deg);">vs.</div>
+          <div class="tpl-pin pink" style="top: -24px; right: 100px;"></div>
+        </div>
+
+        <!-- Bottom half: Momzilla -->
+        <div style="flex: 1; background: var(--wine); padding: 40px 72px 40px; position: relative; display: flex; flex-direction: column; justify-content: flex-start;">
+          <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: rgba(237,147,177,0.4); margin-bottom: 12px;">THE MOM</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 72px; color: white; line-height: 1.05; margin-bottom: 20px;">"I have 347<br/>on my list."</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 40px; color: var(--gold); transform: rotate(2deg);">and that's just dad's side</div>
+          <div class="tpl-pin gold" style="bottom: 120px; right: 60px;"></div>
+        </div>
+
+        <!-- Bottom CTA bar -->
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST: Bridezilla vs Momzilla -->
+  <div>
+    <div class="template-label">Post Template (1080 x 1080)</div>
+    <div class="post-frame">
+      <div class="inner" style="display: grid; grid-template-columns: 1fr 1fr; background: var(--cream); position: relative;">
+        <!-- Left: Bride -->
+        <div style="background: var(--pink); padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+          <div class="tpl-tape" style="top: -28px; left: 30px; transform: rotate(-5deg); width: 180px;"></div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.35); margin-bottom: 8px;">BRIDE</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 56px; color: white; line-height: 1.1; margin-bottom: 16px;">"I want<br/>dusty<br/>rose."</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 34px; color: var(--gold-light); transform: rotate(-2deg);">very specific, very firm</div>
+        </div>
+        <!-- Right: Mom -->
+        <div style="background: var(--wine); padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+          <div class="tpl-pin gold" style="top: 20px; right: 30px;"></div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: rgba(237,147,177,0.35); margin-bottom: 8px;">MOM</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 56px; color: white; line-height: 1.1; margin-bottom: 16px;">"Red is<br/>tradition,<br/>beta."</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 34px; color: var(--gold); transform: rotate(2deg);">she will not be moved</div>
+        </div>
+        <!-- VS overlay -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Caveat', cursive; font-size: 64px; font-weight: 700; color: var(--gold); text-shadow: 2px 3px 0 rgba(0,0,0,0.2); z-index: 5;">vs.</div>
+        <!-- Bottom bar -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(75,21,40,0.9); padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 5;">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 36px; color: var(--hot-pink);">The <i style="font-style:italic">Marigold</i></div>
+          <div style="font-family: 'Caveat', cursive; font-size: 30px; color: rgba(255,255,255,0.3);">we have a tab for both of you</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BONUS: Topic ideas card -->
+  <div>
+    <div class="template-label">Episode Ideas (for your reference)</div>
+    <div style="background: var(--gold-light); padding: 24px; width: 300px; border: 2px dashed var(--gold); font-size: 13px; line-height: 2; color: var(--wine); position: relative;">
+      <div class="tpl-pin red" style="top: -12px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px;"></div>
+      <div style="font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; margin-top: 8px;">EPISODE TOPICS</div>
+      <strong>Ep 1:</strong> Guest list size<br/>
+      <strong>Ep 2:</strong> Lehenga color<br/>
+      <strong>Ep 3:</strong> Mandap décor<br/>
+      <strong>Ep 4:</strong> Food menu choices<br/>
+      <strong>Ep 5:</strong> DJ vs. live band<br/>
+      <strong>Ep 6:</strong> Venue selection<br/>
+      <strong>Ep 7:</strong> Who walks in first<br/>
+      <strong>Ep 8:</strong> Honeymoon destination<br/>
+      <strong>Ep 9:</strong> Photography style<br/>
+      <strong>Ep 10:</strong> Wedding timeline/schedule<br/>
+      <strong>Ep 11:</strong> Sangeet choreography<br/>
+      <strong>Ep 12:</strong> Return gifts
+    </div>
+  </div>
+</div>
+
+
+<!-- ========================================================== -->
+<!-- SERIES 2: THE CONFESSIONAL                                 -->
+<!-- ========================================================== -->
+
+<div class="series-title">SERIES 02</div>
+<h2 class="series-name">The Confessional</h2>
+<p class="series-desc">Anonymous confessions on sticky notes. Post as Stories (save to a "Confessional" highlight) or as a carousel of 5-6 confessions per post. Swap the confession text each time.</p>
+
+<div class="template-row">
+
+  <!-- STORY: Confessional title slide -->
+  <div>
+    <div class="template-label">Title Slide (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--wine); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <!-- scattered pins -->
+        <div class="tpl-pin pink" style="top: 120px; left: 80px;"></div>
+        <div class="tpl-pin gold" style="top: 200px; right: 100px;"></div>
+        <div class="tpl-pin blue" style="bottom: 350px; left: 140px;"></div>
+        <div class="tpl-pin red" style="bottom: 500px; right: 80px;"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 6px; color: var(--hot-pink); margin-bottom: 24px;">THE MARIGOLD PRESENTS</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 140px; color: white; line-height: 0.95; margin-bottom: 24px;">The<br/><i style="color: var(--hot-pink)">Confessional</i></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--gold); transform: rotate(-3deg); margin-bottom: 40px;">anonymous. unfiltered. very real.</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.25);">SWIPE FOR CONFESSIONS →</div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY: Confession - Blush -->
+  <div>
+    <div class="template-label">Confession — Blush (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 80px; position: relative;">
+        <!-- background texture -->
+        <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'c\'%3E%3CfeTurbulence baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'60\' height=\'60\' filter=\'url(%23c)\' opacity=\'0.02\'/%3E%3C/svg%3E'); opacity: 0.5;"></div>
+
+        <!-- the sticky note -->
+        <div style="background: var(--blush); width: 780px; padding: 80px 72px; position: relative; transform: rotate(-2deg); box-shadow: 4px 6px 16px rgba(75,21,40,0.1);">
+          <div class="tpl-pin pink" style="top: -24px; left: 50%; transform: translateX(-50%);"></div>
+
+          <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--pink); margin-bottom: 24px;">CONFESSION #01</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 64px; line-height: 1.3; color: var(--wine); font-weight: 500;">
+            "I told my mom the decorator was fully booked so she'd stop sending me mandap photos. The decorator was not booked."
+          </div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--mauve); margin-top: 32px;">— ANONYMOUS BRIDE, 2026</div>
+        </div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY: Confession - Gold -->
+  <div>
+    <div class="template-label">Confession — Gold (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 80px; position: relative;">
+        <div style="position: absolute; inset: 0; opacity: 0.3; background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'c\'%3E%3CfeTurbulence baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'60\' height=\'60\' filter=\'url(%23c)\' opacity=\'0.02\'/%3E%3C/svg%3E');"></div>
+
+        <div style="background: var(--gold-light); width: 780px; padding: 80px 72px; position: relative; transform: rotate(1.5deg); box-shadow: 4px 6px 16px rgba(75,21,40,0.08); background-image: repeating-linear-gradient(transparent, transparent 74px, rgba(212,83,126,0.06) 74px, rgba(212,83,126,0.06) 76px);">
+          <div class="tpl-pin gold" style="top: -24px; left: 50%; transform: translateX(-50%);"></div>
+
+          <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); margin-bottom: 24px;">CONFESSION #02</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 64px; line-height: 1.3; color: var(--wine); font-weight: 500;">
+            "My MIL added 40 people to the guest list while I was on vacation. I found out from the caterer."
+          </div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--mauve); margin-top: 32px;">— ANONYMOUS BRIDE, 2026</div>
+        </div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY: Confession - Lavender -->
+  <div>
+    <div class="template-label">Confession — Lavender (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 80px; position: relative;">
+        <div style="position: absolute; inset: 0; opacity: 0.3; background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'c\'%3E%3CfeTurbulence baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'60\' height=\'60\' filter=\'url(%23c)\' opacity=\'0.02\'/%3E%3C/svg%3E');"></div>
+
+        <div style="background: var(--lavender); width: 780px; padding: 80px 72px; position: relative; transform: rotate(-1deg); box-shadow: 4px 6px 16px rgba(75,21,40,0.08);">
+          <div class="tpl-pin blue" style="top: -24px; left: 50%; transform: translateX(-50%);"></div>
+
+          <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--deep-pink); margin-bottom: 24px;">CONFESSION #03</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 64px; line-height: 1.3; color: var(--wine); font-weight: 500;">
+            "I created a fake 'venue availability' email to convince my parents we couldn't do a Tuesday wedding."
+          </div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: var(--mauve); margin-top: 32px;">— ANONYMOUS GROOM, 2025</div>
+        </div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY: Submit CTA -->
+  <div>
+    <div class="template-label">Submit Your Confession (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--pink); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px; position: relative;">
+        <div class="tpl-pin gold" style="top: 160px; left: 100px;"></div>
+        <div class="tpl-pin red" style="top: 280px; right: 120px;"></div>
+
+        <div style="font-family: 'Instrument Serif', serif; font-size: 96px; color: white; line-height: 1.05; margin-bottom: 32px;">Got a<br/><i style="color: var(--gold-light)">confession?</i></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 52px; color: rgba(255,255,255,0.6); margin-bottom: 60px; transform: rotate(-2deg);">anonymous. judgment-free. pinky promise.</div>
+        <div style="background: white; color: var(--deep-pink); font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; padding: 36px 72px; box-shadow: 6px 6px 0 var(--wine); transform: rotate(-1deg);">LINK IN BIO</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 36px; color: rgba(255,255,255,0.35); margin-top: 32px;">your secret is safe with 10,000 brides</div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo" style="color: var(--gold-light);">The <i>Marigold</i></div>
+          <div class="handle" style="color: rgba(255,255,255,0.3);">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ========================================================== -->
+<!-- SERIES 3: BRIDE ENERGY QUIZ                                -->
+<!-- ========================================================== -->
+
+<div class="series-title">SERIES 03</div>
+<h2 class="series-name">What's Your Bride Energy?</h2>
+<p class="series-desc">A 5-slide Story flow: title slide → 4 result cards. Post the title slide with a poll sticker, then reveal results. Each result type is shareable — brides repost to their Stories.</p>
+
+<div class="template-row">
+
+  <!-- STORY: Quiz title -->
+  <div>
+    <div class="template-label">Title Slide (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--wine); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <div class="tpl-tape" style="top: 140px; left: 50%; transform: translateX(-50%) rotate(-3deg); width: 300px;"></div>
+
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--gold); transform: rotate(-3deg); margin-bottom: 16px;">take this totally scientific quiz</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 120px; color: white; line-height: 1; margin-bottom: 32px;">What's Your<br/><i style="color: var(--hot-pink)">Bride Energy?</i></div>
+
+        <div style="display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 740px; margin-top: 20px;">
+          <div style="background: rgba(255,255,255,0.06); border: 2px dashed rgba(212,83,126,0.25); padding: 28px 36px; display: flex; align-items: center; gap: 24px;">
+            <div style="width: 56px; height: 56px; border: 2px solid var(--hot-pink); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--hot-pink); flex-shrink: 0;">A</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; color: rgba(255,255,255,0.7); text-align: left;">Zen Queen — "beautiful and stress-free"</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.06); border: 2px dashed rgba(212,83,126,0.25); padding: 28px 36px; display: flex; align-items: center; gap: 24px;">
+            <div style="width: 56px; height: 56px; border: 2px solid var(--hot-pink); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--hot-pink); flex-shrink: 0;">B</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; color: rgba(255,255,255,0.7); text-align: left;">Type-A Goddess — "I have a Gantt chart"</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.06); border: 2px dashed rgba(212,83,126,0.25); padding: 28px 36px; display: flex; align-items: center; gap: 24px;">
+            <div style="width: 56px; height: 56px; border: 2px solid var(--hot-pink); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--hot-pink); flex-shrink: 0;">C</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; color: rgba(255,255,255,0.7); text-align: left;">Creative Visionary — "saving inspo since 2019"</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.06); border: 2px dashed rgba(212,83,126,0.25); padding: 28px 36px; display: flex; align-items: center; gap: 24px;">
+            <div style="width: 56px; height: 56px; border: 2px solid var(--hot-pink); display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--hot-pink); flex-shrink: 0;">D</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; color: rgba(255,255,255,0.7); text-align: left;">Party Starter — "how's the DJ?"</div>
+          </div>
+        </div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT A: Zen Queen -->
+  <div>
+    <div class="template-label">Result A — Zen Queen (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--mint); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <div class="tpl-pin blue" style="top: 160px; left: 50%; transform: translateX(-50%);"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; color: var(--wine); opacity: 0.4; margin-bottom: 16px;">YOUR BRIDE ENERGY IS</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 130px; color: var(--wine); line-height: 1; margin-bottom: 20px;"><i>Zen</i><br/>Queen</div>
+        <div style="width: 120px; height: 3px; background: var(--wine); opacity: 0.15; margin: 12px auto 28px;"></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--wine); opacity: 0.6; line-height: 1.4; max-width: 700px; transform: rotate(-1deg);">"I just want it to be beautiful. The details will work themselves out. They always do."</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--mauve); margin-top: 36px; line-height: 1.6; max-width: 680px;">You need: a platform that handles the chaos while you stay calm. Moodboards over spreadsheets. Briefs that write themselves.</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--wine); margin-top: 40px; opacity: 0.35;">SHARE THIS TO YOUR STORY →</div>
+
+        <div class="tpl-cta-bar" style="background: var(--wine);">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT B: Type-A Goddess -->
+  <div>
+    <div class="template-label">Result B — Type-A Goddess (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--gold-light); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative; background-image: repeating-linear-gradient(transparent, transparent 74px, rgba(212,83,126,0.05) 74px, rgba(212,83,126,0.05) 76px);">
+        <div class="tpl-pin red" style="top: 160px; left: 50%; transform: translateX(-50%);"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; color: var(--wine); opacity: 0.4; margin-bottom: 16px;">YOUR BRIDE ENERGY IS</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 110px; color: var(--wine); line-height: 1; margin-bottom: 20px;"><i>Type-A</i><br/>Goddess</div>
+        <div style="width: 120px; height: 3px; background: var(--wine); opacity: 0.15; margin: 12px auto 28px;"></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--wine); opacity: 0.6; line-height: 1.4; max-width: 700px; transform: rotate(-1deg);">"I have a colour-coded Gantt chart, a backup venue, and a spreadsheet for the spreadsheets."</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--mauve); margin-top: 36px; line-height: 1.6; max-width: 680px;">You need: 582 tasks across 13 phases. Filters by status, priority, and due date. A checklist that finally matches your energy.</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--wine); margin-top: 40px; opacity: 0.35;">SHARE THIS TO YOUR STORY →</div>
+
+        <div class="tpl-cta-bar" style="background: var(--wine);">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT C: Creative Visionary -->
+  <div>
+    <div class="template-label">Result C — Creative Visionary (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--lavender); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <div class="tpl-pin pink" style="top: 160px; left: 50%; transform: translateX(-50%);"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; color: var(--wine); opacity: 0.4; margin-bottom: 16px;">YOUR BRIDE ENERGY IS</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 105px; color: var(--wine); line-height: 1; margin-bottom: 20px;"><i>Creative</i><br/>Visionary</div>
+        <div style="width: 120px; height: 3px; background: var(--wine); opacity: 0.15; margin: 12px auto 28px;"></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--wine); opacity: 0.6; line-height: 1.4; max-width: 700px; transform: rotate(-1deg);">"My Pinterest has 12 boards and I know the difference between editorial and documentary photography."</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--mauve); margin-top: 36px; line-height: 1.6; max-width: 680px;">You need: moodboards that flow across workspaces. A colour & tone slider. Style keyword chips. The Brief that makes your vendor cry happy tears.</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--wine); margin-top: 40px; opacity: 0.35;">SHARE THIS TO YOUR STORY →</div>
+
+        <div class="tpl-cta-bar" style="background: var(--wine);">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT D: Party Starter -->
+  <div>
+    <div class="template-label">Result D — Party Starter (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--peach); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <div class="tpl-pin gold" style="top: 160px; left: 50%; transform: translateX(-50%);"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 5px; color: var(--wine); opacity: 0.4; margin-bottom: 16px;">YOUR BRIDE ENERGY IS</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 120px; color: var(--wine); line-height: 1; margin-bottom: 20px;"><i>Party</i><br/>Starter</div>
+        <div style="width: 120px; height: 3px; background: var(--wine); opacity: 0.15; margin: 12px auto 28px;"></div>
+        <div style="font-family: 'Caveat', cursive; font-size: 48px; color: var(--wine); opacity: 0.6; line-height: 1.4; max-width: 700px; transform: rotate(-1deg);">"Less planning, more dancing. Is the DJ confirmed? That's literally all I need to know."</div>
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; color: var(--mauve); margin-top: 36px; line-height: 1.6; max-width: 680px;">You need: Guest Experience Lab for photo booths and sparkler exits. A sangeet playlist builder. And someone else to handle the rest (hi, that's us).</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--wine); margin-top: 40px; opacity: 0.35;">SHARE THIS TO YOUR STORY →</div>
+
+        <div class="tpl-cta-bar" style="background: var(--wine);">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ========================================================== -->
+<!-- BONUS: GENERAL USE TEMPLATES                               -->
+<!-- ========================================================== -->
+
+<div class="series-title">BONUS</div>
+<h2 class="series-name">General Purpose Templates</h2>
+<p class="series-desc">Reusable templates for vendor quotes, stats, announcements, and feature callouts. Use for any one-off content.</p>
+
+<div class="template-row">
+
+  <!-- POST: Vendor Quote -->
+  <div>
+    <div class="template-label">Vendor Quote Post (1080 x 1080)</div>
+    <div class="post-frame">
+      <div class="inner" style="background: var(--cream); display: flex; align-items: center; justify-content: center; padding: 60px; position: relative;">
+        <div style="background: white; padding: 72px 60px; width: 900px; position: relative; transform: rotate(-1deg); box-shadow: 4px 5px 12px rgba(75,21,40,0.08); border: 1px dashed rgba(75,21,40,0.08);">
+          <div class="tpl-tape" style="top: -28px; left: 50px; transform: rotate(-6deg); width: 180px;"></div>
+          <div class="tpl-tape" style="top: -24px; right: 40px; transform: rotate(4deg); width: 180px;"></div>
+
+          <div style="font-family: 'Instrument Serif', serif; font-size: 64px; color: var(--hot-pink); opacity: 0.25; line-height: 1; margin-bottom: -16px;">"</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 52px; color: var(--wine); line-height: 1.3; margin-bottom: 28px;">
+            Your Pinterest board with 400 pins isn't a brief. It's a cry for help.
+          </div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--mauve);">— ANONYMOUS PHOTOGRAPHER</div>
+          <div style="font-family: 'Caveat', cursive; font-size: 34px; color: var(--pink); margin-top: 20px; transform: rotate(-2deg);">The Marigold turns 400 pins into one Brief.</div>
+        </div>
+
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: var(--wine); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 36px; color: var(--hot-pink);">The <i style="font-style:italic">Marigold</i></div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 2px; color: rgba(255,255,255,0.3); text-transform: uppercase;">Things Your Vendor Wishes You Knew</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST: Feature Callout -->
+  <div>
+    <div class="template-label">Feature Callout Post (1080 x 1080)</div>
+    <div class="post-frame">
+      <div class="inner" style="background: var(--pink); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px; position: relative;">
+        <div class="tpl-pin gold" style="top: 40px; right: 60px;"></div>
+
+        <div style="font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: rgba(255,255,255,0.35); margin-bottom: 20px;">DID YOU KNOW</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 80px; color: white; line-height: 1.05; margin-bottom: 24px;">Your décor palette<br/>flows to <i style="color: var(--gold-light)">every</i><br/>workspace.</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 40px; color: rgba(255,255,255,0.5); transform: rotate(-2deg); margin-bottom: 28px;">stationery, wardrobe, cake — all synced</div>
+        <div style="background: white; color: var(--deep-pink); font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 20px 44px; box-shadow: 4px 4px 0 var(--wine); transform: rotate(-1deg);">EXPLORE WORKSPACES</div>
+
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(75,21,40,0.6); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 36px; color: white;">The <i style="font-style:italic">Marigold</i></div>
+          <div style="font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 2px; color: rgba(255,255,255,0.3); text-transform: uppercase;">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY: Stat Callout -->
+  <div>
+    <div class="template-label">Stat Callout Story (1080 x 1920)</div>
+    <div class="story-frame">
+      <div class="inner" style="background: var(--wine); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px; position: relative;">
+        <div class="tpl-tape" style="top: 200px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 280px;"></div>
+
+        <div style="font-family: 'Instrument Serif', serif; font-size: 280px; color: var(--hot-pink); line-height: 0.85; margin-bottom: 16px;">582</div>
+        <div style="font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; text-transform: uppercase; letter-spacing: 6px; color: rgba(255,255,255,0.4); margin-bottom: 40px;">PLANNING TASKS</div>
+        <div style="font-family: 'Caveat', cursive; font-size: 52px; color: var(--gold); line-height: 1.4; max-width: 700px; transform: rotate(-2deg);">From "discuss overall wedding vision" to "confirm the baraat horse." We thought of everything so you don't have to.</div>
+
+        <div class="tpl-cta-bar">
+          <div class="logo">The <i>Marigold</i></div>
+          <div class="handle">@themarigold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

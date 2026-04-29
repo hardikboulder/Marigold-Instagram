@@ -1,0 +1,338 @@
+{
+  "submissions": [
+    {
+      "id": "75e80e1e-d74f-488a-a4cc-9444f7c8b8d0",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor",
+      "data": {
+        "contact_name": "fkljadslkfj",
+        "business_name": "kjdflakjf",
+        "category": "videographer",
+        "cities_served": "flkadjlfk",
+        "instagram": "",
+        "website": "",
+        "contact_email": "umapatel98@gmail.com",
+        "contact_phone": "",
+        "business_address": "",
+        "years_in_industry": "",
+        "starting_price": "",
+        "destination_weddings": "",
+        "virtual_consultations": "",
+        "languages_spoken": "Urdu",
+        "booking_method": "",
+        "video_style": "Cinematic/Film",
+        "video_deliverables": "Full ceremony edit",
+        "video_multi_day": "",
+        "video_turnaround": "",
+        "video_team": "",
+        "video_indian_experience": "Yes — I've shot many",
+        "video_same_day_edit": "",
+        "video_live_stream": "",
+        "feature_quote": "",
+        "planners_worked_with": "",
+        "anything_else": "",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "VIDEOGRAPHER",
+          "vendorName": "kjdflakjf",
+          "vendorLocation": "flkadjlfk",
+          "vendorQuote": "",
+          "imageUrl": "/submissions/vendor/2026-04-29T15-01-38-093Z_75e80e1e/IMG_0646.HEIC"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:kjdflakjf",
+          "category:Videographer",
+          "city:flkadjlfk"
+        ],
+        "_vendor_category_id": "videographer",
+        "accountCreated": false,
+        "blogPostStarted": true,
+        "blogPostSubmitted": false,
+        "_auto_mapped_templates": [
+          "VendorFeaturePost"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor/2026-04-29T15-01-38-093Z_75e80e1e/IMG_0646.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:kjdflakjf",
+            "category:Videographer",
+            "city:flkadjlfk"
+          ]
+        }
+      ],
+      "submittedAt": "2026-04-29T15:01:38.093Z",
+      "status": "new",
+      "notes": ""
+    },
+    {
+      "id": "d35e1bcf-e80c-499c-93ca-623c458ebe0c",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor",
+      "data": {
+        "contact_name": "Uma",
+        "business_name": "Radz",
+        "category": "photographer",
+        "cities_served": "Destination",
+        "instagram": "",
+        "website": "",
+        "contact_email": "umapatel98@gmail.com",
+        "contact_phone": "",
+        "business_address": "",
+        "years_in_industry": "",
+        "starting_price": "",
+        "destination_weddings": "",
+        "virtual_consultations": "",
+        "booking_method": "",
+        "photo_style": "Candid/Documentary",
+        "photo_team_size": "Solo",
+        "photo_multi_day": "Yes — for an additional day rate",
+        "photo_edit_count": "",
+        "photo_turnaround": "2-4 weeks",
+        "photo_pre_wedding": "Included in my packages",
+        "photo_indian_experience": "Yes — I've shot many",
+        "photo_video_partner": "I do both",
+        "feature_quote": "",
+        "planners_worked_with": "",
+        "anything_else": "",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "PHOTOGRAPHER",
+          "vendorName": "Radz",
+          "vendorLocation": "Destination",
+          "vendorQuote": "",
+          "imageUrl": "/submissions/vendor/2026-04-29T14-42-13-028Z_d35e1bcf/IMG_1937.HEIC"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:Radz",
+          "category:Photographer",
+          "city:Destination"
+        ],
+        "_vendor_category_id": "photographer",
+        "accountCreated": true,
+        "blogPostStarted": false,
+        "blogPostSubmitted": false,
+        "_auto_mapped_templates": [
+          "VendorFeaturePost"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "IMG_1937.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2182962,
+          "filePath": "/submissions/vendor/2026-04-29T14-42-13-028Z_d35e1bcf/IMG_1937.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:Radz",
+            "category:Photographer",
+            "city:Destination"
+          ]
+        }
+      ],
+      "submittedAt": "2026-04-29T14:42:13.028Z",
+      "status": "new",
+      "notes": ""
+    },
+    {
+      "id": "6facc38f-8205-436d-a30b-6d21a2af4b85",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor",
+      "data": {
+        "contact_name": "Riya Kapoor",
+        "business_name": "Riya K Photo",
+        "category": "photographer",
+        "cities_served": "Mumbai",
+        "instagram": "riyakphoto",
+        "website": "",
+        "contact_email": "riya@riyakphoto.test",
+        "contact_phone": "",
+        "business_address": "",
+        "years_in_industry": "",
+        "starting_price": "",
+        "destination_weddings": "",
+        "virtual_consultations": "",
+        "booking_method": "",
+        "photo_style": "Candid/Documentary",
+        "photo_team_size": "",
+        "photo_multi_day": "I only cover single-day events",
+        "photo_edit_count": "",
+        "photo_turnaround": "",
+        "photo_pre_wedding": "",
+        "photo_indian_experience": "Yes — I've shot many",
+        "photo_video_partner": "",
+        "feature_quote": "Every wedding has a moment nobody planned for — that's the one I live to capture.",
+        "planners_worked_with": "",
+        "anything_else": "",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "PHOTOGRAPHER",
+          "vendorName": "Riya K Photo",
+          "vendorLocation": "Mumbai",
+          "vendorQuote": "Every wedding has a moment nobody planned for — that's the one I live to capture.",
+          "imageUrl": "/submissions/vendor/2026-04-29T14-35-48-930Z_6facc38f/portrait.png"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:Riya K Photo",
+          "category:Photographer",
+          "city:Mumbai"
+        ],
+        "_vendor_category_id": "photographer",
+        "accountCreated": true,
+        "blogPostStarted": false,
+        "blogPostSubmitted": false,
+        "_auto_mapped_templates": [
+          "VendorFeaturePost",
+          "VendorTipCarousel"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "portrait.png",
+          "mimeType": "image/png",
+          "fileSize": 69,
+          "filePath": "/submissions/vendor/2026-04-29T14-35-48-930Z_6facc38f/portrait.png",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:Riya K Photo",
+            "category:Photographer",
+            "city:Mumbai"
+          ]
+        },
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "portrait.png",
+          "mimeType": "image/png",
+          "fileSize": 69,
+          "filePath": "/submissions/vendor/2026-04-29T14-35-48-930Z_6facc38f/portrait.png",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:Riya K Photo",
+            "category:Photographer",
+            "city:Mumbai"
+          ]
+        },
+        {
+          "fieldId": "headshot_or_logo",
+          "fileName": "headshot.png",
+          "mimeType": "image/png",
+          "fileSize": 69,
+          "filePath": "/submissions/vendor/2026-04-29T14-35-48-930Z_6facc38f/headshot.png",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:Riya K Photo",
+            "category:Photographer",
+            "city:Mumbai"
+          ]
+        }
+      ],
+      "submittedAt": "2026-04-29T14:35:48.930Z",
+      "status": "new",
+      "notes": "Auto-map ready: VendorFeaturePost, VendorTipCarousel"
+    },
+    {
+      "id": "48cfbaaf-d196-414f-9c1c-8f4042d5d5e9",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor-portfolio",
+      "data": {
+        "contact_name": "Aanya Patel",
+        "business_name": "Aanya Patel Photography",
+        "category": "photographer",
+        "cities_served": "Mumbai, Pune & Destination",
+        "instagram": "aanyaphoto",
+        "photo_style": [
+          "Candid/Documentary",
+          "Fine Art"
+        ],
+        "photo_multi_day": "Yes — I typically cover 2-3 days",
+        "photo_indian_experience": "Yes — I've shot many",
+        "feature_quote": "Every wedding has a moment nobody planned for — that is the one I live to capture.",
+        "planners_worked_with": "The Marigold",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "PHOTOGRAPHER",
+          "vendorName": "Aanya Patel Photography",
+          "vendorLocation": "Mumbai, Pune & Destination",
+          "vendorQuote": "Every wedding has a moment nobody planned for — that is the one I live to capture.",
+          "imageUrl": "/submissions/vendor/2026-04-29T02-21-23-101Z_48cfbaaf/sample.png"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:Aanya Patel Photography",
+          "category:Photographer",
+          "city:Mumbai, Pune & Destination"
+        ],
+        "_vendor_category_id": "photographer",
+        "_auto_mapped_templates": [
+          "VendorFeaturePost",
+          "VendorTipCarousel"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "sample.png",
+          "mimeType": "image/png",
+          "fileSize": 70,
+          "filePath": "/submissions/vendor/2026-04-29T02-21-23-101Z_48cfbaaf/sample.png",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:Aanya Patel Photography",
+            "category:Photographer",
+            "city:Mumbai, Pune & Destination"
+          ]
+        }
+      ],
+      "submittedAt": "2026-04-29T02:21:23.101Z",
+      "status": "new",
+      "notes": "Auto-map ready: VendorFeaturePost, VendorTipCarousel"
+    },
+    {
+      "id": "597032d9-d0b3-4532-9bc1-c8bc607c6c96",
+      "formId": "bride-confession",
+      "formTitle": "Confess (anonymously)",
+      "templateType": "bride-confession",
+      "data": {
+        "confession": "Slug-based submission test from preview verification.",
+        "credit_as": "Anonymous Bride",
+        "wedding_year": "2026",
+        "permission_feature": "yes"
+      },
+      "files": [],
+      "submittedAt": "2026-04-29T00:07:26.807Z",
+      "status": "new",
+      "notes": ""
+    },
+    {
+      "id": "c5378c93-57fa-4799-9e8a-a9a945c44108",
+      "formId": "ac6af461-ca4e-4bce-839e-fcae56eebd07",
+      "formTitle": "Confess (anonymously)",
+      "templateType": "bride-confession",
+      "data": {
+        "confession": "I love him but I cannot stand his mom's taste in lehengas. The mehndi argument was the worst.",
+        "credit_as": "",
+        "wedding_year": "",
+        "permission_feature": "yes"
+      },
+      "files": [],
+      "submittedAt": "2026-04-28T23:08:50.279Z",
+      "status": "new",
+      "notes": ""
+    }
+  ]
+}

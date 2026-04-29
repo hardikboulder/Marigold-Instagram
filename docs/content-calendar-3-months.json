@@ -1,0 +1,899 @@
+{
+  "metadata": {
+    "brand": "The Marigold",
+    "handle": "@themarigold",
+    "period": "Month 1 through Month 3 (13 weeks)",
+    "cadence": "4-5 posts per week",
+    "notes": "Dates are labeled Week 1-13. Map to actual calendar dates when seeding. Mix targets: 40% engagement (BvM, Confessional), 30% awareness (Stats, Features), 20% shares (Quiz), 10% UGC (Confessional CTA)."
+  },
+  "content": [
+
+    {
+      "week": 1,
+      "day": "monday",
+      "series": "confessional",
+      "template": "confessional-title",
+      "format": "story",
+      "content_data": {},
+      "caption": "Welcome to The Confessional.\n\nAnonymous. Unfiltered. Judgment-free.\n\nSwipe to read real confessions from real brides planning real (chaotic) weddings.\n\nGot one of your own? Link in bio.\n\n#DesiWedding #WeddingPlanning #TheMarigold #BrideConfessions #WeddingChaos",
+      "ai_rationale": "Launch week opener. The Confessional is the highest-engagement series — leads with intrigue and establishes the anonymous confession format immediately."
+    },
+    {
+      "week": 1,
+      "day": "monday",
+      "series": "confessional",
+      "template": "confessional-blush",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 1,
+        "confessionText": "I told my mom the decorator was fully booked so she'd stop sending me mandap photos. The decorator was not booked.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "blush"
+      },
+      "caption": null,
+      "ai_rationale": "First confession — establishes tone. Relatable mom-bride tension, specific detail (mandap photos), self-deprecating humor."
+    },
+    {
+      "week": 1,
+      "day": "monday",
+      "series": "confessional",
+      "template": "confessional-gold",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 2,
+        "confessionText": "My MIL added 40 people to the guest list while I was on vacation. I found out from the caterer.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "gold"
+      },
+      "caption": null,
+      "ai_rationale": "Second confession in story sequence — escalates the chaos. MIL drama is universally relatable in desi weddings."
+    },
+    {
+      "week": 1,
+      "day": "monday",
+      "series": "confessional",
+      "template": "confessional-lavender",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 3,
+        "confessionText": "I created a fake 'venue availability' email to convince my parents we couldn't do a Tuesday wedding.",
+        "attribution": "— ANONYMOUS GROOM, 2025",
+        "variant": "lavender"
+      },
+      "caption": null,
+      "ai_rationale": "Third confession — mix up with a groom confession. Tuesday wedding reference is very specific to desi wedding culture (auspicious dates)."
+    },
+    {
+      "week": 1,
+      "day": "monday",
+      "series": "confessional",
+      "template": "confessional-cta",
+      "format": "story",
+      "content_data": {},
+      "caption": null,
+      "ai_rationale": "Close the story sequence with submission CTA. Drives UGC pipeline from day one."
+    },
+    {
+      "week": 1,
+      "day": "wednesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 1,
+        "episodeTopic": "Guest List Size",
+        "brideQuote": "\"I want 80 people, max.\"",
+        "brideAnnotation": "she said, confidently",
+        "momQuote": "\"I have 347 on my list.\"",
+        "momAnnotation": "and that's just dad's side",
+        "ctaTagline": "we have a tab for both of you"
+      },
+      "caption": "Episode 1: The guest list negotiation.\n\nShe wanted intimate. Mom wanted everyone she's ever made chai for.\n\nWho won? You already know.\n\nTag someone whose mom did this.\n\n#BridezillaVsMomzilla #DesiWedding #WeddingGuestList #TheMarigold #IndianWedding #WeddingPlanning",
+      "ai_rationale": "First BvM post — the most universally relatable topic. Guest list size is THE desi wedding argument. Comment-bait with 'tag someone.'"
+    },
+    {
+      "week": 1,
+      "day": "thursday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "582",
+        "statLabel": "PLANNING TASKS",
+        "description": "From \"discuss overall wedding vision\" to \"confirm the baraat horse.\" We thought of everything so you don't have to."
+      },
+      "caption": "582 tasks. 13 phases. One platform that actually gets desi weddings.\n\nThe Marigold — built for the wedding your Pinterest board can't handle.\n\n#WeddingPlanning #DesiWedding #TheMarigold #WeddingChecklist",
+      "ai_rationale": "Product awareness play. The 582 stat is impressive and specific — anchors credibility. 'Baraat horse' signals cultural specificity."
+    },
+    {
+      "week": 1,
+      "day": "saturday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "Your Pinterest board with 400 pins isn't a brief. It's a cry for help.",
+        "attribution": "— ANONYMOUS PHOTOGRAPHER",
+        "tagline": "The Marigold turns 400 pins into one Brief.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "Your photographer said what we were all thinking.\n\n400 pins is not a vision — it's overwhelm wearing aesthetic clothing.\n\nThe Marigold turns that chaos into a single, clear Brief your vendors will actually thank you for.\n\n#WeddingVendors #WeddingPhotography #DesiWedding #TheMarigold #WeddingPlanning",
+      "ai_rationale": "Vendor quote — positions The Marigold as the solution to a real pain point. Vendors reshare this content, expanding reach."
+    },
+
+    {
+      "week": 2,
+      "day": "monday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-title",
+      "format": "story",
+      "content_data": {
+        "quizTitle": "What's Your Bride Energy?",
+        "options": [
+          "Zen Queen — \"beautiful and stress-free\"",
+          "Type-A Goddess — \"I have a Gantt chart\"",
+          "Creative Visionary — \"saving inspo since 2019\"",
+          "Party Starter — \"how's the DJ?\""
+        ]
+      },
+      "caption": "Take the quiz. Share your result. No judgment (okay, a little judgment).\n\n#BrideEnergy #WeddingQuiz #DesiWedding #TheMarigold",
+      "ai_rationale": "Quiz series launch. Title slide goes as story with poll sticker overlay. Results posted as follow-up stories for sharing."
+    },
+    {
+      "week": 2,
+      "day": "monday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-result-zen",
+      "format": "story",
+      "content_data": {
+        "type": "zen",
+        "resultLabel": "Zen Queen",
+        "resultQuote": "\"I just want it to be beautiful. The details will work themselves out. They always do.\"",
+        "resultDescription": "You need: a platform that handles the chaos while you stay calm. Moodboards over spreadsheets. Briefs that write themselves."
+      },
+      "caption": null,
+      "ai_rationale": "Result A in story sequence. Shareable — brides repost their type."
+    },
+    {
+      "week": 2,
+      "day": "monday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-result-typea",
+      "format": "story",
+      "content_data": {
+        "type": "typeA",
+        "resultLabel": "Type-A Goddess",
+        "resultQuote": "\"I have a colour-coded Gantt chart, a backup venue, and a spreadsheet for the spreadsheets.\"",
+        "resultDescription": "You need: 582 tasks across 13 phases. Filters by status, priority, and due date. A checklist that finally matches your energy."
+      },
+      "caption": null,
+      "ai_rationale": "Result B. The Type-A bride is the core product user — this result directly maps to Marigold features."
+    },
+    {
+      "week": 2,
+      "day": "monday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-result-creative",
+      "format": "story",
+      "content_data": {
+        "type": "creative",
+        "resultLabel": "Creative Visionary",
+        "resultQuote": "\"My Pinterest has 12 boards and I know the difference between editorial and documentary photography.\"",
+        "resultDescription": "You need: moodboards that flow across workspaces. A colour & tone slider. Style keyword chips. The Brief that makes your vendor cry happy tears."
+      },
+      "caption": null,
+      "ai_rationale": "Result C. Appeals to the aesthetic-driven bride segment."
+    },
+    {
+      "week": 2,
+      "day": "monday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-result-party",
+      "format": "story",
+      "content_data": {
+        "type": "party",
+        "resultLabel": "Party Starter",
+        "resultQuote": "\"Less planning, more dancing. Is the DJ confirmed? That's literally all I need to know.\"",
+        "resultDescription": "You need: Guest Experience Lab for photo booths and sparkler exits. A sangeet playlist builder. And someone else to handle the rest (hi, that's us)."
+      },
+      "caption": null,
+      "ai_rationale": "Result D. The fun bride — least planning-oriented but highest personality share rate."
+    },
+    {
+      "week": 2,
+      "day": "wednesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 2,
+        "episodeTopic": "Lehenga Color",
+        "brideQuote": "\"I want dusty rose.\"",
+        "brideAnnotation": "very specific, very firm",
+        "momQuote": "\"Red is tradition, beta.\"",
+        "momAnnotation": "she will not be moved"
+      },
+      "caption": "Episode 2: The lehenga color wars.\n\nDusty rose vs. traditional red. The battle that launched a thousand WhatsApp voice notes.\n\n#BridezillaVsMomzilla #LehengaColor #DesiWedding #TheMarigold",
+      "ai_rationale": "Second BvM episode. Lehenga color is highly emotional, culturally specific. Story format for quick engagement."
+    },
+    {
+      "week": 2,
+      "day": "friday",
+      "series": "confessional",
+      "template": "confessional-blush",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 4,
+        "confessionText": "I screenshot my fiancé's credit card statement to see how much the ring cost. I was underwhelmed.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "blush"
+      },
+      "caption": "New confession dropped. Swipe to feel seen.\n\nSubmit yours — link in bio. We'll never tell.\n\n#TheConfessional #BrideConfessions #DesiWedding #TheMarigold",
+      "ai_rationale": "Standalone confession story. Ring drama is universally engaging. Drives submissions CTA."
+    },
+    {
+      "week": 2,
+      "day": "saturday",
+      "series": "general",
+      "template": "feature-callout",
+      "format": "post",
+      "content_data": {
+        "categoryLabel": "DID YOU KNOW",
+        "headline": "Your décor palette flows to every workspace.",
+        "annotation": "stationery, wardrobe, cake — all synced",
+        "ctaText": "EXPLORE WORKSPACES"
+      },
+      "caption": "Pick your colors once. Watch them flow everywhere — from your mandap to your mehndi invites to your cake design board.\n\nThat's how The Marigold works. One palette. Every workspace. Zero inconsistency.\n\n#WeddingPlanning #WeddingDecor #DesiWedding #TheMarigold #WeddingDesign",
+      "ai_rationale": "Feature awareness post. Workspace sync is a differentiating product feature. Visual post format for feed aesthetics."
+    },
+
+    {
+      "week": 3,
+      "day": "tuesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 3,
+        "episodeTopic": "Mandap Décor",
+        "brideQuote": "\"Minimalist. White orchids. Clean lines.\"",
+        "brideAnnotation": "she has a moodboard",
+        "momQuote": "\"More flowers. More draping. More everything.\"",
+        "momAnnotation": "she has a vision too",
+        "ctaTagline": "we'll make both of you cry happy tears"
+      },
+      "caption": "Episode 3: Mandap décor.\n\nMinimalist vs. maximalist. Orchids vs. every flower in the market.\n\nThe compromise? There is no compromise. Someone wins and someone posts passive-aggressive WhatsApp statuses.\n\nTag a bride who's living this.\n\n#BridezillaVsMomzilla #MandapDecor #DesiWedding #TheMarigold #WeddingDecor",
+      "ai_rationale": "BvM post format for feed presence. Mandap décor is visual and emotional. Maximalist vs. minimalist is a generational divide."
+    },
+    {
+      "week": 3,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-gold",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 5,
+        "confessionText": "I have three separate wedding Pinterest accounts. One for the wedding I want, one for the wedding my mom wants, and one for what we can actually afford.",
+        "attribution": "— ANONYMOUS BRIDE, 2025",
+        "variant": "gold"
+      },
+      "caption": "Three Pinterest accounts. Zero peace of mind.\n\nThe Marigold: where all three versions of your wedding finally become one.\n\nConfess at the link in bio.\n\n#TheConfessional #WeddingPlanning #DesiWedding #TheMarigold",
+      "ai_rationale": "Gold variant for visual variety. Three Pinterest accounts is extremely relatable and ties directly to the product (consolidation)."
+    },
+    {
+      "week": 3,
+      "day": "friday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "13",
+        "statLabel": "PLANNING PHASES",
+        "description": "From \"we're engaged!\" to \"we survived.\" Every phase. Every task. Every aunty's opinion — accounted for."
+      },
+      "caption": "13 phases. From the first excited phone call to the last thank-you card.\n\nThe Marigold maps every single one.\n\n#WeddingPlanning #DesiWedding #TheMarigold #WeddingChecklist",
+      "ai_rationale": "Second stat post — the 13 phases number complements the 582 tasks stat from Week 1. 'Every aunty's opinion' adds brand voice."
+    },
+    {
+      "week": 3,
+      "day": "sunday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "When the bride says 'I trust your vision' and then sends 47 reference photos at 11pm, I know we're in for a journey.",
+        "attribution": "— ANONYMOUS DECORATOR",
+        "tagline": "The Marigold Brief: one document, zero 11pm texts.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "Your decorator has seen things.\n\n\"I trust your vision\" followed by 47 photos is not trust — it's chaos wearing a polite mask.\n\nThe Marigold Brief consolidates your inspo into one clear document. Your vendors will send you flowers.\n\n#WeddingVendors #WeddingDecor #DesiWedding #TheMarigold",
+      "ai_rationale": "Vendor quote #2. Decorator perspective. 11pm texts is a universal vendor pain point. Product tie-in via Brief feature."
+    },
+
+    {
+      "week": 4,
+      "day": "monday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 4,
+        "episodeTopic": "Food Menu",
+        "brideQuote": "\"Let's do a tasting menu. Small plates. Curated.\"",
+        "brideAnnotation": "she watched one episode of Chef's Table",
+        "momQuote": "\"Paneer, dal makhani, three types of biryani, and a live chaat counter. Minimum.\"",
+        "momAnnotation": "she has never let anyone leave hungry"
+      },
+      "caption": "Episode 4: The food fight.\n\nTasting menu vs. the full desi spread. She wants curated. Mom wants no one to leave without a food coma.\n\nIn every desi family, the food budget is where dreams go to negotiate.\n\n#BridezillaVsMomzilla #WeddingFood #DesiWedding #TheMarigold",
+      "ai_rationale": "Food is the #1 expense and #1 argument in desi weddings. Specific food items (biryani, chaat counter) signal cultural insider knowledge."
+    },
+    {
+      "week": 4,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-lavender",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 6,
+        "confessionText": "My mom told the pandit our budget was ₹15 lakh. Our actual budget is ₹40 lakh. She's saving the rest 'for emergencies.' The emergency is a bigger wedding.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "lavender"
+      },
+      "caption": "The budget confession.\n\nEvery desi family has a 'real budget' and a 'what we told the pandit' budget.\n\nConfess at the link in bio.\n\n#TheConfessional #WeddingBudget #DesiWedding #TheMarigold",
+      "ai_rationale": "Budget secrecy is universal in desi weddings. Pandit reference adds cultural texture. Lavender variant for rotation."
+    },
+    {
+      "week": 4,
+      "day": "friday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-title",
+      "format": "story",
+      "content_data": {
+        "quizTitle": "What's Your Sangeet Energy?",
+        "options": [
+          "Choreography Queen — \"I have a 12-minute medley\"",
+          "Shy Performer — \"I'll stand in the back row\"",
+          "Director Mode — \"I'm not dancing, I'm producing\"",
+          "Freestyle Diva — \"just play the music and watch\""
+        ]
+      },
+      "caption": "New quiz! What's your sangeet energy?\n\nVote on our story, then swipe for your result.\n\nNo wrong answers. Unless your answer is 'skip the sangeet.' That's wrong.\n\n#SangeetEnergy #WeddingQuiz #DesiWedding #TheMarigold #Sangeet",
+      "ai_rationale": "Second quiz — new theme keeping the same 4-result format. Sangeet is a uniquely South Asian event, strong cultural hook."
+    },
+    {
+      "week": 4,
+      "day": "sunday",
+      "series": "general",
+      "template": "feature-callout",
+      "format": "post",
+      "content_data": {
+        "categoryLabel": "NEW FEATURE",
+        "headline": "The Vendor Brief writes itself from your moodboard.",
+        "annotation": "photographer, decorator, caterer — one brief each",
+        "ctaText": "TRY THE BRIEF BUILDER"
+      },
+      "caption": "Stop sending vendors a Pinterest link and praying.\n\nThe Marigold takes your moodboard — colors, styles, references — and turns it into a clear, professional Brief for each vendor.\n\nPhotographer gets their brief. Decorator gets theirs. Everyone knows the vision. Nobody's guessing.\n\n#WeddingPlanning #WeddingVendors #DesiWedding #TheMarigold",
+      "ai_rationale": "Feature callout for the Brief Builder. Directly addresses the pain point from the vendor quote series."
+    },
+
+    {
+      "week": 5,
+      "day": "tuesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 5,
+        "episodeTopic": "DJ vs. Live Band",
+        "brideQuote": "\"DJ. Smooth transitions. No cringe.\"",
+        "brideAnnotation": "she has a playlist ready",
+        "momQuote": "\"Live band with a dhol player. Non-negotiable.\"",
+        "momAnnotation": "the dhol is not optional, beta",
+        "ctaTagline": "we support both vibes"
+      },
+      "caption": "Episode 5: DJ vs. live band.\n\nShe wants seamless transitions. Mom wants a dhol player who makes the floor shake.\n\nThe real answer? Both. You do both. You always do both.\n\n#BridezillaVsMomzilla #WeddingMusic #DesiWedding #TheMarigold #DholPlayer",
+      "ai_rationale": "Music is emotional. Dhol player is an iconic desi wedding element. 'You always do both' is the relatable truth."
+    },
+    {
+      "week": 5,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-blush",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 7,
+        "confessionText": "I told my fiancé the photographer costs ₹3 lakh. It costs ₹5 lakh. I'm funding the difference from my 'emergency savings.' The emergency is good photos.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "blush"
+      },
+      "caption": "The 'emergency savings' are for the emergency of having bad wedding photos.\n\nValid priority tbh.\n\n#TheConfessional #WeddingPhotography #DesiWedding #TheMarigold",
+      "ai_rationale": "Photography budget lies — very specific, very relatable. Mirrors the budget theme from Week 4 confession but different angle."
+    },
+    {
+      "week": 5,
+      "day": "friday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "The couple who trusts the timeline is the couple who actually enjoys their wedding. The couple who 'wings it' is the couple crying in the parking lot at 6pm.",
+        "attribution": "— ANONYMOUS WEDDING COORDINATOR",
+        "tagline": "The Marigold timeline: hour by hour, event by event.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "A wedding coordinator who has seen things.\n\nTimelines aren't Type-A — they're the difference between enjoying your baraat and having a breakdown in the parking lot.\n\nThe Marigold builds your timeline hour by hour, across every event, every ceremony, every function.\n\n#WeddingVendors #WeddingTimeline #DesiWedding #TheMarigold",
+      "ai_rationale": "Vendor quote #3. Timeline/coordination angle. 'Crying in the parking lot' is vivid and real. Product tie-in via timeline feature."
+    },
+    {
+      "week": 5,
+      "day": "sunday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "7",
+        "statLabel": "EVENTS. ONE WEDDING.",
+        "description": "Mehndi. Haldi. Sangeet. Ceremony. Reception. And that's before the after-party. Each one gets its own workspace, its own checklist, its own vibe."
+      },
+      "caption": "One wedding, seven events.\n\nEach with its own décor, its own timeline, its own vendor coordination, its own guest list drama.\n\nThe Marigold gives each event its own workspace so nothing bleeds into everything else.\n\n#DesiWedding #WeddingPlanning #TheMarigold #IndianWedding",
+      "ai_rationale": "The multi-event stat differentiates desi weddings from Western ones. 7 events is a strong number. Workspace-per-event is a key product feature."
+    },
+
+    {
+      "week": 6,
+      "day": "monday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 6,
+        "episodeTopic": "Venue Selection",
+        "brideQuote": "\"Outdoor. Fairy lights. Garden vibes.\"",
+        "brideAnnotation": "she hasn't considered monsoon season",
+        "momQuote": "\"The Gupta's did it at Grand Hyatt. We're doing Grand Hyatt.\"",
+        "momAnnotation": "keeping up is cardio",
+        "ctaTagline": "we love all venues equally"
+      },
+      "caption": "Episode 6: The venue wars.\n\nShe wants a garden. Mom wants the same hotel as Mrs. Gupta's son's wedding.\n\nNobody's bringing up the monsoon. Nobody.\n\n#BridezillaVsMomzilla #WeddingVenue #DesiWedding #TheMarigold",
+      "ai_rationale": "Venue is the biggest decision. The Gupta comparison adds social pressure humor. Monsoon oversight is a real planning fail."
+    },
+    {
+      "week": 6,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-gold",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 8,
+        "confessionText": "I follow 14 wedding planning accounts and I haven't started planning my own wedding. It's in four months.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "gold"
+      },
+      "caption": "Following wedding accounts is not the same as planning a wedding. We had to say it.\n\nFour months out and the only thing planned is the Pinterest board.\n\nWe see you. Start here.\n\n#TheConfessional #WeddingPlanning #DesiWedding #TheMarigold",
+      "ai_rationale": "Procrastination confession — calls out the behavior gently. Direct product hook: 'Start here' positions Marigold as the first step."
+    },
+    {
+      "week": 6,
+      "day": "friday",
+      "series": "confessional",
+      "template": "confessional-cta",
+      "format": "story",
+      "content_data": {},
+      "caption": "Got a confession? Drop it anonymously — link in bio.\n\nWe've heard everything. Literally everything.\n\n#TheConfessional #DesiWedding #TheMarigold",
+      "ai_rationale": "Mid-cycle CTA to drive more submissions. Keeps the UGC pipeline active."
+    },
+    {
+      "week": 6,
+      "day": "saturday",
+      "series": "general",
+      "template": "feature-callout",
+      "format": "post",
+      "content_data": {
+        "categoryLabel": "HOW IT WORKS",
+        "headline": "One checklist. Every ceremony. Nothing forgotten.",
+        "annotation": "mehndi tasks, haldi tasks, sangeet tasks — all organized",
+        "ctaText": "SEE THE CHECKLIST"
+      },
+      "caption": "The mehndi needs its own checklist. So does the haldi. So does the sangeet. So does every other event you're planning simultaneously while also working a full-time job.\n\nThe Marigold separates it all. One master checklist, broken down by event, by phase, by priority.\n\nNothing falls through the cracks.\n\n#WeddingPlanning #WeddingChecklist #DesiWedding #TheMarigold",
+      "ai_rationale": "Feature callout for the multi-event checklist. 'Also working a full-time job' adds empathy."
+    },
+
+    {
+      "week": 7,
+      "day": "tuesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 7,
+        "episodeTopic": "Who Walks In First",
+        "brideQuote": "\"I want to walk in with my dad. Just us.\"",
+        "brideAnnotation": "she's been dreaming of this moment",
+        "momQuote": "\"The whole family walks in together. That's how it's done.\"",
+        "momAnnotation": "tradition is tradition is tradition",
+        "ctaTagline": "we'll make sure nobody trips on the aisle"
+      },
+      "caption": "Episode 7: The entrance.\n\nOne of you wants a cinematic dad-daughter moment. The other wants a full family procession with the cousins.\n\nBoth are beautiful. Both will make everyone cry. Plan accordingly.\n\n#BridezillaVsMomzilla #WeddingEntrance #DesiWedding #TheMarigold",
+      "ai_rationale": "Emotional topic. The entrance is deeply personal. Modern vs. traditional tension. Lower conflict than guest list — adds warmth to the series."
+    },
+    {
+      "week": 7,
+      "day": "thursday",
+      "series": "confessional",
+      "template": "confessional-lavender",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 9,
+        "confessionText": "My cousin offered to do my makeup 'for free.' I said yes to be polite. I've been quietly booking a professional and haven't told anyone.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "lavender"
+      },
+      "caption": "The polite yes followed by the secret professional booking. A desi wedding tradition as old as time.\n\nConfess something worse — link in bio.\n\n#TheConfessional #WeddingMakeup #DesiWedding #TheMarigold",
+      "ai_rationale": "Family-offering-services-you-don't-want is deeply desi. Makeup is a safe, relatable topic. Humorous without being mean."
+    },
+    {
+      "week": 7,
+      "day": "saturday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "I've been asked to make a 7-tier cake for 400 guests with a ₹50,000 budget. The audacity was delicious.",
+        "attribution": "— ANONYMOUS BAKER",
+        "tagline": "The Marigold helps you budget before you ask.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "The baker has spoken.\n\n7 tiers. 400 guests. Budget: vibes and a prayer.\n\nBefore you send that inquiry, The Marigold helps you build a realistic budget by vendor category so nobody has to have that conversation.\n\n#WeddingVendors #WeddingCake #DesiWedding #TheMarigold #WeddingBudget",
+      "ai_rationale": "Vendor quote #4. Baker perspective is fun and light. Budget mismatch humor. Product tie-in via budget feature."
+    },
+
+    {
+      "week": 8,
+      "day": "monday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 8,
+        "episodeTopic": "Honeymoon Destination",
+        "brideQuote": "\"Amalfi Coast. Just us. Finally.\"",
+        "brideAnnotation": "she's been saving the Pinterest board since 2020",
+        "momQuote": "\"Why not Tirupati first? Blessings, then beach.\"",
+        "momAnnotation": "she's already called the travel agent"
+      },
+      "caption": "Episode 8: Honeymoon planning.\n\nShe wants Amalfi. Mom wants Tirupati first, then Amalfi, then stop at the family house in Hyderabad.\n\nIt's not a honeymoon, it's a pilgrimage with a detour.\n\n#BridezillaVsMomzilla #Honeymoon #DesiWedding #TheMarigold",
+      "ai_rationale": "Honeymoon interference is a lighter, fun episode. Tirupati-first is a very specific South Indian reference. Broadens cultural specificity."
+    },
+    {
+      "week": 8,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-blush",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 10,
+        "confessionText": "I agreed to a morning ceremony, an afternoon lunch, an evening reception, AND a late-night after-party. That's four events in one day. I haven't slept since the engagement.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "blush"
+      },
+      "caption": "Four events. One day. Zero sleep.\n\nThis is not a wedding, it's an endurance sport.\n\nThe Marigold helps you plan each event separately so your brain doesn't melt.\n\n#TheConfessional #WeddingDay #DesiWedding #TheMarigold",
+      "ai_rationale": "The multi-event-single-day grind. Extremely relatable for desi weddings. Product tie-in to per-event workspaces."
+    },
+    {
+      "week": 8,
+      "day": "friday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-title",
+      "format": "story",
+      "content_data": {
+        "quizTitle": "What's Your Vendor Communication Style?",
+        "options": [
+          "The Over-Explainer — sends voice notes longer than the ceremony",
+          "The Ghost — books them and disappears until the week before",
+          "The Micro-Manager — wants daily progress photos",
+          "The Vibes-Only — \"you'll know it when you see it\""
+        ]
+      },
+      "caption": "New quiz! How do you communicate with your vendors?\n\nBe honest. Your decorator already knows.\n\n#VendorVibes #WeddingQuiz #DesiWedding #TheMarigold",
+      "ai_rationale": "Third quiz theme — vendor communication. Ties into the vendor quote series. All 4 types are recognizable and funny."
+    },
+    {
+      "week": 8,
+      "day": "sunday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "47",
+        "statLabel": "VENDOR CATEGORIES",
+        "description": "Photographer. Videographer. Decorator. Caterer. Mehndi artist. Dhol player. Pandit. And 40 more you haven't thought of yet."
+      },
+      "caption": "You think you've got all your vendors covered? There are 47 categories.\n\nThe baraat horse coordinator is a real vendor. The ice sculptor is a real vendor. The parking valet for 400 cars is a real vendor.\n\nThe Marigold tracks all of them.\n\n#WeddingVendors #DesiWedding #TheMarigold #WeddingPlanning",
+      "ai_rationale": "Vendor count stat — large number creates surprise. 'Baraat horse coordinator' is funny and real. Shows product depth."
+    },
+
+    {
+      "week": 9,
+      "day": "tuesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 9,
+        "episodeTopic": "Photography Style",
+        "brideQuote": "\"Candid only. No posed shots. Editorial vibes.\"",
+        "brideAnnotation": "she has a shot list anyway",
+        "momQuote": "\"I need a family photo with every uncle. Every. Single. One.\"",
+        "momAnnotation": "that's 94 uncles",
+        "ctaTagline": "we scheduled 2 hours for uncle photos"
+      },
+      "caption": "Episode 9: Photography style.\n\nShe wants candid editorial. Mom needs a posed portrait with every relative who's ever attended a family function.\n\nThe compromise: candid for the couple, posed for the uncles, three extra hours for the photographer.\n\n#BridezillaVsMomzilla #WeddingPhotography #DesiWedding #TheMarigold",
+      "ai_rationale": "Photography debate is universal but the 'uncle photos' angle is very desi. 94 uncles is absurd and funny."
+    },
+    {
+      "week": 9,
+      "day": "thursday",
+      "series": "confessional",
+      "template": "confessional-gold",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 11,
+        "confessionText": "My future MIL asked to approve my bridal jewelry. I said 'of course, aunty!' and then bought exactly what I wanted anyway.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "gold"
+      },
+      "caption": "\"Of course, aunty!\" — the most powerful phrase in desi wedding diplomacy.\n\nSaid with a smile. Executed with precision.\n\n#TheConfessional #BridalJewelry #DesiWedding #TheMarigold",
+      "ai_rationale": "MIL jewelry approval is deeply relatable. The 'of course aunty' with secret defiance captures the bride's reality."
+    },
+    {
+      "week": 9,
+      "day": "saturday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "I got a brief that said 'modern but traditional, bold but subtle, colorful but muted.' That's not a brief, that's a riddle.",
+        "attribution": "— ANONYMOUS DECORATOR",
+        "tagline": "The Marigold Brief: clear direction, zero contradictions.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "\"Modern but traditional.\" \"Bold but subtle.\"\n\nYour decorator isn't a mind reader — they're a professional who needs a clear direction.\n\nThe Marigold Brief eliminates the contradictions. Your style keywords, your color palette, your references — organized into one clear document per vendor.\n\n#WeddingVendors #WeddingDecor #DesiWedding #TheMarigold",
+      "ai_rationale": "Vendor quote #5. The contradictory brief is hilarious and real. Perfect product tie-in — the Brief feature solves exactly this."
+    },
+
+    {
+      "week": 10,
+      "day": "monday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 10,
+        "episodeTopic": "Wedding Timeline",
+        "brideQuote": "\"Ceremony at 5. Reception at 7. Done by 11.\"",
+        "brideAnnotation": "she values sleep",
+        "momQuote": "\"Baraat at 3. Ceremony at 6. Dinner at 9. Dancing until the sun comes up.\"",
+        "momAnnotation": "sleep is for after the wedding"
+      },
+      "caption": "Episode 10: The timeline.\n\nDone by 11 vs. dancing until sunrise. One of you is realistic. The other is your mom.\n\nNeither of you will get what you want. The wedding ends when the dhol player's arms give out.\n\n#BridezillaVsMomzilla #WeddingTimeline #DesiWedding #TheMarigold",
+      "ai_rationale": "Timeline is practical but the conflict is real. 'Dhol player's arms give out' is a great visual punchline."
+    },
+    {
+      "week": 10,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-lavender",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 12,
+        "confessionText": "I hired a day-of coordinator specifically to manage my mother-in-law. The MIL doesn't know. The coordinator does.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "lavender"
+      },
+      "caption": "A coordinator whose real job is MIL management.\n\nThe most strategic hire in the history of desi weddings.\n\n#TheConfessional #WeddingCoordinator #DesiWedding #TheMarigold",
+      "ai_rationale": "MIL management coordinator — specific, strategic, and savvy. Shows brides being smart about their planning."
+    },
+    {
+      "week": 10,
+      "day": "friday",
+      "series": "general",
+      "template": "feature-callout",
+      "format": "post",
+      "content_data": {
+        "categoryLabel": "FOR THE FAMILY",
+        "headline": "Give mom her own login. Let her see her tasks.",
+        "annotation": "her task: stay in her lane (lovingly)",
+        "ctaText": "SET UP FAMILY ACCESS"
+      },
+      "caption": "Give your mom access to the platform. She sees her tasks — approving the guest list, coordinating with her side of the family, choosing return gift options.\n\nShe feels included. You stay in control. Everyone wins. Nobody sends passive-aggressive WhatsApp statuses.\n\n#WeddingPlanning #DesiWedding #TheMarigold #FamilyPlanning",
+      "ai_rationale": "Family access feature — directly addresses the mom-bride dynamic from BvM series. 'Stay in her lane (lovingly)' is on-brand humor."
+    },
+    {
+      "week": 10,
+      "day": "sunday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-title",
+      "format": "story",
+      "content_data": {
+        "quizTitle": "What's Your Budget Energy?",
+        "options": [
+          "The Spreadsheet — every rupee tracked, every vendor negotiated",
+          "The Vibes Budget — \"it'll work out somehow\"",
+          "The Secret Stash — hidden savings account for the things that matter",
+          "The Family Fund — \"papa said don't worry about money\""
+        ]
+      },
+      "caption": "What's your budget energy? Be honest — no one's checking your bank statements.\n\nSwipe for your result.\n\n#BudgetEnergy #WeddingQuiz #DesiWedding #TheMarigold #WeddingBudget",
+      "ai_rationale": "Fourth quiz theme — budget energy. Ties into confession themes about budget secrets. 'Papa said don't worry' is very desi."
+    },
+
+    {
+      "week": 11,
+      "day": "tuesday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-post",
+      "format": "post",
+      "content_data": {
+        "episodeNumber": 11,
+        "episodeTopic": "Sangeet Choreography",
+        "brideQuote": "\"One dance. 3 minutes. Clean and classy.\"",
+        "brideAnnotation": "she's been practicing in the mirror",
+        "momQuote": "\"12-minute family medley. Matching outfits. Fog machine.\"",
+        "momAnnotation": "she's been watching sangeet videos on YouTube",
+        "ctaTagline": "we scheduled rehearsal time for both of you"
+      },
+      "caption": "Episode 11: Sangeet choreography.\n\n3-minute clean number vs. 12-minute Bollywood production with costume changes.\n\nMom has already downloaded the songs. Dad has already said he's not dancing. He will dance.\n\n#BridezillaVsMomzilla #Sangeet #DesiWedding #TheMarigold #SangeetDance",
+      "ai_rationale": "Sangeet is THE desi wedding content moment. Fog machine is absurd and real. Dad refusing but eventually dancing is universal."
+    },
+    {
+      "week": 11,
+      "day": "thursday",
+      "series": "confessional",
+      "template": "confessional-blush",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 13,
+        "confessionText": "We wanted a destination wedding in Udaipur. My dad said 'sure, for 50 guests.' We now have 600 guests in Udaipur. My dad hasn't spoken about the budget since.",
+        "attribution": "— ANONYMOUS BRIDE, 2025",
+        "variant": "blush"
+      },
+      "caption": "600 guests. In Udaipur. The budget? We don't talk about the budget.\n\nDestination weddings: the idea is small and intimate. The execution is your entire extended family at a palace.\n\n#TheConfessional #DestinationWedding #DesiWedding #TheMarigold",
+      "ai_rationale": "Destination wedding scope creep. 50 → 600 is the perfect escalation. Dad's silence is funny and real."
+    },
+    {
+      "week": 11,
+      "day": "saturday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "4.5",
+        "statLabel": "AVERAGE EVENTS PER WEDDING",
+        "description": "Mehndi, haldi, sangeet, ceremony, reception — and that's before the post-wedding brunch, the puja, and the 'casual family dinner' for 200."
+      },
+      "caption": "4.5 events average. Some of you are doing 7.\n\nEach event needs its own timeline, its own vendor list, its own guest count, its own vibe.\n\nThe Marigold treats each one as its own workspace. Because they are.\n\n#DesiWedding #WeddingPlanning #TheMarigold #IndianWedding",
+      "ai_rationale": "Event count stat — reinforces the multi-event complexity message. 'Casual family dinner for 200' is pitch-perfect voice."
+    },
+
+    {
+      "week": 12,
+      "day": "monday",
+      "series": "bridezilla-vs-momzilla",
+      "template": "bvm-story",
+      "format": "story",
+      "content_data": {
+        "episodeNumber": 12,
+        "episodeTopic": "Return Gifts",
+        "brideQuote": "\"Custom candles with our monogram. Elegant.\"",
+        "brideAnnotation": "she's been on Etsy for weeks",
+        "momQuote": "\"Dry fruit boxes. Big ones. With our family name printed on top.\"",
+        "momAnnotation": "she already has a dry fruit guy"
+      },
+      "caption": "Season finale: Return gifts.\n\nCustom candles vs. industrial-grade dry fruit boxes with the family name embossed in gold.\n\nYou know who won. The dry fruit guy always wins.\n\n#BridezillaVsMomzilla #ReturnGifts #DesiWedding #TheMarigold",
+      "ai_rationale": "Season 1 finale — return gifts is lighter fare to end on. 'She already has a dry fruit guy' is the perfect punchline. Dry fruit boxes are THE desi wedding favor."
+    },
+    {
+      "week": 12,
+      "day": "wednesday",
+      "series": "confessional",
+      "template": "confessional-gold",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 14,
+        "confessionText": "I started a wedding planning spreadsheet in Google Sheets. It now has 23 tabs, 4 pivot tables, and I still don't know if the caterer is confirmed.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "gold"
+      },
+      "caption": "23 tabs. 4 pivot tables. Zero clarity.\n\nThis is exactly why we built The Marigold. Your spreadsheet era is over.\n\n#TheConfessional #WeddingPlanning #DesiWedding #TheMarigold #SpreadsheetChaos",
+      "ai_rationale": "The spreadsheet confession is the ultimate product-market-fit moment. Directly positions Marigold as the upgrade from Google Sheets."
+    },
+    {
+      "week": 12,
+      "day": "friday",
+      "series": "general",
+      "template": "vendor-quote",
+      "format": "post",
+      "content_data": {
+        "quote": "The best clients aren't the ones with the biggest budgets. They're the ones who know what they want before the first meeting.",
+        "attribution": "— ANONYMOUS WEDDING PLANNER",
+        "tagline": "The Marigold helps you know what you want — before you ask for it.",
+        "seriesLabel": "Things Your Vendor Wishes You Knew"
+      },
+      "caption": "The best thing you can bring to a vendor meeting isn't money — it's clarity.\n\nKnow your style. Know your budget range. Know your non-negotiables.\n\nThe Marigold helps you figure all of this out before you send a single inquiry.\n\n#WeddingVendors #WeddingPlanning #DesiWedding #TheMarigold",
+      "ai_rationale": "Vendor quote #6. Positive framing — what makes a great client. Positions Marigold as the tool that makes brides better clients."
+    },
+    {
+      "week": 12,
+      "day": "sunday",
+      "series": "general",
+      "template": "feature-callout",
+      "format": "post",
+      "content_data": {
+        "categoryLabel": "COMING SOON",
+        "headline": "Guest list. RSVPs. Seating chart. All connected.",
+        "annotation": "aunty next to aunty she hasn't spoken to since 2019? not on our watch",
+        "ctaText": "JOIN THE WAITLIST"
+      },
+      "caption": "The guest list is not a spreadsheet. It's a political document.\n\nWho sits where. Who can't sit near whom. Which aunties are in a cold war. Which cousins just broke up.\n\nThe Marigold maps it all — guest list, RSVPs, dietary needs, seating assignments, family dynamics. Connected.\n\n#WeddingPlanning #GuestList #DesiWedding #TheMarigold #SeatingChart",
+      "ai_rationale": "Feature teaser for guest management. 'Aunty cold war' is perfect voice. Seating chart as political document resonates deeply."
+    },
+
+    {
+      "week": 13,
+      "day": "tuesday",
+      "series": "confessional",
+      "template": "confessional-lavender",
+      "format": "story",
+      "content_data": {
+        "confessionNumber": 15,
+        "confessionText": "I told everyone the wedding is 'intimate' because it sounds intentional. The truth is we ran out of budget after the sangeet catering bill.",
+        "attribution": "— ANONYMOUS BRIDE, 2026",
+        "variant": "lavender"
+      },
+      "caption": "\"Intimate\" is just \"we ran out of budget\" in a prettier font.\n\nRespect to every bride who made budget look like an aesthetic choice.\n\n#TheConfessional #IntimateWedding #DesiWedding #TheMarigold",
+      "ai_rationale": "Budget-as-aesthetic confession. Reframes a common situation with humor. End of Month 3 — keeps the series fresh."
+    },
+    {
+      "week": 13,
+      "day": "thursday",
+      "series": "bride-energy-quiz",
+      "template": "quiz-title",
+      "format": "story",
+      "content_data": {
+        "quizTitle": "What's Your MIL Management Style?",
+        "options": [
+          "The Diplomat — \"great idea, aunty!\" (does own thing anyway)",
+          "The Includer — gives her real tasks so she feels needed",
+          "The Boundaries Queen — \"this is our decision, but thank you\"",
+          "The Tag Team — sends fiancé to handle all mom communications"
+        ]
+      },
+      "caption": "The quiz your MIL should never see.\n\nWhat's your management style? Every bride has one.\n\nVote and swipe for your result.\n\n#MILManagement #WeddingQuiz #DesiWedding #TheMarigold",
+      "ai_rationale": "Fifth quiz — MIL management. Directly references a recurring theme across all series. High share potential."
+    },
+    {
+      "week": 13,
+      "day": "saturday",
+      "series": "general",
+      "template": "stat-callout",
+      "format": "story",
+      "content_data": {
+        "statNumber": "1",
+        "statLabel": "PLATFORM",
+        "description": "One place for the guest list, the budget, the vendors, the timeline, the moodboard, the checklist, the seating chart, and the sanity. Especially the sanity."
+      },
+      "caption": "One platform. Everything in one place. No more 23-tab spreadsheets, no more scattered Pinterest boards, no more WhatsApp groups named 'Wedding Planning DO NOT MUTE.'\n\nJust The Marigold.\n\n#WeddingPlanning #DesiWedding #TheMarigold #WeddingTech",
+      "ai_rationale": "Month 3 closer. The '1' stat is a simple, powerful brand statement. References the spreadsheet confession from Week 12. Full circle."
+    },
+    {
+      "week": 13,
+      "day": "sunday",
+      "series": "confessional",
+      "template": "confessional-cta",
+      "format": "story",
+      "content_data": {},
+      "caption": "15 confessions in. We're just getting started.\n\nGot one? Drop it anonymously — link in bio.\n\nSeason 2 of everything starts next week.\n\n#TheConfessional #DesiWedding #TheMarigold",
+      "ai_rationale": "Quarter-end CTA. Teases Season 2 of all series. Drives submissions for next cycle of content."
+    }
+  ]
+}
