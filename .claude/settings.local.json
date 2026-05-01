@@ -74,7 +74,8 @@
       "Bash(node scripts/generate-calendar-seed.mjs)",
       "Bash(grep -n \"seriesColor\" src/components/calendar/FilterBar.tsx)",
       "Bash(grep -n \"import.*seriesColor\" src/components/calendar/*.tsx src/components/calendar/*.ts src/components/library/*.tsx src/components/settings/*.tsx)",
-      "Bash(grep -n \"\\\\\"slug\\\\\": \\\\\"\\\\\\\\\\(budget-pie-post\\\\\\\\|budget-reality-post\\\\\\\\|budget-tips-carousel\\\\\\\\|cost-by-city-post\\\\\\\\|in-season-festival-inspo-post\\\\\\\\|in-season-monthly-roundup-story\\\\\\\\|in-season-prep-carousel\\\\\\\\|in-season-trend-post\\\\\\\\|platform-before-after-post\\\\\\\\|platform-feature-drop-post\\\\\\\\|platform-how-it-works-carousel\\\\\\\\|platform-stat-story\\\\\\\\|platform-testimonial-post\\\\\\\\|platform-vs-old-way-post\\\\\\\\|save-vs-splurge-post\\\\\\\\\\)\\\\\"\" \"C:\\\\Users\\\\umapa\\\\Downloads\\\\Marigold Instagram\\\\src\\\\data\\\\template-definitions.json\")"
+      "Bash(grep -n \"\\\\\"slug\\\\\": \\\\\"\\\\\\\\\\(budget-pie-post\\\\\\\\|budget-reality-post\\\\\\\\|budget-tips-carousel\\\\\\\\|cost-by-city-post\\\\\\\\|in-season-festival-inspo-post\\\\\\\\|in-season-monthly-roundup-story\\\\\\\\|in-season-prep-carousel\\\\\\\\|in-season-trend-post\\\\\\\\|platform-before-after-post\\\\\\\\|platform-feature-drop-post\\\\\\\\|platform-how-it-works-carousel\\\\\\\\|platform-stat-story\\\\\\\\|platform-testimonial-post\\\\\\\\|platform-vs-old-way-post\\\\\\\\|save-vs-splurge-post\\\\\\\\\\)\\\\\"\" \"C:\\\\Users\\\\umapa\\\\Downloads\\\\Marigold Instagram\\\\src\\\\data\\\\template-definitions.json\")",
+      "Bash(git commit *)"
     ]
   }
 }
