@@ -76,7 +76,10 @@
       "Bash(grep -n \"import.*seriesColor\" src/components/calendar/*.tsx src/components/calendar/*.ts src/components/library/*.tsx src/components/settings/*.tsx)",
       "Bash(grep -n \"\\\\\"slug\\\\\": \\\\\"\\\\\\\\\\(budget-pie-post\\\\\\\\|budget-reality-post\\\\\\\\|budget-tips-carousel\\\\\\\\|cost-by-city-post\\\\\\\\|in-season-festival-inspo-post\\\\\\\\|in-season-monthly-roundup-story\\\\\\\\|in-season-prep-carousel\\\\\\\\|in-season-trend-post\\\\\\\\|platform-before-after-post\\\\\\\\|platform-feature-drop-post\\\\\\\\|platform-how-it-works-carousel\\\\\\\\|platform-stat-story\\\\\\\\|platform-testimonial-post\\\\\\\\|platform-vs-old-way-post\\\\\\\\|save-vs-splurge-post\\\\\\\\\\)\\\\\"\" \"C:\\\\Users\\\\umapa\\\\Downloads\\\\Marigold Instagram\\\\src\\\\data\\\\template-definitions.json\")",
       "Bash(git commit *)",
-      "Bash(npm outdated *)"
+      "Bash(npm outdated *)",
+      "Bash(npm ci *)",
+      "Bash(rg -n --hidden -g '!node_modules' -g '!.next' -g '!.git' -g '!DEPLOY-SKILL.md' -e 'eyJ[A-Za-z0-9_-]{20,}\\\\.[A-Za-z0-9_-]{20,}' -e 'nvapi-[A-Za-z0-9_-]{10,}' -e 'gsk_[A-Za-z0-9]{20,}')",
+      "Bash(node -e \"let s=''; process.stdin.on\\('data',d=>s+=d\\); process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(s\\); console.log\\(JSON.stringify\\(j.metadata.vulnerabilities,null,2\\)\\);}\\)\")"
     ]
   }
 }
