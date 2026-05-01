@@ -166,10 +166,18 @@ import {
 } from "@/components/templates/reels";
 import {
   ApprovalMatrixPost,
+  HotTakeCarousel,
+  HotTakePost,
   HotTakeReelStaticPreview,
+  HotTakeStory,
   type ApprovalMatrixItem,
 } from "@/components/templates/hot-takes";
-import { CountdownReelStaticPreview } from "@/components/templates/countdown";
+import {
+  CountdownCarousel,
+  CountdownPost,
+  CountdownReelStaticPreview,
+  type CountdownMilestone,
+} from "@/components/templates/countdown";
 import {
   BudgetPiePost,
   BudgetRealityPost,
@@ -212,10 +220,15 @@ import {
   type TrendDirection,
 } from "@/components/templates/in-season";
 import {
+  ColorPalettePost,
   LehengaStylePost,
+  MoodBoardPost,
   MoodBoardReelStaticPreview,
 } from "@/components/templates/mood-board";
-import { DiarySnippetReelStaticPreview } from "@/components/templates/real-bride-diaries";
+import {
+  DiaryEntryPost,
+  DiarySnippetReelStaticPreview,
+} from "@/components/templates/real-bride-diaries";
 import type { ContentData } from "@/lib/types";
 
 const CULTURE_ICONS: CultureIconType[] = [
@@ -2033,6 +2046,152 @@ export function renderTemplate(
           backgroundGradient={textRevealGradient(data)}
           font={textRevealFont(data)}
           holdTimeMs={num(data, "holdTimeMs", 2000)}
+        />
+      );
+    }
+
+    case "hot-take-post":
+      return (
+        <HotTakePost
+          hotTake={str(data, "hotTake", "The baraat horse is overrated.")}
+          responsePrompt={str(data, "responsePrompt", "agree or fight me")}
+          ctaText={str(data, "ctaText", "Drop your take in the comments 👇")}
+        />
+      );
+
+    case "hot-take-story":
+      return (
+        <HotTakeStory
+          hotTake={str(
+            data,
+            "hotTake",
+            "The sangeet is more important than the ceremony.",
+          )}
+          responsePrompt={str(data, "responsePrompt", "I said what I said.")}
+          ctaText={str(data, "ctaText", "Drop your take in the comments 👇")}
+        />
+      );
+
+    case "hot-takes-carousel": {
+      const takes: string[] = [];
+      for (let i = 0; i < 5; i += 1) {
+        const t = str(data, `takes.${i}`).trim();
+        if (t) takes.push(t);
+      }
+      return (
+        <HotTakeCarousel
+          takes={takes.length > 0 ? takes : ["Your hot take here."]}
+          slideIndex={0}
+          coverSubtitle={str(data, "coverSubtitle") || undefined}
+          closeHeadline={str(data, "closeHeadline") || undefined}
+          closeSubtitle={str(data, "closeSubtitle") || undefined}
+        />
+      );
+    }
+
+    case "countdown-post": {
+      const unitRaw = str(data, "countdownUnit", "months").trim();
+      const unit: "months" | "weeks" | "days" =
+        unitRaw === "weeks" || unitRaw === "days" ? unitRaw : "months";
+      const urgencyRaw = str(data, "urgencyLevel", "getting-real").trim();
+      const urgency: "chill" | "getting-real" | "panic" =
+        urgencyRaw === "chill" || urgencyRaw === "panic" ? urgencyRaw : "getting-real";
+      return (
+        <CountdownPost
+          countdownNumber={num(data, "countdownNumber", 6)}
+          countdownUnit={unit}
+          taskHeadline={str(data, "taskHeadline", "Lock in your vendors")}
+          taskDetail={str(data, "taskDetail", "")}
+          annotation={str(data, "annotation", "")}
+          urgencyLevel={urgency}
+        />
+      );
+    }
+
+    case "countdown-carousel": {
+      const milestones: CountdownMilestone[] = [];
+      for (let i = 0; i < 6; i += 1) {
+        const numberStr = str(data, `milestones.${i}.number`).trim();
+        const tasksRaw = str(data, `milestones.${i}.tasks`).trim();
+        if (!numberStr && !tasksRaw) continue;
+        const unitRaw = str(data, `milestones.${i}.unit`, "months").trim();
+        const unit: "months" | "weeks" | "days" =
+          unitRaw === "weeks" || unitRaw === "days" ? unitRaw : "months";
+        milestones.push({
+          number: num(data, `milestones.${i}.number`, 0) || 0,
+          unit,
+          tasks: splitLines(tasksRaw),
+        });
+      }
+      return (
+        <CountdownCarousel
+          milestones={
+            milestones.length > 0
+              ? milestones
+              : [{ number: 6, unit: "months", tasks: ["Lock the venue"] }]
+          }
+          slideIndex={0}
+          coverTitle={str(data, "coverTitle") || undefined}
+          coverSubtitle={str(data, "coverSubtitle") || undefined}
+          closeHeadline={str(data, "closeHeadline") || undefined}
+          closeCta={str(data, "closeCta") || undefined}
+        />
+      );
+    }
+
+    case "mood-board-post": {
+      const palette = splitLines(str(data, "colorPalette")).filter(Boolean);
+      const images = splitLines(str(data, "images")).filter(Boolean);
+      return (
+        <MoodBoardPost
+          styleLabel={str(data, "styleLabel", "Romantic Garden")}
+          annotation={str(data, "annotation", "")}
+          colorPalette={palette}
+          images={images}
+        />
+      );
+    }
+
+    case "color-palette-post": {
+      const colors: { hex: string; name: string }[] = [];
+      for (let i = 0; i < 5; i += 1) {
+        const hex = str(data, `colors.${i}.hex`).trim();
+        if (!hex) continue;
+        colors.push({
+          hex,
+          name: str(data, `colors.${i}.name`, "").trim(),
+        });
+      }
+      return (
+        <ColorPalettePost
+          paletteName={str(data, "paletteName", "Garden Romance")}
+          seasonNote={str(data, "seasonNote", "")}
+          colors={colors.length > 0 ? colors : [{ hex: "#F4C2C2", name: "Blush" }]}
+        />
+      );
+    }
+
+    case "diary-entry-post": {
+      const doodleRaw = str(data, "marginDoodle", "heart").trim();
+      const doodle: "heart" | "flower" | "stressed" | "sparkle" | "ring" =
+        doodleRaw === "flower" ||
+        doodleRaw === "stressed" ||
+        doodleRaw === "sparkle" ||
+        doodleRaw === "ring"
+          ? doodleRaw
+          : "heart";
+      return (
+        <DiaryEntryPost
+          dayOrWeek={str(data, "dayOrWeek", "Day 142")}
+          dateLabel={str(data, "dateLabel", "")}
+          diaryText={str(
+            data,
+            "diaryText",
+            "Tried on the lehenga today. Cried in the changing room.",
+          )}
+          brideIdentifier={str(data, "brideIdentifier", "")}
+          planningStage={str(data, "planningStage", "")}
+          marginDoodle={doodle}
         />
       );
     }

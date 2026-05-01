@@ -49,12 +49,24 @@ function installListener(): void {
   });
 }
 
+function publicMediaUrl(path: string): string {
+  const base = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+  return `${base}/storage/v1/object/public/media/${path}`;
+}
+
 export async function resolveMediaUrl(id: string): Promise<string | null> {
   installListener();
   const cached = cache.get(id);
   if (cached) return cached.url;
   const item = await getMediaItem(id);
   if (!item) return null;
+  // Prefer the Supabase-hosted file when present and the local blob is empty
+  // (placeholder created by sync from another browser).
+  if (item.filePath && item.fileBlob.size === 0) {
+    const url = publicMediaUrl(item.filePath);
+    cache.set(id, { url, generation });
+    return url;
+  }
   const url = URL.createObjectURL(item.fileBlob);
   cache.set(id, { url, generation });
   return url;
@@ -79,7 +91,12 @@ export async function resolveMultipleMediaUrls(
   if (missing.length === 0) return out;
   const items = await getMediaItems(missing);
   for (const item of items) {
-    const url = URL.createObjectURL(item.fileBlob);
+    let url: string;
+    if (item.filePath && item.fileBlob.size === 0) {
+      url = publicMediaUrl(item.filePath);
+    } else {
+      url = URL.createObjectURL(item.fileBlob);
+    }
     cache.set(item.id, { url, generation });
     out[item.id] = url;
   }
@@ -98,6 +115,13 @@ export async function getThumbnailUrl(id: string): Promise<string | null> {
   if (cached) return cached.url;
   const item = await getMediaItem(id);
   if (!item) return null;
+  // Prefer the public Supabase thumbnail URL — works across browsers and
+  // doesn't need IDB warm-up.
+  if (item.thumbnailUrl) {
+    thumbCache.set(id, { url: item.thumbnailUrl, generation });
+    return item.thumbnailUrl;
+  }
+  if (item.thumbnailBlob.size === 0) return null;
   const url = URL.createObjectURL(item.thumbnailBlob);
   thumbCache.set(id, { url, generation });
   return url;

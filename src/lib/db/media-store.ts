@@ -134,13 +134,47 @@ export interface AddMediaItemInput {
 
 export async function addMediaItem(input: AddMediaItemInput): Promise<MediaItem> {
   const db = await getDb();
+  const id = input.id ?? newId();
+
+  // Upload binaries to Supabase Storage (best-effort; if it fails we still
+  // keep the local IDB copy so the UI stays consistent).
+  let filePath: string | undefined;
+  let thumbnailPath: string | undefined;
+  let thumbnailUrl: string | undefined;
+  if (input.type !== "text" && input.fileBlob && input.fileBlob.size > 0) {
+    try {
+      const ext = mimeToExt(input.mimeType, input.fileName);
+      const objectKey = `${id}.${ext}`;
+      const up = await uploadBlobToBucket("media", objectKey, input.fileBlob);
+      filePath = up.path;
+    } catch (e) {
+      console.warn("[media-store] file upload failed", e);
+    }
+  }
+  if (input.thumbnailBlob && input.thumbnailBlob.size > 0) {
+    try {
+      const up = await uploadBlobToBucket(
+        "thumbnails",
+        `media_${id}.jpg`,
+        input.thumbnailBlob,
+      );
+      thumbnailPath = up.path;
+      thumbnailUrl = up.publicUrl;
+    } catch (e) {
+      console.warn("[media-store] thumb upload failed", e);
+    }
+  }
+
   const item: MediaItem = {
-    id: input.id ?? newId(),
+    id,
     type: input.type,
     fileName: input.fileName,
     mimeType: input.mimeType,
     fileBlob: input.fileBlob,
     thumbnailBlob: input.thumbnailBlob,
+    filePath,
+    thumbnailPath,
+    thumbnailUrl,
     width: input.width,
     height: input.height,
     duration: input.duration,
@@ -159,7 +193,163 @@ export async function addMediaItem(input: AddMediaItemInput): Promise<MediaItem>
   };
   await db.put(STORE, item);
   notifyChange();
+  pushMediaRow(item);
   return item;
+}
+
+// ---------------------------------------------------------------------------
+// Supabase sync helpers
+// ---------------------------------------------------------------------------
+
+function mimeToExt(mime: string, fallbackName: string): string {
+  if (mime === "image/jpeg") return "jpg";
+  if (mime === "image/png") return "png";
+  if (mime === "image/gif") return "gif";
+  if (mime === "image/webp") return "webp";
+  if (mime === "video/mp4") return "mp4";
+  if (mime === "video/webm") return "webm";
+  const dot = fallbackName.lastIndexOf(".");
+  return dot >= 0 ? fallbackName.slice(dot + 1) : "bin";
+}
+
+async function uploadBlobToBucket(
+  bucket: "media" | "thumbnails" | "assets" | "submissions",
+  path: string,
+  blob: Blob,
+): Promise<{ path: string; publicUrl?: string }> {
+  const form = new FormData();
+  form.append("bucket", bucket);
+  form.append("path", path);
+  form.append("file", blob);
+  const res = await fetch("/api/storage/upload", { method: "POST", body: form });
+  const json = (await res.json()) as {
+    ok?: boolean;
+    error?: string;
+    path?: string;
+    publicUrl?: string;
+  };
+  if (!json.ok || !json.path) throw new Error(json.error ?? "upload failed");
+  return { path: json.path, publicUrl: json.publicUrl };
+}
+
+function pushMediaRow(item: MediaItem) {
+  if (typeof window === "undefined") return;
+  void fetch("/api/db/media-items", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: item.id,
+      type: item.type,
+      file_name: item.fileName,
+      mime_type: item.mimeType,
+      file_path: item.filePath,
+      thumbnail_path: item.thumbnailPath,
+      width: item.width,
+      height: item.height,
+      duration_seconds: item.duration,
+      file_size: item.fileSize,
+      text_content: item.textContent,
+      tags: item.tags,
+      collection: item.collection,
+      source: item.source,
+      vendor_name: item.vendorName,
+      vendor_category: item.vendorCategory,
+      notes: item.notes,
+      used_in: item.usedIn,
+      submission_id: item.submissionId,
+      created_at: item.createdAt,
+      updated_at: item.updatedAt,
+    }),
+  }).catch((err) => console.warn("[media-store] DB push failed", err));
+}
+
+interface MediaRowFromDb {
+  id: string;
+  type: MediaItemType;
+  file_name: string;
+  mime_type: string;
+  file_path?: string | null;
+  thumbnail_path?: string | null;
+  width?: number | null;
+  height?: number | null;
+  duration_seconds?: number | null;
+  file_size?: number | null;
+  text_content?: string | null;
+  tags?: string[];
+  collection?: string;
+  source?: MediaSource;
+  vendor_name?: string | null;
+  vendor_category?: string | null;
+  notes?: string;
+  used_in?: string[];
+  submission_id?: string | null;
+  created_at?: string;
+  updated_at?: string;
+}
+
+let mediaSyncPromise: Promise<void> | null = null;
+export function syncMediaItems(): Promise<void> {
+  if (!isBrowser()) return Promise.resolve();
+  if (mediaSyncPromise) return mediaSyncPromise;
+  mediaSyncPromise = (async () => {
+    try {
+      const res = await fetch("/api/db/media-items", { cache: "no-store" });
+      if (!res.ok) return;
+      const json = (await res.json()) as { ok?: boolean; data?: MediaRowFromDb[] };
+      if (!json.ok || !Array.isArray(json.data)) return;
+
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+      const db = await getDb();
+      const existingIds = new Set<string>(
+        ((await db.getAllKeys(STORE)) as string[]).map((k) => String(k)),
+      );
+
+      // Insert any rows we don't already have locally. We don't refetch the
+      // raw fileBlob; instead we put a placeholder Blob and the path so the
+      // UI knows to fetch on demand. Thumbnail comes from the public URL.
+      for (const row of json.data) {
+        if (existingIds.has(row.id)) continue;
+        const thumbnailUrl = row.thumbnail_path
+          ? `${supabaseUrl}/storage/v1/object/public/thumbnails/${row.thumbnail_path}`
+          : undefined;
+        const item: MediaItem = {
+          id: row.id,
+          type: row.type,
+          fileName: row.file_name,
+          mimeType: row.mime_type,
+          // Empty placeholder blob — the real file lives in Storage; UI
+          // fetches it on demand when needed.
+          fileBlob: new Blob([], { type: row.mime_type }),
+          thumbnailBlob: new Blob([], { type: "image/jpeg" }),
+          filePath: row.file_path ?? undefined,
+          thumbnailPath: row.thumbnail_path ?? undefined,
+          thumbnailUrl,
+          width: row.width ?? undefined,
+          height: row.height ?? undefined,
+          duration: row.duration_seconds ?? undefined,
+          fileSize: row.file_size ?? 0,
+          textContent: row.text_content ?? undefined,
+          tags: row.tags ?? [],
+          collection: row.collection ?? "Vendor Photos",
+          source: row.source ?? "upload",
+          vendorName: row.vendor_name ?? undefined,
+          vendorCategory: row.vendor_category ?? undefined,
+          notes: row.notes ?? "",
+          usedIn: row.used_in ?? [],
+          createdAt: row.created_at ?? nowIso(),
+          updatedAt: row.updated_at ?? nowIso(),
+          submissionId: row.submission_id ?? undefined,
+        };
+        await db.put(STORE, item);
+      }
+      notifyChange();
+    } catch (err) {
+      console.warn("[media-store] sync failed", err);
+    } finally {
+      mediaSyncPromise = null;
+    }
+  })();
+  return mediaSyncPromise;
 }
 
 export async function updateMediaItem(
@@ -183,6 +373,11 @@ export async function deleteMediaItem(id: string): Promise<void> {
   const db = await getDb();
   await db.delete(STORE, id);
   notifyChange();
+  if (typeof window !== "undefined") {
+    void fetch(`/api/db/media-items?id=${encodeURIComponent(id)}`, {
+      method: "DELETE",
+    }).catch((err) => console.warn("[media-store] delete failed", err));
+  }
 }
 
 export async function deleteMediaItems(ids: string[]): Promise<void> {

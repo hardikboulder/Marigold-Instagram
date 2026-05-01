@@ -1,16 +1,16 @@
 /**
- * Claude-powered content generation.
+ * NVIDIA NIM-powered content generation.
  *
  * Each function here:
  *   1. Composes a 4-layer system prompt for the relevant series.
  *   2. Sends a structured user message asking for JSON only.
  *   3. Parses the response into our local CalendarItem / ContentData shapes.
  *
- * Server-side only — relies on ANTHROPIC_API_KEY from process.env. Importing
+ * Server-side only — relies on NVIDIA_API_KEY from process.env. Importing
  * this module from a Client Component will throw. Use the /api/generate route.
  */
 
-import Anthropic from "@anthropic-ai/sdk";
+import { callNvidia, NVIDIA_MODELS } from "./nvidia-client";
 
 import {
   getSeriesBySlug,
@@ -40,26 +40,6 @@ import {
 import { buildSystemPrompt } from "./system-prompt";
 
 // ---------------------------------------------------------------------------
-// Anthropic client
-// ---------------------------------------------------------------------------
-
-const MODEL_ID = "claude-sonnet-4-20250514";
-
-let cachedClient: Anthropic | null = null;
-
-function getClient(): Anthropic {
-  if (cachedClient) return cachedClient;
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    throw new Error(
-      "ANTHROPIC_API_KEY is not set. Add it to .env.local before calling the AI engine.",
-    );
-  }
-  cachedClient = new Anthropic({ apiKey });
-  return cachedClient;
-}
-
-// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -83,55 +63,96 @@ function describeEditableFields(fields: EditableField[]): string {
     .join("\n");
 }
 
-function extractJsonFromResponse<T>(raw: string): T {
-  let text = raw.trim();
-  // Strip code fences if Claude adds them despite the contract.
-  const fenced = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
-  if (fenced) text = fenced[1].trim();
+/**
+ * Escapes raw control chars (newline/tab/CR) that appear *inside* JSON string
+ * literals. Llama models often emit these unescaped, which breaks JSON.parse.
+ * Walks the text in string-literal mode (toggled by unescaped quotes) so we
+ * only touch chars between quotes.
+ */
+function sanitizeJsonControlChars(input: string): string {
+  let out = "";
+  let inString = false;
+  let escaped = false;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i];
+    if (inString) {
+      if (escaped) {
+        out += ch;
+        escaped = false;
+        continue;
+      }
+      if (ch === "\\") {
+        out += ch;
+        escaped = true;
+        continue;
+      }
+      if (ch === '"') {
+        out += ch;
+        inString = false;
+        continue;
+      }
+      if (ch === "\n") { out += "\\n"; continue; }
+      if (ch === "\r") { out += "\\r"; continue; }
+      if (ch === "\t") { out += "\\t"; continue; }
+      // Strip other C0 control chars (0x00–0x1F) that aren't already handled.
+      if (ch.charCodeAt(0) < 0x20) continue;
+      out += ch;
+    } else {
+      out += ch;
+      if (ch === '"') inString = true;
+    }
+  }
+  return out;
+}
 
+function tryParseJson<T>(text: string): T | null {
   try {
     return JSON.parse(text) as T;
-  } catch (err) {
-    // Recover the largest JSON object/array substring.
-    const firstBrace = text.search(/[\[{]/);
-    const lastBrace = Math.max(text.lastIndexOf("]"), text.lastIndexOf("}"));
-    if (firstBrace >= 0 && lastBrace > firstBrace) {
-      const slice = text.slice(firstBrace, lastBrace + 1);
-      try {
-        return JSON.parse(slice) as T;
-      } catch {
-        // fall through
-      }
+  } catch {
+    try {
+      return JSON.parse(sanitizeJsonControlChars(text)) as T;
+    } catch {
+      return null;
     }
-    throw new Error(
-      `Claude response was not valid JSON: ${(err as Error).message}\n---\n${raw}`,
-    );
   }
 }
 
-async function callClaude(opts: {
+function extractJsonFromResponse<T>(raw: string): T {
+  let text = raw.trim();
+  // Strip code fences if the model adds them despite the contract.
+  const fenced = text.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/);
+  if (fenced) text = fenced[1].trim();
+
+  const direct = tryParseJson<T>(text);
+  if (direct !== null) return direct;
+
+  // Recover the largest JSON object/array substring.
+  const firstBrace = text.search(/[\[{]/);
+  const lastBrace = Math.max(text.lastIndexOf("]"), text.lastIndexOf("}"));
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    const slice = text.slice(firstBrace, lastBrace + 1);
+    const parsed = tryParseJson<T>(slice);
+    if (parsed !== null) return parsed;
+  }
+
+  throw new Error(`Model response was not valid JSON.\n---\n${raw}`);
+}
+
+const JSON_OUTPUT_RULE =
+  "\n\nCRITICAL OUTPUT RULES: Return ONLY valid JSON — no markdown fences, no prose. Inside string values, never use raw newlines or tabs; if you need a line break in a caption, use the literal two-character escape \\n.";
+
+async function callModel(opts: {
   system: string;
   userMessage: string;
   maxTokens?: number;
 }): Promise<string> {
-  const client = getClient();
-  const response = await client.messages.create({
-    model: MODEL_ID,
-    max_tokens: opts.maxTokens ?? 2048,
-    system: opts.system,
-    messages: [{ role: "user", content: opts.userMessage }],
+  return callNvidia({
+    system: opts.system + JSON_OUTPUT_RULE,
+    userMessage: opts.userMessage,
+    model: NVIDIA_MODELS.general,
+    maxTokens: opts.maxTokens ?? 2048,
+    temperature: 0.5,
   });
-
-  const text = response.content
-    .filter((block): block is Anthropic.TextBlock => block.type === "text")
-    .map((block) => block.text)
-    .join("\n")
-    .trim();
-
-  if (!text) {
-    throw new Error("Claude returned an empty response.");
-  }
-  return text;
 }
 
 function newItemId(): string {
@@ -362,7 +383,7 @@ export async function generateCalendarWeek(
     "Return only the array. No prose. No markdown fences.",
   ].join("\n");
 
-  const raw = await callClaude({
+  const raw = await callModel({
     system,
     userMessage,
     maxTokens: 4096,
@@ -518,7 +539,7 @@ export async function generateSinglePost(
     "Return only the object. No prose. No markdown fences.",
   ].join("\n");
 
-  const raw = await callClaude({ system, userMessage, maxTokens: 1500 });
+  const raw = await callModel({ system, userMessage, maxTokens: 1500 });
   const parsed = extractJsonFromResponse<RawSinglePost>(raw);
 
   const today = new Date();
@@ -590,7 +611,7 @@ export async function generateCaption(
     "Return only the object. No prose. No markdown fences.",
   ].join("\n");
 
-  const raw = await callClaude({ system, userMessage, maxTokens: 800 });
+  const raw = await callModel({ system, userMessage, maxTokens: 800 });
   const parsed = extractJsonFromResponse<GeneratedCaption>(raw);
   return {
     caption: parsed.caption ?? "",
@@ -630,7 +651,7 @@ export async function generateVariations(
     `Output a JSON array of exactly ${safeCount} content_data objects. Each object must use the same keys as the original. No wrapping, no prose, no markdown fences.`,
   ].join("\n");
 
-  const raw = await callClaude({ system, userMessage, maxTokens: 2000 });
+  const raw = await callModel({ system, userMessage, maxTokens: 2000 });
   const parsed = extractJsonFromResponse<ContentData[]>(raw);
   return Array.isArray(parsed) ? parsed.slice(0, safeCount) : [];
 }

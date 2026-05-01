@@ -42,6 +42,7 @@ import {
   getAllMediaItems,
   getCollections,
   moveItemsToCollection,
+  syncMediaItems,
   updateMediaItem,
   validateFile,
 } from "@/lib/db/media-store";
@@ -103,6 +104,9 @@ export function MediaLibraryView() {
     void (async () => {
       await refresh();
       setHydrated(true);
+      // Pull metadata from Supabase so uploads from other browsers show up.
+      await syncMediaItems();
+      await refresh();
     })();
     function bump() {
       setCollections(getCollections());

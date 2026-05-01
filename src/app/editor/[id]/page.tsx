@@ -50,6 +50,7 @@ import {
   exportImage,
   exportThumbnailDataUrl,
 } from "@/lib/export/export-image";
+import { uploadToBucket, dataUrlToBlob } from "@/lib/export/storage-upload";
 import type {
   CalendarItem,
   CalendarStatus,
@@ -330,20 +331,48 @@ export default function TemplateEditorPage() {
         height: template.dimensions.height,
         overrideTransform: "scale(1)",
       });
-      const fileUrl = URL.createObjectURL(blob);
+      const recordId = (typeof crypto !== "undefined" && "randomUUID" in crypto)
+        ? crypto.randomUUID()
+        : `asset_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+
+      let assetPath: string | undefined;
+      try {
+        const up = await uploadToBucket("assets", `${recordId}.png`, blob);
+        assetPath = up.path;
+      } catch (e) {
+        console.warn("[editor] asset upload failed", e);
+      }
+
       const thumbScale = 320 / template.dimensions.width;
-      const thumbnail = await exportThumbnailDataUrl(
+      const thumbnailDataUrl = await exportThumbnailDataUrl(
         previewInnerRef.current,
         Math.round(template.dimensions.width * thumbScale),
         Math.round(template.dimensions.height * thumbScale),
       );
+      let thumbPath: string | undefined;
+      let thumbPublicUrl: string | undefined;
+      try {
+        const up = await uploadToBucket(
+          "thumbnails",
+          `${recordId}.jpg`,
+          dataUrlToBlob(thumbnailDataUrl),
+        );
+        thumbPath = up.path;
+        thumbPublicUrl = up.publicUrl;
+      } catch (e) {
+        console.warn("[editor] thumbnail upload failed", e);
+      }
+
       saveAssetRecord({
+        id: recordId,
         calendar_item_id: item.id,
         template_slug: template.slug,
         series_slug: item.series_slug,
         file_type: "png",
-        file_url: fileUrl,
-        thumbnail,
+        file_path: assetPath,
+        file_url: assetPath ? undefined : URL.createObjectURL(blob),
+        thumbnail: thumbPublicUrl ?? thumbnailDataUrl,
+        thumbnail_path: thumbPath,
         filename: `${filename}.png`,
         dimensions: template.dimensions,
         file_size_bytes: blob.size,

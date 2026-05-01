@@ -19,6 +19,12 @@ export interface MediaItem {
   fileBlob: Blob;
   /** Auto-generated 300px-wide thumbnail. Same blob for text items (placeholder). */
   thumbnailBlob: Blob;
+  /** Supabase Storage object key for the original file (in `media` bucket). */
+  filePath?: string;
+  /** Supabase Storage object key for the thumbnail (in `thumbnails` bucket, public). */
+  thumbnailPath?: string;
+  /** Public URL for the thumbnail (so grids don't need to fetch IDB). */
+  thumbnailUrl?: string;
   width?: number;
   height?: number;
   /** Video duration in seconds. */

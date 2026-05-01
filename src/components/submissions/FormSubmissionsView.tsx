@@ -68,6 +68,9 @@ export function FormSubmissionsView() {
   function refresh() {
     setItems(getAllFormSubmissions());
     setForms(getAllForms());
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("marigold:storage-changed"));
+    }
   }
 
   useEffect(() => {

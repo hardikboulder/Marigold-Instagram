@@ -26,6 +26,7 @@ import {
   clearAssetRecords,
   deleteAssetRecord,
   getAssetRecords,
+  syncAssetRecords,
 } from "@/lib/db/asset-store";
 import { exportImage } from "@/lib/export/export-image";
 import { getTemplateBySlug } from "@/lib/db/data-loader";
@@ -63,6 +64,15 @@ export function AssetLibrary() {
   useEffect(() => {
     refresh();
     setHydrated(true);
+    // Pull latest rows from Supabase so the cache reflects other devices /
+    // sessions; refresh() picks them up via the storage-changed event.
+    void syncAssetRecords();
+    function onStorageChange() {
+      refresh();
+    }
+    window.addEventListener("marigold:storage-changed", onStorageChange);
+    return () =>
+      window.removeEventListener("marigold:storage-changed", onStorageChange);
   }, []);
 
   const knownSeries = useMemo(() => {

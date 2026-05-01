@@ -26,6 +26,7 @@ import {
   clearCalendar,
   deleteCalendarItem,
   getAllCalendarItems,
+  syncCalendarItems,
   updateCalendarItem,
 } from "@/lib/db/content-calendar-store";
 import { buildSeedCalendarItems } from "@/lib/db/seed-calendar";
@@ -114,6 +115,18 @@ export function FeedCalendar() {
       computeSubmissionStats(monthIso(new Date()), getAllSubmissions()),
     );
     setHydrated(true);
+    // Pull latest from Supabase. The push will fire a storage-changed event
+    // that rehydrates `allItems` from the cache.
+    void syncCalendarItems();
+    function onStorageChange() {
+      setAllItems(getAllCalendarItems());
+      setSubmissionStats(
+        computeSubmissionStats(monthIso(new Date()), getAllSubmissions()),
+      );
+    }
+    window.addEventListener("marigold:storage-changed", onStorageChange);
+    return () =>
+      window.removeEventListener("marigold:storage-changed", onStorageChange);
   }, []);
 
   const todayIso = isoDate(new Date());

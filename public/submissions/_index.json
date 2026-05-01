@@ -1,6 +1,264 @@
 {
   "submissions": [
     {
+      "id": "683729be-1435-4203-90a1-29f0d618aac2",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor",
+      "data": {
+        "contact_name": "dfs",
+        "business_name": "sfds",
+        "category": "videographer",
+        "cities_served": "sfd",
+        "instagram": "sdf",
+        "website": "",
+        "contact_email": "fgdfg@gmail.com",
+        "contact_phone": "+918849810222",
+        "business_address": "fgf",
+        "years_in_industry": "",
+        "starting_price": "523542",
+        "destination_weddings": "",
+        "virtual_consultations": "",
+        "languages_spoken": [
+          "Kannada",
+          "Bengali"
+        ],
+        "booking_method": "Email",
+        "video_style": [
+          "Cinematic/Film",
+          "Music Video Style"
+        ],
+        "video_deliverables": [
+          "Full reception edit",
+          "Highlight reel (3-5 min)"
+        ],
+        "video_multi_day": "Yes — I typically cover 2-3 days",
+        "video_turnaround": "8-12 weeks",
+        "video_team": "Team of 2",
+        "video_indian_experience": "I haven't but I'm eager to learn",
+        "video_same_day_edit": "Yes",
+        "video_live_stream": "No",
+        "feature_quote": "sfdf",
+        "planners_worked_with": "dfdssf",
+        "anything_else": "dsfdss",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "VIDEOGRAPHER",
+          "vendorName": "sfds",
+          "vendorLocation": "sfd",
+          "vendorQuote": "sfdf",
+          "startingPriceText": "523542",
+          "imageUrl": "/submissions/vendor/2026-05-01T13-41-47-510Z_683729be/IMG_0646.HEIC"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:sfds",
+          "category:Videographer",
+          "city:sfd"
+        ],
+        "_vendor_category_id": "videographer",
+        "accountCreated": false,
+        "blogPostStarted": false,
+        "blogPostSubmitted": false,
+        "_auto_mapped_templates": [
+          "VendorFeaturePost",
+          "VendorTipCarousel"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor/2026-05-01T13-41-47-510Z_683729be/IMG_0646.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:sfds",
+            "category:Videographer",
+            "city:sfd"
+          ]
+        },
+        {
+          "fieldId": "headshot_or_logo",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor/2026-05-01T13-41-47-510Z_683729be/IMG_0646.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:sfds",
+            "category:Videographer",
+            "city:sfd"
+          ]
+        }
+      ],
+      "submittedAt": "2026-05-01T13:41:47.510Z",
+      "status": "new",
+      "notes": "Auto-map ready: VendorFeaturePost, VendorTipCarousel"
+    },
+    {
+      "id": "94032b52-b7d9-483c-a857-8cf79060277b",
+      "formId": "bride-connect",
+      "formTitle": "Join Bride Connect",
+      "templateType": "bride-connect",
+      "data": {
+        "first_name": "sfd",
+        "age": "12",
+        "city": "dfdf",
+        "wedding_month_year": "2026-06",
+        "looking_for": "Vendor Recs",
+        "stress_prompt": "sdfd",
+        "vibe_prompt": "fdfdf",
+        "instagram": "sfd",
+        "permission_feature": "yes"
+      },
+      "files": [
+        {
+          "fieldId": "profile_photo",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/bride-connect/2026-05-01T13-32-03-593Z_94032b52/IMG_0646.HEIC"
+        }
+      ],
+      "submittedAt": "2026-05-01T13:32:03.593Z",
+      "status": "new",
+      "notes": ""
+    },
+    {
+      "id": "9fd911c1-e0b3-4856-ad20-624fdaff4801",
+      "formId": "vendor-portfolio",
+      "formTitle": "Share your work with The Marigold",
+      "templateType": "vendor-portfolio",
+      "data": {
+        "vendor_name": "sfdf",
+        "business_name": "sdfd",
+        "category": "Caterer",
+        "city": "sfdf",
+        "instagram": "sfd",
+        "website": "",
+        "bio": "sfd",
+        "signature_quote": "dsfdsf",
+        "anything_else": "wrewrewrerr",
+        "permission_feature": "yes"
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor-portfolio/2026-05-01T13-30-57-999Z_9fd911c1/IMG_0646.HEIC"
+        },
+        {
+          "fieldId": "headshot",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor-portfolio/2026-05-01T13-30-57-999Z_9fd911c1/IMG_0646.HEIC"
+        }
+      ],
+      "submittedAt": "2026-05-01T13:30:57.999Z",
+      "status": "new",
+      "notes": ""
+    },
+    {
+      "id": "d5440a81-52a3-44c0-8e50-582bdf23500c",
+      "formId": "vendor",
+      "formTitle": "Submit your vendor profile",
+      "templateType": "vendor",
+      "data": {
+        "contact_name": "fgfd",
+        "business_name": "gfgf",
+        "category": "choreographer",
+        "cities_served": "dfg",
+        "instagram": "fggd",
+        "website": "",
+        "contact_email": "fgdfg@gmail.com",
+        "contact_phone": "+918849810222",
+        "business_address": "fgf",
+        "years_in_industry": "5-10 years",
+        "starting_price": "523542",
+        "destination_weddings": "Yes — within US",
+        "virtual_consultations": "For initial consultation only",
+        "languages_spoken": [
+          "Tamil",
+          "English",
+          "Punjabi",
+          "Kannada",
+          "Urdu"
+        ],
+        "booking_method": "Phone/WhatsApp",
+        "choreographer_styles": [
+          "Bollywood",
+          "Classical (Bharatanatyam, Kathak, etc.)"
+        ],
+        "choreographer_session_format": "Combination",
+        "choreographer_session_count": "5-8 sessions",
+        "choreographer_groups": "Up to 10-12 people",
+        "choreographer_song": "I can advise but you handle the edit",
+        "choreographer_lead_time": "6-8 weeks",
+        "feature_quote": "rgfddgf",
+        "planners_worked_with": "gfdgdg",
+        "anything_else": "dfgdfgfg",
+        "permission_feature": "yes",
+        "_vendor_profile": {
+          "vendorCategory": "CHOREOGRAPHER",
+          "vendorName": "gfgf",
+          "vendorLocation": "dfg",
+          "vendorQuote": "rgfddgf",
+          "startingPriceText": "523542",
+          "imageUrl": "/submissions/vendor/2026-05-01T13-27-35-821Z_d5440a81/IMG_0646.HEIC"
+        },
+        "_photo_tags": [
+          "source:vendor-submission",
+          "vendor:gfgf",
+          "category:Choreographer",
+          "city:dfg"
+        ],
+        "_vendor_category_id": "choreographer",
+        "accountCreated": true,
+        "blogPostStarted": true,
+        "blogPostSubmitted": false,
+        "_auto_mapped_templates": [
+          "VendorFeaturePost",
+          "VendorTipCarousel"
+        ]
+      },
+      "files": [
+        {
+          "fieldId": "portfolio_photos",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor/2026-05-01T13-27-35-821Z_d5440a81/IMG_0646.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:gfgf",
+            "category:Choreographer",
+            "city:dfg"
+          ]
+        },
+        {
+          "fieldId": "headshot_or_logo",
+          "fileName": "IMG_0646.HEIC",
+          "mimeType": "application/octet-stream",
+          "fileSize": 2009255,
+          "filePath": "/submissions/vendor/2026-05-01T13-27-35-821Z_d5440a81/IMG_0646.HEIC",
+          "tags": [
+            "source:vendor-submission",
+            "vendor:gfgf",
+            "category:Choreographer",
+            "city:dfg"
+          ]
+        }
+      ],
+      "submittedAt": "2026-05-01T13:27:35.821Z",
+      "status": "new",
+      "notes": "Auto-map ready: VendorFeaturePost, VendorTipCarousel"
+    },
+    {
       "id": "75e80e1e-d74f-488a-a4cc-9444f7c8b8d0",
       "formId": "vendor",
       "formTitle": "Submit your vendor profile",

@@ -245,16 +245,17 @@ function PillarPill({ name, color, solo, dimmed, onClick }: PillarPillProps) {
     textTransform: "uppercase",
     letterSpacing: 1.4,
     padding: "6px 12px",
-    background: solo ? color : "transparent",
-    color: solo ? "var(--cream)" : "var(--wine)",
-    border: `1.5px solid ${solo ? color : "rgba(75,21,40,0.18)"}`,
+    background: solo ? "var(--blush)" : "transparent",
+    color: "var(--wine)",
+    border: `2px solid ${solo ? color : "rgba(75,21,40,0.18)"}`,
     borderRadius: 999,
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
     gap: 6,
     opacity: dimmed ? 0.4 : 1,
-    transition: "opacity 120ms ease, background 120ms ease, color 120ms ease",
+    boxShadow: solo ? `0 0 0 2px ${color}33` : "none",
+    transition: "opacity 120ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease",
   };
   return (
     <button type="button" onClick={onClick} style={style}>
@@ -264,7 +265,7 @@ function PillarPill({ name, color, solo, dimmed, onClick }: PillarPillProps) {
           height: 8,
           borderRadius: 999,
           background: color,
-          boxShadow: solo ? "0 0 0 2px var(--cream)" : "none",
+          boxShadow: solo ? `0 0 0 2px var(--wine)` : "none",
         }}
       />
       {name}
@@ -320,27 +321,27 @@ function Checkbox({ label, swatch, checked, onChange }: CheckboxProps) {
     textTransform: "uppercase",
     letterSpacing: 1.4,
     padding: "5px 10px",
-    background: checked ? swatch : "transparent",
-    color: checked ? "var(--cream)" : "var(--wine)",
-    border: `1px solid ${checked ? swatch : "rgba(75,21,40,0.22)"}`,
+    background: checked ? "var(--blush)" : "transparent",
+    color: "var(--wine)",
+    border: `2px solid ${checked ? swatch : "rgba(75,21,40,0.22)"}`,
     borderRadius: 999,
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
     gap: 6,
+    boxShadow: checked ? `0 0 0 2px ${swatch}33` : "none",
   };
   return (
     <button type="button" onClick={onChange} style={style}>
-      {!checked && (
-        <span
-          style={{
-            width: 6,
-            height: 6,
-            borderRadius: 999,
-            background: swatch,
-          }}
-        />
-      )}
+      <span
+        style={{
+          width: 6,
+          height: 6,
+          borderRadius: 999,
+          background: swatch,
+          boxShadow: checked ? "0 0 0 1.5px var(--wine)" : "none",
+        }}
+      />
       {label}
     </button>
   );

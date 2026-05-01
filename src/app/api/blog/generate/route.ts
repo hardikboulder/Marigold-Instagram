@@ -37,12 +37,12 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
+
+import { callNvidia, NVIDIA_MODELS } from "@/lib/ai/nvidia-client";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const MODEL_ID = "claude-sonnet-4-20250514";
 const MAX_GENERATIONS_PER_SESSION = 3;
 const MAX_OUTPUT_TOKENS = 4000;
 
@@ -84,19 +84,6 @@ function bumpSessionCount(token: string): { count: number; allowed: boolean } {
   }
   existing.count += 1;
   return { count: existing.count, allowed: true };
-}
-
-let cachedClient: Anthropic | null = null;
-function getClient(): Anthropic {
-  if (cachedClient) return cachedClient;
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    throw new Error(
-      "ANTHROPIC_API_KEY is not set. Add it to .env.local before generating blog posts.",
-    );
-  }
-  cachedClient = new Anthropic({ apiKey });
-  return cachedClient;
 }
 
 const SYSTEM_PROMPT = `You are a blog writer for The Marigold, a wedding planning platform for South Asian weddings. Write in a warm, knowledgeable, and relatable tone — like a trusted friend who happens to be an expert. Use "you" to address the reader (couples). Include the vendor's real answers and stories naturally. The post should feel like it was written by the vendor with editorial polish, not like a generic SEO article. Format with clear headings, short paragraphs, and practical takeaways. Length: 800-1200 words.
@@ -165,19 +152,45 @@ interface ParsedPost {
   html: string;
 }
 
+function sanitizeJsonControlChars(input: string): string {
+  let out = "";
+  let inString = false;
+  let escaped = false;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i];
+    if (inString) {
+      if (escaped) { out += ch; escaped = false; continue; }
+      if (ch === "\\") { out += ch; escaped = true; continue; }
+      if (ch === '"') { out += ch; inString = false; continue; }
+      if (ch === "\n") { out += "\\n"; continue; }
+      if (ch === "\r") { out += "\\r"; continue; }
+      if (ch === "\t") { out += "\\t"; continue; }
+      if (ch.charCodeAt(0) < 0x20) continue;
+      out += ch;
+    } else {
+      out += ch;
+      if (ch === '"') inString = true;
+    }
+  }
+  return out;
+}
+
 function parseModelOutput(raw: string): ParsedPost {
-  // Strip code fences if Claude wrapped the JSON.
   let body = raw.trim();
   if (body.startsWith("```")) {
     body = body.replace(/^```(?:json)?\s*/, "").replace(/```\s*$/, "");
   }
-  // Find first '{' and last '}' as a defensive parse.
   const firstBrace = body.indexOf("{");
   const lastBrace = body.lastIndexOf("}");
   if (firstBrace !== -1 && lastBrace !== -1) {
     body = body.slice(firstBrace, lastBrace + 1);
   }
-  const parsed = JSON.parse(body) as Partial<ParsedPost>;
+  let parsed: Partial<ParsedPost>;
+  try {
+    parsed = JSON.parse(body) as Partial<ParsedPost>;
+  } catch {
+    parsed = JSON.parse(sanitizeJsonControlChars(body)) as Partial<ParsedPost>;
+  }
   if (!parsed.headline || !parsed.markdown || !parsed.html) {
     throw new Error("Model response is missing required fields.");
   }
@@ -232,20 +245,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   let post: ParsedPost;
   try {
-    const client = getClient();
     const userPrompt = buildUserPrompt(body);
-    const response = await client.messages.create({
-      model: MODEL_ID,
-      max_tokens: MAX_OUTPUT_TOKENS,
+    const text = await callNvidia({
       system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: userPrompt }],
+      userMessage: userPrompt,
+      model: NVIDIA_MODELS.reasoning,
+      maxTokens: MAX_OUTPUT_TOKENS,
+      temperature: 0.6,
     });
-
-    const textBlock = response.content.find((b) => b.type === "text");
-    if (!textBlock || textBlock.type !== "text") {
-      throw new Error("Claude returned no text content.");
-    }
-    post = parseModelOutput(textBlock.text);
+    post = parseModelOutput(text);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error.";
     console.error("[/api/blog/generate] failed:", err);

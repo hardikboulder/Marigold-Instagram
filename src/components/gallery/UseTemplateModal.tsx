@@ -2,13 +2,16 @@
 
 import { AddPostDialog } from "@/components/calendar/AddPostDialog";
 import { ReelTemplateModal } from "@/components/gallery/ReelTemplateModal";
+import { DiaryReelTemplateModal } from "@/components/gallery/DiaryReelTemplateModal";
 import { addCalendarItem } from "@/lib/db/content-calendar-store";
 import { useToast } from "@/components/app/ToastProvider";
 import type { CalendarItemInput } from "@/lib/types";
 
-// Slugs that represent reel templates — show the reel-specific dialog instead
-// of the generic AddPostDialog.
-const REEL_TEMPLATE_SLUGS = new Set(["confessional-reel"]);
+// Confessional-style karaoke reels (dark wine theme)
+const CONFESSIONAL_REEL_SLUGS = new Set(["confessional-reel"]);
+
+// Diary-style karaoke reels (lined paper, handwritten Caveat font)
+const DIARY_REEL_SLUGS = new Set(["diary-reel-muhurat"]);
 
 interface UseTemplateModalProps {
   open: boolean;
@@ -32,9 +35,19 @@ export function UseTemplateModal({
     toast.success(`Added "${templateName}" to your calendar.`);
   }
 
-  if (templateSlug && REEL_TEMPLATE_SLUGS.has(templateSlug)) {
+  if (templateSlug && CONFESSIONAL_REEL_SLUGS.has(templateSlug)) {
     return (
       <ReelTemplateModal
+        open={open}
+        templateName={templateName}
+        onClose={onClose}
+      />
+    );
+  }
+
+  if (templateSlug && DIARY_REEL_SLUGS.has(templateSlug)) {
+    return (
+      <DiaryReelTemplateModal
         open={open}
         templateName={templateName}
         onClose={onClose}

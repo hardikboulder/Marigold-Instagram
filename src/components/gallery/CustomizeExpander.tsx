@@ -5,7 +5,9 @@ import { TemplateFrame } from "@/components/brand/TemplateFrame";
 import { renderTemplate } from "@/components/calendar/template-renderer";
 import { getTemplateBySlug } from "@/lib/db/data-loader";
 import { defaultContentForTemplate } from "@/components/calendar/utils";
-import { exportImage } from "@/lib/export/export-image";
+import { exportImage, exportThumbnailDataUrl } from "@/lib/export/export-image";
+import { saveAssetRecord } from "@/lib/db/asset-store";
+import { uploadToBucket, dataUrlToBlob } from "@/lib/export/storage-upload";
 import type { ContentData, EditableField } from "@/lib/types";
 
 interface CustomizeExpanderProps {
@@ -61,17 +63,75 @@ export function CustomizeExpander({
   }
 
   async function handleExport() {
-    if (!innerRef.current || busy) return;
+    if (!innerRef.current || busy || !template) return;
     setBusy(true);
     try {
       const dims = FORMAT_DIMENSIONS[previewFormat];
-      await exportImage(innerRef.current, {
-        filename: `${templateSlug}-custom`,
+      const filename = `${templateSlug}-custom`;
+      const blob = await exportImage(innerRef.current, {
+        filename,
         download: true,
         width: dims.width,
         height: dims.height,
         overrideTransform: "scale(1)",
       });
+      try {
+        const recordId = (typeof crypto !== "undefined" && "randomUUID" in crypto)
+          ? crypto.randomUUID()
+          : `asset_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+
+        let assetPath: string | undefined;
+        try {
+          const up = await uploadToBucket("assets", `${recordId}.png`, blob);
+          assetPath = up.path;
+        } catch (e) {
+          console.warn("[customize] asset upload failed", e);
+        }
+
+        const thumbScale = 320 / dims.width;
+        const thumbnailDataUrl = await exportThumbnailDataUrl(
+          innerRef.current,
+          Math.round(dims.width * thumbScale),
+          Math.round(dims.height * thumbScale),
+        );
+        let thumbPath: string | undefined;
+        let thumbPublicUrl: string | undefined;
+        try {
+          const up = await uploadToBucket(
+            "thumbnails",
+            `${recordId}.jpg`,
+            dataUrlToBlob(thumbnailDataUrl),
+          );
+          thumbPath = up.path;
+          thumbPublicUrl = up.publicUrl;
+        } catch (e) {
+          console.warn("[customize] thumbnail upload failed", e);
+        }
+
+        saveAssetRecord({
+          id: recordId,
+          calendar_item_id: `customize_${templateSlug}_${Date.now()}`,
+          template_slug: templateSlug,
+          series_slug: template.series_slug,
+          file_type: "png",
+          file_path: assetPath,
+          file_url: assetPath ? undefined : URL.createObjectURL(blob),
+          thumbnail: thumbPublicUrl ?? thumbnailDataUrl,
+          thumbnail_path: thumbPath,
+          filename: `${filename}.png`,
+          dimensions: dims,
+          file_size_bytes: blob.size,
+          render_config: {
+            template_slug: templateSlug,
+            format: template.format,
+            content_data: data,
+            caption: null,
+            hashtags: [],
+          },
+        });
+      } catch (saveErr) {
+        console.warn(`[customize] could not save asset record`, saveErr);
+      }
     } finally {
       setBusy(false);
     }

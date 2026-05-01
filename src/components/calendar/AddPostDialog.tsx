@@ -59,6 +59,8 @@ export function AddPostDialog({
   const allTemplates = useMemo(() => loadTemplateDefinitions(), []);
 
   const [pillar, setPillar] = useState<PillarSlug | null>(null);
+  const [aiDecideActive, setAiDecideActive] = useState(false);
+  const [aiSuggestedPillar, setAiSuggestedPillar] = useState<PillarSlug | null>(null);
   const [templateSlug, setTemplateSlug] = useState<string>("");
   const [date, setDate] = useState<string>(isoDate(defaultDate));
   const [mode, setMode] = useState<Mode>("blank");
@@ -82,6 +84,8 @@ export function AddPostDialog({
       setSearch("");
       setError(null);
       setBusy(false);
+      setAiDecideActive(false);
+      setAiSuggestedPillar(null);
     } else {
       setPillar(null);
       setTemplateSlug("");
@@ -91,6 +95,8 @@ export function AddPostDialog({
       setSearch("");
       setBusy(false);
       setError(null);
+      setAiDecideActive(false);
+      setAiSuggestedPillar(null);
     }
   }, [open, defaultDate, preset?.pillar, preset?.templateSlug, allTemplates]);
 
@@ -106,6 +112,17 @@ export function AddPostDialog({
     return map;
   }, [recentItems]);
 
+  const usageByTemplate = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const item of recentItems) {
+      map.set(item.template_slug, (map.get(item.template_slug) ?? 0) + 1);
+    }
+    return map;
+  }, [recentItems]);
+
+  const effectivePillar: PillarSlug | null =
+    pillar ?? (aiDecideActive ? aiSuggestedPillar : null);
+
   const filteredTemplates = useMemo(() => {
     const q = search.trim().toLowerCase();
     let pool: TemplateDefinition[];
@@ -117,23 +134,38 @@ export function AddPostDialog({
             t.slug.toLowerCase().includes(q) ||
             t.series_slug.toLowerCase().includes(q)),
       );
-    } else if (pillar) {
-      pool = getTemplatesByPillar(pillar);
+    } else if (effectivePillar) {
+      pool = getTemplatesByPillar(effectivePillar);
     } else {
       return [] as TemplateDefinition[];
     }
 
-    return pool
+    const sorted = pool
       .slice()
       .sort((a, b) => {
+        if (aiDecideActive && q.length === 0) {
+          // AI mode: most-used first; unused templates fall back to sort_order.
+          const ua = usageByTemplate.get(a.slug) ?? 0;
+          const ub = usageByTemplate.get(b.slug) ?? 0;
+          if (ua !== ub) return ub - ua;
+          return a.sort_order - b.sort_order;
+        }
         const ra = recencyByTemplate.get(a.slug) ?? -1;
         const rb = recencyByTemplate.get(b.slug) ?? -1;
         // Least-recently-used first (smaller idx → earlier).
         if (ra !== rb) return ra - rb;
         return a.sort_order - b.sort_order;
-      })
-      .slice(0, q.length > 0 ? 24 : MAX_TEMPLATES_PER_PILLAR);
-  }, [allTemplates, pillar, search, recencyByTemplate]);
+      });
+
+    // AI Decide: surface a tight curated set (top 4) so it reads as a
+    // suggestion, not a pillar dump.
+    const limit = q.length > 0
+      ? 24
+      : aiDecideActive
+        ? 4
+        : MAX_TEMPLATES_PER_PILLAR;
+    return sorted.slice(0, limit);
+  }, [allTemplates, effectivePillar, search, recencyByTemplate, usageByTemplate, aiDecideActive]);
 
   const selectedTemplate = useMemo(
     () => allTemplates.find((t) => t.slug === templateSlug) ?? null,
@@ -141,8 +173,15 @@ export function AddPostDialog({
   );
 
   function pickAIDecide() {
+    // Toggle off if already active.
+    if (aiDecideActive) {
+      setAiDecideActive(false);
+      setAiSuggestedPillar(null);
+      setTemplateSlug("");
+      return;
+    }
+
     // Gap analysis: find the pillar most under-served in the recent window.
-    // Default targets if there's no recent history yet.
     const targets = pillars.map((p) => ({
       slug: p.slug,
       target: p.default_share,
@@ -162,16 +201,13 @@ export function AddPostDialog({
         bestPillar = t.slug;
       }
     }
-    setPillar(bestPillar);
-    const candidates = getTemplatesByPillar(bestPillar);
-    const least = candidates
-      .slice()
-      .sort((a, b) => {
-        const ra = recencyByTemplate.get(a.slug) ?? -1;
-        const rb = recencyByTemplate.get(b.slug) ?? -1;
-        return ra - rb;
-      })[0];
-    if (least) setTemplateSlug(least.slug);
+    // Suggestion only — does NOT highlight a pillar card. The grid below
+    // reads `effectivePillar` so it still shows the suggested pillar's
+    // templates, but no card looks user-selected.
+    setPillar(null);
+    setAiSuggestedPillar(bestPillar);
+    setTemplateSlug("");
+    setAiDecideActive(true);
     setMode("ai");
   }
 
@@ -279,6 +315,8 @@ export function AddPostDialog({
                 onClick={() => {
                   setPillar(p.slug);
                   setTemplateSlug("");
+                  setAiDecideActive(false);
+                  setAiSuggestedPillar(null);
                 }}
                 style={pillarCardStyle(active, pillarColor(p.slug))}
               >
@@ -291,7 +329,7 @@ export function AddPostDialog({
           <button
             type="button"
             onClick={pickAIDecide}
-            style={letAIDecideStyle}
+            style={letAIDecideStyleFn(aiDecideActive)}
             title="Use the calendar's pillar gap analysis to pick the next post"
           >
             <span style={{ fontSize: 22, lineHeight: 1 }}>✨</span>
@@ -312,12 +350,36 @@ export function AddPostDialog({
         />
 
         {/* Template grid */}
-        {(pillar || search.trim().length > 0) && (
+        {(effectivePillar || search.trim().length > 0) && (
           <div>
+            {aiDecideActive && aiSuggestedPillar && search.trim().length === 0 && (
+              <div
+                style={{
+                  marginBottom: 10,
+                  padding: "10px 14px",
+                  background: "var(--blush)",
+                  border: "1.5px solid var(--deep-pink)",
+                  borderRadius: 8,
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: 12,
+                  color: "var(--wine)",
+                  lineHeight: 1.4,
+                }}
+              >
+                <strong style={{ fontFamily: "'Syne', sans-serif", letterSpacing: 1 }}>
+                  ✨ AI suggests {getPillarBySlug(aiSuggestedPillar)?.name}
+                </strong>
+                {" — "}
+                this pillar is the most under-served in your recent calendar.
+                Pick one of your most-used templates below, or browse another pillar.
+              </div>
+            )}
             <div style={templateGridLabelStyle}>
               {search.trim().length > 0
                 ? `Search · ${filteredTemplates.length}`
-                : `${getPillarBySlug(pillar!)?.name ?? ""} templates · least recently used first`}
+                : aiDecideActive
+                  ? `✨ AI-suggested templates · ${getPillarBySlug(effectivePillar!)?.name ?? ""} pillar · ${filteredTemplates.length} picks`
+                  : `${getPillarBySlug(effectivePillar!)?.name ?? ""} templates · least recently used first`}
             </div>
             <div style={templateGridStyle}>
               {filteredTemplates.length === 0 && (
@@ -519,13 +581,14 @@ function pillarCardStyle(active: boolean, color: string): CSSProperties {
     alignItems: "flex-start",
     gap: 4,
     padding: "12px 14px",
-    background: active ? color : "var(--cream)",
-    color: active ? "var(--cream)" : "var(--wine)",
-    border: `1.5px solid ${active ? color : "rgba(75,21,40,0.18)"}`,
+    background: active ? "var(--blush)" : "var(--cream)",
+    color: "var(--wine)",
+    border: `2px solid ${active ? color : "rgba(75,21,40,0.18)"}`,
     borderRadius: 10,
     cursor: "pointer",
     textAlign: "left",
-    transition: "background 120ms ease",
+    boxShadow: active ? `0 0 0 3px ${color}33, 2px 2px 0 ${color}` : "none",
+    transition: "background 120ms ease, box-shadow 120ms ease, border-color 120ms ease",
   };
 }
 
@@ -554,19 +617,23 @@ const pillarCardTagline: CSSProperties = {
   opacity: 0.85,
 };
 
-const letAIDecideStyle: CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-  gap: 4,
-  padding: "12px 14px",
-  background: "var(--blush)",
-  color: "var(--wine)",
-  border: "1.5px dashed var(--deep-pink)",
-  borderRadius: 10,
-  cursor: "pointer",
-  textAlign: "left",
-};
+function letAIDecideStyleFn(active: boolean): CSSProperties {
+  return {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: 4,
+    padding: "12px 14px",
+    background: active ? "var(--deep-pink)" : "var(--blush)",
+    color: active ? "var(--cream)" : "var(--wine)",
+    border: `2px ${active ? "solid" : "dashed"} var(--deep-pink)`,
+    borderRadius: 10,
+    cursor: "pointer",
+    textAlign: "left",
+    boxShadow: active ? "0 0 0 3px rgba(214,51,108,0.25), 2px 2px 0 var(--deep-pink)" : "none",
+    transition: "background 120ms ease, box-shadow 120ms ease",
+  };
+}
 
 const templateGridLabelStyle: CSSProperties = {
   fontFamily: "'Syne', sans-serif",

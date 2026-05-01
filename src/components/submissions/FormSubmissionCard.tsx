@@ -9,6 +9,7 @@
  */
 
 import {
+  useEffect,
   useMemo,
   useState,
   type CSSProperties,
@@ -95,7 +96,7 @@ export function FormSubmissionCard({
   onDelete,
   saving,
 }: Props) {
-  const [showAll, setShowAll] = useState(false);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
   const submitted = useMemo(
     () => new Date(submission.submittedAt).toLocaleString(),
@@ -169,7 +170,7 @@ export function FormSubmissionCard({
     return items;
   }, [formConfig, submission.data]);
 
-  const visibleEntries = showAll ? entries : entries.slice(0, 4);
+  const visibleEntries = entries.slice(0, 4);
   const hasMore = entries.length > 4;
 
   const imageFiles = submission.files.filter((f) =>
@@ -180,6 +181,7 @@ export function FormSubmissionCard({
   );
 
   return (
+    <>
     <article
       style={isBlogPost ? { ...cardStyle, ...blogCardStyle } : cardStyle}
     >
@@ -264,10 +266,10 @@ export function FormSubmissionCard({
           {hasMore && (
             <button
               type="button"
-              onClick={() => setShowAll((s) => !s)}
+              onClick={() => setDetailsOpen(true)}
               style={moreBtn}
             >
-              {showAll ? "Show less" : `Show ${entries.length - 4} more`}
+              {`Show ${entries.length - 4} more`}
             </button>
           )}
         </dl>
@@ -341,6 +343,152 @@ export function FormSubmissionCard({
         </button>
       </footer>
     </article>
+    {detailsOpen && (
+      <SubmissionDetailsDialog
+        submission={submission}
+        entries={entries}
+        imageFiles={imageFiles}
+        otherFiles={otherFiles}
+        submitted={submitted}
+        onClose={() => setDetailsOpen(false)}
+      />
+    )}
+    </>
+  );
+}
+
+interface DetailsDialogProps {
+  submission: FormSubmission;
+  entries: Array<{ id: string; label: string; value: string; isLong: boolean }>;
+  imageFiles: SubmissionFile[];
+  otherFiles: SubmissionFile[];
+  submitted: string;
+  onClose: () => void;
+}
+
+function SubmissionDetailsDialog({
+  submission,
+  entries,
+  imageFiles,
+  otherFiles,
+  submitted,
+  onClose,
+}: DetailsDialogProps) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Submission details"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      style={dialogBackdrop}
+    >
+      <div style={dialogPanel}>
+        <header style={dialogHeader}>
+          <div>
+            <div style={dialogEyebrow}>{submission.formTitle}</div>
+            <div style={dialogMeta}>
+              Submitted {submitted}
+              {submission.files.length > 0 && (
+                <> · {submission.files.length} file{submission.files.length === 1 ? "" : "s"}</>
+              )}
+              {entries.length > 0 && (
+                <> · {entries.length} field{entries.length === 1 ? "" : "s"}</>
+              )}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            style={dialogCloseBtn}
+          >
+            ×
+          </button>
+        </header>
+
+        <div style={dialogBody}>
+          {entries.length > 0 && (
+            <section>
+              <h4 style={dialogSectionTitle}>All fields</h4>
+              <dl style={dialogFieldGrid}>
+                {entries.map((entry) => (
+                  <div
+                    key={entry.id}
+                    style={entry.isLong ? entryRowLong : entryRow}
+                  >
+                    <dt style={entryLabel}>{entry.label}</dt>
+                    <dd style={entryValue}>{entry.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+
+          {imageFiles.length > 0 && (
+            <section>
+              <h4 style={dialogSectionTitle}>
+                Images ({imageFiles.length})
+              </h4>
+              <div style={dialogImageGrid}>
+                {imageFiles.map((file) => (
+                  <a
+                    key={file.filePath}
+                    href={file.filePath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={file.fileName}
+                    style={dialogThumbLink}
+                  >
+                    <img
+                      src={file.filePath}
+                      alt={file.fileName}
+                      style={dialogThumbImage}
+                    />
+                    <div style={dialogThumbCaption}>{file.fileName}</div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {otherFiles.length > 0 && (
+            <section>
+              <h4 style={dialogSectionTitle}>
+                Other files ({otherFiles.length})
+              </h4>
+              <div style={otherFilesRow}>
+                {otherFiles.map((f) => (
+                  <a
+                    key={f.filePath}
+                    href={f.filePath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={fileLink}
+                  >
+                    {f.fileName}
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -398,6 +546,8 @@ const cardStyle: CSSProperties = {
   border: "1px solid rgba(75,21,40,0.08)",
   borderRadius: 14,
   boxShadow: "3px 3px 0 rgba(212,168,83,0.18)",
+  minWidth: 0,
+  overflow: "hidden",
 };
 
 const cardHeader: CSSProperties = {
@@ -461,9 +611,10 @@ function statusSelect(status: FormSubmissionStatus): CSSProperties {
 
 const dataGrid: CSSProperties = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
   gap: 8,
   margin: 0,
+  minWidth: 0,
 };
 
 const entryRow: CSSProperties = {
@@ -474,6 +625,8 @@ const entryRow: CSSProperties = {
   background: "white",
   borderRadius: 6,
   border: "1px solid rgba(75,21,40,0.06)",
+  minWidth: 0,
+  overflow: "hidden",
 };
 
 const entryRowLong: CSSProperties = {
@@ -488,6 +641,8 @@ const entryLabel: CSSProperties = {
   textTransform: "uppercase",
   letterSpacing: 1.4,
   color: "var(--mauve)",
+  overflowWrap: "anywhere",
+  wordBreak: "break-word",
 };
 
 const entryValue: CSSProperties = {
@@ -497,6 +652,8 @@ const entryValue: CSSProperties = {
   color: "var(--wine)",
   lineHeight: 1.5,
   whiteSpace: "pre-wrap",
+  overflowWrap: "anywhere",
+  wordBreak: "break-word",
 };
 
 const moreBtn: CSSProperties = {
@@ -686,4 +843,127 @@ const blogAnswerText: CSSProperties = {
   color: "var(--wine)",
   lineHeight: 1.55,
   whiteSpace: "pre-wrap",
+};
+
+const dialogBackdrop: CSSProperties = {
+  position: "fixed",
+  inset: 0,
+  zIndex: 1000,
+  background: "rgba(75,21,40,0.55)",
+  display: "flex",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  padding: "5vh 16px",
+  overflowY: "auto",
+};
+
+const dialogPanel: CSSProperties = {
+  position: "relative",
+  width: "100%",
+  maxWidth: 840,
+  background: "var(--cream)",
+  border: "1px solid rgba(75,21,40,0.15)",
+  borderRadius: 14,
+  boxShadow: "0 20px 50px rgba(75,21,40,0.35)",
+  display: "flex",
+  flexDirection: "column",
+  maxHeight: "90vh",
+};
+
+const dialogHeader: CSSProperties = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-start",
+  gap: 16,
+  padding: "20px 24px 12px",
+  borderBottom: "1px solid rgba(75,21,40,0.08)",
+};
+
+const dialogEyebrow: CSSProperties = {
+  fontFamily: "'Instrument Serif', serif",
+  fontSize: 24,
+  color: "var(--wine)",
+  lineHeight: 1.15,
+  marginBottom: 4,
+};
+
+const dialogMeta: CSSProperties = {
+  fontFamily: "'Space Grotesk', sans-serif",
+  fontSize: 12,
+  color: "var(--mauve)",
+};
+
+const dialogCloseBtn: CSSProperties = {
+  width: 32,
+  height: 32,
+  borderRadius: 999,
+  border: "1px solid rgba(75,21,40,0.2)",
+  background: "var(--cream)",
+  color: "var(--wine)",
+  fontFamily: "'Syne', sans-serif",
+  fontSize: 16,
+  fontWeight: 700,
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+};
+
+const dialogBody: CSSProperties = {
+  padding: "16px 24px 24px",
+  overflowY: "auto",
+  display: "flex",
+  flexDirection: "column",
+  gap: 24,
+};
+
+const dialogSectionTitle: CSSProperties = {
+  fontFamily: "'Syne', sans-serif",
+  fontSize: 11,
+  fontWeight: 800,
+  textTransform: "uppercase",
+  letterSpacing: 2,
+  color: "var(--mauve)",
+  margin: "0 0 10px",
+};
+
+const dialogFieldGrid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+  gap: 8,
+  margin: 0,
+};
+
+const dialogImageGrid: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+  gap: 10,
+};
+
+const dialogThumbLink: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 4,
+  textDecoration: "none",
+  color: "var(--mauve)",
+};
+
+const dialogThumbImage: CSSProperties = {
+  width: "100%",
+  aspectRatio: "1 / 1",
+  objectFit: "cover",
+  borderRadius: 8,
+  border: "1px solid rgba(75,21,40,0.08)",
+  background: "white",
+};
+
+const dialogThumbCaption: CSSProperties = {
+  fontFamily: "'Space Grotesk', sans-serif",
+  fontSize: 11,
+  color: "var(--mauve)",
+  textAlign: "center",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
 };

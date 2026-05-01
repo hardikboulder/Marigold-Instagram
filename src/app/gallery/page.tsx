@@ -157,6 +157,7 @@ interface SeriesItem {
   filename: string;
   label: string;
   node: ReactNode;
+  templateSlug?: string;
 }
 
 interface Series {
@@ -650,6 +651,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "bvm-post-guest-list",
+        templateSlug: "bvm-post",
         label: "Post — Guest List",
         node: (
           <BvMPost
@@ -836,6 +838,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "quiz-result-post-classic-elegance",
+        templateSlug: "quiz-result-post",
         label: "V2 Square Post — Classic Elegance",
         node: (
           <QuizResultPost
@@ -852,6 +855,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "quiz-result-post-royal-maximalist",
+        templateSlug: "quiz-result-post",
         label: "V2 Square Post — Royal Maximalist",
         node: (
           <QuizResultPost
@@ -868,6 +872,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "quiz-result-post-party-animals",
+        templateSlug: "quiz-result-post",
         label: "V2 Square Post — Party Animals",
         node: (
           <QuizResultPost
@@ -987,6 +992,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "tot-post-band-dj",
+        templateSlug: "tot-post",
         label: "Post — Live Band vs. DJ",
         node: (
           <ThisOrThatPost
@@ -1029,6 +1035,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-post-12-months",
+        templateSlug: "countdown-post",
         label: "Post — 12 Months Out",
         node: (
           <CountdownPost
@@ -1044,6 +1051,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-post-6-months",
+        templateSlug: "countdown-post",
         label: "Post — 6 Months Out",
         node: (
           <CountdownPost
@@ -1059,6 +1067,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-post-1-week",
+        templateSlug: "countdown-post",
         label: "Post — 1 Week Out",
         node: (
           <CountdownPost
@@ -1089,6 +1098,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-carousel-cover",
+        templateSlug: "countdown-carousel",
         label: "Carousel — Cover",
         node: (
           <CountdownCarousel
@@ -1100,6 +1110,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-carousel-12-months",
+        templateSlug: "countdown-carousel",
         label: "Carousel — 12 Months",
         node: (
           <CountdownCarousel
@@ -1111,6 +1122,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-carousel-3-months",
+        templateSlug: "countdown-carousel",
         label: "Carousel — 3 Months",
         node: (
           <CountdownCarousel
@@ -1122,6 +1134,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-carousel-1-week",
+        templateSlug: "countdown-carousel",
         label: "Carousel — 1 Week",
         node: (
           <CountdownCarousel
@@ -1133,6 +1146,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "countdown-carousel-close",
+        templateSlug: "countdown-carousel",
         label: "Carousel — Close",
         node: (
           <CountdownCarousel
@@ -1156,6 +1170,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "mood-board-post-romantic-garden",
+        templateSlug: "mood-board-post",
         label: "Post — Romantic Garden",
         node: (
           <MoodBoardPost
@@ -1185,6 +1200,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "color-palette-garden-romance",
+        templateSlug: "color-palette-post",
         label: "Palette — Garden Romance",
         node: (
           <ColorPalettePost
@@ -1203,6 +1219,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "lehenga-style-modern-minimal",
+        templateSlug: "lehenga-style-post",
         label: "Lehenga Style — Modern Minimal",
         node: (
           <LehengaStylePost
@@ -1229,6 +1246,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-feature-photographer",
+        templateSlug: "vendor-feature-post",
         label: "Feature Post — Photographer",
         node: (
           <VendorFeaturePost
@@ -1243,6 +1261,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-feature-decorator",
+        templateSlug: "vendor-feature-post",
         label: "Feature Post — Decorator",
         node: (
           <VendorFeaturePost
@@ -1257,6 +1276,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-tip-carousel-cover",
+        templateSlug: "vendor-tip-carousel",
         label: "Tip Carousel — Cover",
         node: (
           <VendorTipCarousel
@@ -1272,6 +1292,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-tip-carousel-tip-1",
+        templateSlug: "vendor-tip-carousel",
         label: "Tip Carousel — Tip 1",
         node: (
           <VendorTipCarousel
@@ -1287,6 +1308,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-tip-carousel-tip-3",
+        templateSlug: "vendor-tip-carousel",
         label: "Tip Carousel — Tip 3",
         node: (
           <VendorTipCarousel
@@ -1302,6 +1324,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-tip-carousel-close",
+        templateSlug: "vendor-tip-carousel",
         label: "Tip Carousel — Close",
         node: (
           <VendorTipCarousel
@@ -1343,6 +1366,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-take-post-baraat-horse",
         label: "Post — Baraat Horse",
+        templateSlug: "hot-take-post",
         node: (
           <HotTakePost
             hotTake="The baraat horse is overrated."
@@ -1355,6 +1379,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-take-post-photographer",
         label: "Post — Photographer",
+        templateSlug: "hot-take-post",
         node: (
           <HotTakePost
             hotTake="Your photographer is more important than your venue."
@@ -1367,6 +1392,7 @@ const SERIES: Series[] = [
         format: "story",
         filename: "hot-take-story-sangeet",
         label: "Story — Sangeet > Ceremony",
+        templateSlug: "hot-take-story",
         node: (
           <HotTakeStory
             hotTake="The sangeet is more important than the ceremony."
@@ -1379,6 +1405,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-takes-carousel-cover",
         label: "Carousel — Cover",
+        templateSlug: "hot-takes-carousel",
         node: (
           <HotTakeCarousel slideIndex={0} takes={HOT_TAKES_DEMO} />
         ),
@@ -1387,6 +1414,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-takes-carousel-1",
         label: "Carousel — Take 1",
+        templateSlug: "hot-takes-carousel",
         node: (
           <HotTakeCarousel slideIndex={1} takes={HOT_TAKES_DEMO} />
         ),
@@ -1395,6 +1423,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-takes-carousel-2",
         label: "Carousel — Take 2",
+        templateSlug: "hot-takes-carousel",
         node: (
           <HotTakeCarousel slideIndex={2} takes={HOT_TAKES_DEMO} />
         ),
@@ -1403,6 +1432,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-takes-carousel-5",
         label: "Carousel — Take 5",
+        templateSlug: "hot-takes-carousel",
         node: (
           <HotTakeCarousel slideIndex={5} takes={HOT_TAKES_DEMO} />
         ),
@@ -1411,6 +1441,7 @@ const SERIES: Series[] = [
         format: "post",
         filename: "hot-takes-carousel-close",
         label: "Carousel — Close",
+        templateSlug: "hot-takes-carousel",
         node: (
           <HotTakeCarousel slideIndex={6} takes={HOT_TAKES_DEMO} />
         ),
@@ -1418,6 +1449,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "approval-matrix-trends",
+        templateSlug: "approval-matrix-post",
         label: "Approval Matrix — Trends",
         node: (
           <ApprovalMatrixPost
@@ -1453,6 +1485,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-feature-falaknuma",
+        templateSlug: "venue-feature-post",
         label: "Feature — Taj Falaknuma",
         node: (
           <VenueFeaturePost
@@ -1468,6 +1501,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-feature-alila-diwa",
+        templateSlug: "venue-feature-post",
         label: "Feature — Alila Diwa Goa",
         node: (
           <VenueFeaturePost
@@ -1482,6 +1516,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-comparison-falaknuma-grand-bharat",
+        templateSlug: "venue-comparison-post",
         label: "Comparison — Falaknuma vs. Grand Bharat",
         node: (
           <VenueComparisonPost
@@ -1506,6 +1541,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-style-guide-cover",
+        templateSlug: "venue-style-guide",
         label: "Style Guide — Cover",
         node: (
           <VenueStyleGuide
@@ -1520,6 +1556,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-style-guide-vibe",
+        templateSlug: "venue-style-guide",
         label: "Style Guide — The Vibe",
         node: (
           <VenueStyleGuide
@@ -1534,6 +1571,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-style-guide-watch-out",
+        templateSlug: "venue-style-guide",
         label: "Style Guide — Watch Out For",
         node: (
           <VenueStyleGuide
@@ -1548,6 +1586,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "venue-style-guide-close",
+        templateSlug: "venue-style-guide",
         label: "Style Guide — Close",
         node: (
           <VenueStyleGuide
@@ -1589,6 +1628,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-profile-aanya-mehta",
+        templateSlug: "planner-profile-post",
         label: "Profile — Aanya Mehta",
         node: (
           <PlannerProfilePost
@@ -1610,6 +1650,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-advice-day-of",
+        templateSlug: "planner-advice-post",
         label: "Advice — Day-Of Coordinator",
         node: (
           <PlannerAdvicePost
@@ -1624,6 +1665,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-tips-carousel-cover",
+        templateSlug: "planner-tips-carousel",
         label: "Tips Carousel — Cover",
         node: (
           <PlannerTipsCarousel
@@ -1639,6 +1681,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-tips-carousel-tip-1",
+        templateSlug: "planner-tips-carousel",
         label: "Tips Carousel — Tip 1",
         node: (
           <PlannerTipsCarousel
@@ -1654,6 +1697,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-tips-carousel-tip-3",
+        templateSlug: "planner-tips-carousel",
         label: "Tips Carousel — Tip 3",
         node: (
           <PlannerTipsCarousel
@@ -1669,6 +1713,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "planner-tips-carousel-close",
+        templateSlug: "planner-tips-carousel",
         label: "Tips Carousel — Close",
         node: (
           <PlannerTipsCarousel
@@ -1684,6 +1729,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "day-of-vs-full-planning",
+        templateSlug: "day-of-vs-full-planning-post",
         label: "Day-Of vs. Full Planning",
         node: (
           <DayOfVsFullPlanningPost
@@ -1722,6 +1768,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "edit-product-pick-jewelry",
+        templateSlug: "edit-product-pick-post",
         label: "Product Pick — Bridal Jewelry",
         node: (
           <ProductPickPost
@@ -1735,6 +1782,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "edit-trending-now-decor",
+        templateSlug: "edit-trending-now-post",
         label: "Trending Now — Decor",
         node: (
           <TrendingNowPost
@@ -1753,6 +1801,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "edit-top-picks-cover",
+        templateSlug: "edit-top-picks-carousel",
         label: "Top Picks Carousel — Cover",
         node: (
           <TopPicksCarousel
@@ -1766,6 +1815,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "edit-top-picks-pick-2",
+        templateSlug: "edit-top-picks-carousel",
         label: "Top Picks Carousel — Pick 2",
         node: (
           <TopPicksCarousel
@@ -1802,6 +1852,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "diary-post-lehenga-trial",
+        templateSlug: "diary-entry-post",
         label: "Post — Lehenga Trial Day",
         node: (
           <DiaryEntryPost
@@ -1817,6 +1868,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "diary-post-mom-moment",
+        templateSlug: "diary-entry-post",
         label: "Post — A Soft Mom Moment",
         node: (
           <DiaryEntryPost
@@ -1875,30 +1927,35 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "budget-pie-post",
+        templateSlug: "budget-pie-post",
         label: "Budget Pie — ₹30 lakh wedding",
         node: <BudgetPiePost />,
       },
       {
         format: "post" as const,
         filename: "save-vs-splurge-post",
+        templateSlug: "save-vs-splurge-post",
         label: "Save vs. Splurge",
         node: <SaveVsSplurgePost />,
       },
       {
         format: "post" as const,
         filename: "budget-reality-post",
+        templateSlug: "budget-reality-post",
         label: "Budget Reality Check",
         node: <BudgetRealityPost />,
       },
       {
         format: "post" as const,
         filename: "cost-by-city-mumbai",
+        templateSlug: "cost-by-city-post",
         label: "Cost by City — Mumbai",
         node: <CostByCityPost />,
       },
       {
         format: "post" as const,
         filename: "cost-by-city-jaipur",
+        templateSlug: "cost-by-city-post",
         label: "Cost by City — Jaipur",
         node: (
           <CostByCityPost
@@ -1915,6 +1972,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "budget-tips-cover",
+        templateSlug: "budget-tips-carousel",
         label: "Tips Carousel — Cover",
         node: (
           <BudgetTipsCarousel
@@ -1926,6 +1984,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "budget-tips-pair-1",
+        templateSlug: "budget-tips-carousel",
         label: "Tips Carousel — Tips 1 & 2",
         node: (
           <BudgetTipsCarousel
@@ -1937,6 +1996,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "budget-tips-pair-3",
+        templateSlug: "budget-tips-carousel",
         label: "Tips Carousel — Tips 5 & 6",
         node: (
           <BudgetTipsCarousel
@@ -1948,6 +2008,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "budget-tips-close",
+        templateSlug: "budget-tips-carousel",
         label: "Tips Carousel — Close",
         node: (
           <BudgetTipsCarousel
@@ -1959,6 +2020,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "real-numbers-42-lakh",
+        templateSlug: "real-numbers-post",
         label: "Real Numbers — ₹42 lakh wedding",
         node: (
           <RealNumbersPost
@@ -2011,6 +2073,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "ceremony-guide-haldi",
+        templateSlug: "ceremony-guide-post",
         label: "Ceremony Guide — Haldi",
         node: (
           <CeremonyGuidePost
@@ -2031,6 +2094,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "ceremony-guide-mehndi",
+        templateSlug: "ceremony-guide-post",
         label: "Ceremony Guide — Mehndi",
         node: (
           <CeremonyGuidePost
@@ -2051,6 +2115,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "guest-management-post",
+        templateSlug: "guest-management-post",
         label: "Guest List Survival Guide",
         node: (
           <GuestManagementPost
@@ -2062,6 +2127,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "red-flags-vendor",
+        templateSlug: "red-flags-post",
         label: "Red Flags — In a Vendor",
         node: (
           <RedFlagsPost
@@ -2074,6 +2140,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "timeline-builder-wedding-day",
+        templateSlug: "timeline-builder-post",
         label: "Timeline Builder — Wedding Day",
         node: (
           <TimelineBuilderPost
@@ -2086,6 +2153,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "vendor-negotiation-photographer",
+        templateSlug: "vendor-negotiation-post",
         label: "How To Negotiate — Photographer",
         node: (
           <VendorNegotiationPost
@@ -2098,6 +2166,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-cover",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — Cover",
         node: (
           <EventBreakdownCarousel
@@ -2111,6 +2180,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-vibe",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Vibe",
         node: (
           <EventBreakdownCarousel
@@ -2124,6 +2194,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-checklist",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Checklist",
         node: (
           <EventBreakdownCarousel
@@ -2137,6 +2208,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-budget",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Budget",
         node: (
           <EventBreakdownCarousel
@@ -2150,6 +2222,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-timeline",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Timeline",
         node: (
           <EventBreakdownCarousel
@@ -2163,6 +2236,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-mistakes",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Mistakes",
         node: (
           <EventBreakdownCarousel
@@ -2176,6 +2250,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "event-breakdown-mehndi-marigold",
+        templateSlug: "event-breakdown-carousel",
         label: "Event Breakdown — The Marigold Has This",
         node: (
           <EventBreakdownCarousel
@@ -2212,6 +2287,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "did-you-know-lehenga-tries",
+        templateSlug: "did-you-know-post",
         label: "Did You Know — Lehenga Tries",
         node: (
           <DidYouKnowPost
@@ -2224,6 +2300,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "dos-and-donts-photographer",
+        templateSlug: "dos-and-donts-post",
         label: "Do's & Don'ts — Hiring a Photographer",
         node: (
           <DosAndDontsPost
@@ -2259,6 +2336,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-feature-drop",
+        templateSlug: "platform-feature-drop-post",
         label: "Feature Drop",
         node: (
           <FeatureDropPost
@@ -2277,6 +2355,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-before-after",
+        templateSlug: "platform-before-after-post",
         label: "Before / After",
         node: (
           <BeforeAfterPost
@@ -2303,6 +2382,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-cover",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Cover",
         node: (
           <HowItWorksCarousel
@@ -2315,6 +2395,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-step-1",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Step 1",
         node: (
           <HowItWorksCarousel
@@ -2327,6 +2408,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-step-2",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Step 2",
         node: (
           <HowItWorksCarousel
@@ -2339,6 +2421,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-step-3",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Step 3",
         node: (
           <HowItWorksCarousel
@@ -2351,6 +2434,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-step-4",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Step 4",
         node: (
           <HowItWorksCarousel
@@ -2363,6 +2447,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-how-it-works-close",
+        templateSlug: "platform-how-it-works-carousel",
         label: "How It Works — Close",
         node: (
           <HowItWorksCarousel
@@ -2375,6 +2460,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-vs-old-way",
+        templateSlug: "platform-vs-old-way-post",
         label: "Marigold vs. Old Way",
         node: (
           <MarigoldVsOldWayPost
@@ -2395,6 +2481,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "platform-testimonial",
+        templateSlug: "platform-testimonial-post",
         label: "Testimonial",
         node: (
           <TestimonialPost
@@ -2433,6 +2520,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "vendor-quote",
+        templateSlug: "vendor-quote",
         label: "Vendor Quote",
         node: (
           <VendorQuote
@@ -2446,6 +2534,7 @@ const SERIES: Series[] = [
       {
         format: "post",
         filename: "feature-callout",
+        templateSlug: "feature-callout",
         label: "Feature Callout",
         node: (
           <FeatureCallout
@@ -2502,6 +2591,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-life-self-care",
+        templateSlug: "bride-life-self-care-post",
         label: "Self-Care Post",
         node: (
           <SelfCarePost
@@ -2520,6 +2610,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-life-relationship-checkin",
+        templateSlug: "bride-life-relationship-checkin",
         label: "Couple Check-In",
         node: (
           <RelationshipCheckInPost
@@ -2532,6 +2623,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-life-emotional-reality",
+        templateSlug: "bride-life-emotional-reality",
         label: "Emotional Reality",
         node: (
           <EmotionalRealityPost
@@ -2555,6 +2647,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-life-in-law-navigation",
+        templateSlug: "bride-life-in-law-navigation",
         label: "In-Law Navigation",
         node: (
           <InLawNavigationPost
@@ -2583,6 +2676,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-tradition-explained",
+        templateSlug: "tradition-explained-post",
         label: "Tradition Explained",
         node: (
           <TraditionExplainedPost
@@ -2596,6 +2690,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-regional-spotlight-cover",
+        templateSlug: "regional-spotlight-carousel",
         label: "Regional Spotlight — Cover",
         node: (
           <RegionalSpotlightCarousel
@@ -2610,6 +2705,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-regional-spotlight-ceremonies",
+        templateSlug: "regional-spotlight-carousel",
         label: "Regional Spotlight — Ceremonies",
         node: (
           <RegionalSpotlightCarousel
@@ -2624,6 +2720,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-regional-spotlight-cta",
+        templateSlug: "regional-spotlight-carousel",
         label: "Regional Spotlight — CTA",
         node: (
           <RegionalSpotlightCarousel
@@ -2638,6 +2735,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-fusion-wedding",
+        templateSlug: "fusion-wedding-post",
         label: "Fusion Wedding Guide",
         node: (
           <FusionWeddingPost
@@ -2658,6 +2756,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "culture-family-roles",
+        templateSlug: "family-roles-post",
         label: "Family Roles Guide",
         node: (
           <FamilyRolesPost
@@ -2719,6 +2818,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-trend-post",
+        templateSlug: "in-season-trend-post",
         label: "Seasonal Trend Post",
         node: (
           <SeasonalTrendPost
@@ -2739,6 +2839,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-festival-inspo",
+        templateSlug: "in-season-festival-inspo-post",
         label: "Festival Inspo Post",
         node: (
           <FestivalInspoPost
@@ -2756,6 +2857,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-prep-cover",
+        templateSlug: "in-season-prep-carousel",
         label: "Season Prep — Cover",
         node: (
           <WeddingSeasonPrepCarousel
@@ -2792,6 +2894,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-prep-book-now",
+        templateSlug: "in-season-prep-carousel",
         label: "Season Prep — Book Now",
         node: (
           <WeddingSeasonPrepCarousel
@@ -2813,6 +2916,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-prep-relax",
+        templateSlug: "in-season-prep-carousel",
         label: "Season Prep — Relax About",
         node: (
           <WeddingSeasonPrepCarousel
@@ -2834,6 +2938,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "in-season-prep-cta",
+        templateSlug: "in-season-prep-carousel",
         label: "Season Prep — CTA",
         node: (
           <WeddingSeasonPrepCarousel
@@ -2880,6 +2985,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "community-bride-of-the-week",
+        templateSlug: "bride-of-the-week-post",
         label: "Bride of the Week",
         node: (
           <BrideOfTheWeekPost
@@ -2895,6 +3001,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "community-poll-results",
+        templateSlug: "poll-results-post",
         label: "Poll Results",
         node: (
           <PollResultsPost
@@ -2911,6 +3018,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "community-milestone",
+        templateSlug: "milestone-post",
         label: "Milestone Celebration",
         node: (
           <MilestonePost
@@ -2966,6 +3074,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-connect-match-profile",
+        templateSlug: "bride-match-profile-post",
         label: "Match Profile Post",
         node: (
           <BrideMatchProfilePost
@@ -3022,6 +3131,7 @@ const SERIES: Series[] = [
       {
         format: "post" as const,
         filename: "bride-connect-matched-duo",
+        templateSlug: "bride-match-duo-post",
         label: "Matched Duo Post",
         node: (
           <BrideMatchDuoPost
@@ -3424,6 +3534,7 @@ const FILENAME_TEMPLATE_OVERRIDES: Record<string, string> = {
   "confessional-02-gold": "confessional-card",
   "confessional-03-lavender": "confessional-card",
   "confessional-karaoke-reel": "confessional-reel",
+  "diary-reel-muhurat-text": "diary-reel-muhurat",
 };
 
 function deriveTemplateSlug(filename: string): string | undefined {
@@ -3474,7 +3585,8 @@ function bucketItems(items: SeriesItem[]): SeriesBuckets {
   for (const item of items) {
     const carousel = detectCarousel(item.filename);
     const kind = detectKind(item.filename, item.format);
-    const templateSlug = deriveTemplateSlug(item.filename);
+    // Prefer the explicit templateSlug on the item; fall back to filename-based derivation.
+    const templateSlug = item.templateSlug ?? deriveTemplateSlug(item.filename);
 
     if (carousel) {
       let bucket = carouselMap.get(carousel.id);
@@ -4364,14 +4476,16 @@ function pillarTabStyle(active: boolean, color: string): CSSProperties {
     textTransform: "uppercase",
     letterSpacing: 1.4,
     padding: "6px 12px",
-    background: active ? color : "transparent",
-    color: active ? "var(--cream)" : "var(--wine)",
-    border: `1.5px solid ${active ? color : "rgba(75,21,40,0.18)"}`,
+    background: active ? "var(--blush)" : "transparent",
+    color: "var(--wine)",
+    border: `2px solid ${active ? color : "rgba(75,21,40,0.18)"}`,
     borderRadius: 999,
     cursor: "pointer",
     display: "flex",
     alignItems: "center",
     gap: 6,
+    boxShadow: active ? `0 0 0 2px ${color}33` : "none",
+    transition: "background 120ms ease, box-shadow 120ms ease, border-color 120ms ease",
   };
 }
 
@@ -4381,7 +4495,7 @@ function pillarTabDotStyle(color: string, active: boolean): CSSProperties {
     height: 8,
     borderRadius: 999,
     background: color,
-    boxShadow: active ? "0 0 0 2px var(--cream)" : "none",
+    boxShadow: active ? "0 0 0 2px var(--wine)" : "none",
   };
 }
 

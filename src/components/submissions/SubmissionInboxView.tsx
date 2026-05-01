@@ -46,6 +46,8 @@ import {
   generateImageThumbnail,
   generateTextThumbnail,
 } from "@/lib/db/media-store";
+import { getAllFormSubmissions } from "@/lib/db/form-submissions-store";
+import type { FormSubmission, FormSubmissionStatus } from "@/lib/types";
 
 interface FilterState {
   vendor: string;
@@ -65,6 +67,7 @@ export function SubmissionInboxView() {
   const toast = useToast();
   const [hydrated, setHydrated] = useState(false);
   const [items, setItems] = useState<VendorSubmission[]>([]);
+  const [formItems, setFormItems] = useState<FormSubmission[]>([]);
   const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS);
   const [addOpen, setAddOpen] = useState(false);
   const [editing, setEditing] = useState<VendorSubmission | null>(null);
@@ -73,11 +76,20 @@ export function SubmissionInboxView() {
 
   useEffect(() => {
     setItems(getAllSubmissions());
+    setFormItems(getAllFormSubmissions());
     setHydrated(true);
+    function onChange() {
+      setItems(getAllSubmissions());
+      setFormItems(getAllFormSubmissions());
+    }
+    window.addEventListener("marigold:storage-changed", onChange);
+    return () =>
+      window.removeEventListener("marigold:storage-changed", onChange);
   }, []);
 
   function refresh() {
     setItems(getAllSubmissions());
+    setFormItems(getAllFormSubmissions());
   }
 
   function handleCreate(input: VendorSubmissionInput) {
@@ -232,8 +244,23 @@ export function SubmissionInboxView() {
   const statusCounts = useMemo(() => {
     const c: Record<SubmissionStatus, number> = { new: 0, planned: 0, used: 0 };
     for (const s of items) c[s.status] += 1;
+    // Roll form submissions into the same buckets so the hero stats reflect
+    // everything in the inbox, not just manual entries.
+    const formStatusToBucket: Record<FormSubmissionStatus, SubmissionStatus | null> = {
+      new: "new",
+      reviewed: "planned",
+      "saved-to-library": "planned",
+      used: "used",
+      rejected: null,
+    };
+    for (const f of formItems) {
+      const bucket = formStatusToBucket[f.status];
+      if (bucket) c[bucket] += 1;
+    }
     return c;
-  }, [items]);
+  }, [items, formItems]);
+
+  const totalCount = items.length + formItems.length;
 
   return (
     <div className="marigold-page-pad" style={pageStyle}>
@@ -262,7 +289,7 @@ export function SubmissionInboxView() {
         </div>
 
         <div style={statRow}>
-          <Stat label="Total" value={items.length} />
+          <Stat label="Total" value={totalCount} />
           <Stat label="New" value={statusCounts.new} accent="var(--deep-pink)" />
           <Stat
             label="Planned"

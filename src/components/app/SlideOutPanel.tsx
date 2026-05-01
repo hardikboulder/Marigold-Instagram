@@ -30,6 +30,7 @@ import {
 import { buildSeedCalendarItems } from "@/lib/db/seed-calendar";
 import { clearAssetRecords } from "@/lib/db/asset-store";
 import { clearSubmissions } from "@/lib/db/submissions-store";
+import { getSupabaseClient } from "@/lib/supabase/client";
 import {
   computeStorageUsage,
   formatBytes,
@@ -205,6 +206,18 @@ export function SlideOutPanel({ open, onClose }: Props) {
     toast.success("Library cleared.");
   }
 
+  async function handleSignOut() {
+    try {
+      const supabase = getSupabaseClient();
+      await supabase.auth.signOut();
+      // Hard-redirect so middleware re-evaluates and sends us to /login.
+      window.location.href = "/login";
+    } catch (err) {
+      console.warn("[panel] sign-out failed", err);
+      toast.error("Sign-out failed.");
+    }
+  }
+
   function handleClearSubmissions() {
     const ok = window.confirm(
       "Clear all vendor submissions? This cannot be undone.",
@@ -274,6 +287,12 @@ export function SlideOutPanel({ open, onClose }: Props) {
           </nav>
 
           <PanelDivider />
+
+          <PanelSection label="Account">
+            <PanelItem onClick={handleSignOut} tone="danger">
+              Sign Out
+            </PanelItem>
+          </PanelSection>
 
           <PanelSection label="Calendar">
             <PanelItem onClick={handleSeedCalendar}>Seed Calendar</PanelItem>

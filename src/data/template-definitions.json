@@ -11084,6 +11084,529 @@
     ]
   },
   {
+    "slug": "hot-take-post",
+    "name": "Hot Takes — Post",
+    "series_slug": "hot-takes",
+    "pillar": "engage",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "HotTakePost",
+    "is_active": true,
+    "sort_order": 5,
+    "editable_fields": [
+      {
+        "key": "hotTake",
+        "type": "textarea",
+        "label": "The hot take",
+        "default": "The baraat horse is overrated.",
+        "maxLength": 140,
+        "required": true,
+        "helpText": "One bold opinion. Keep it punchy."
+      },
+      {
+        "key": "responsePrompt",
+        "type": "text",
+        "label": "Response prompt (Caveat aside)",
+        "default": "agree or fight me",
+        "maxLength": 60
+      },
+      {
+        "key": "ctaText",
+        "type": "textarea",
+        "label": "CTA text",
+        "default": "Drop your take in the comments 👇",
+        "maxLength": 80
+      }
+    ]
+  },
+  {
+    "slug": "hot-take-story",
+    "name": "Hot Takes — Story",
+    "series_slug": "hot-takes",
+    "pillar": "engage",
+    "format": "story",
+    "dimensions": { "width": 1080, "height": 1920 },
+    "component_name": "HotTakeStory",
+    "is_active": true,
+    "sort_order": 6,
+    "editable_fields": [
+      {
+        "key": "hotTake",
+        "type": "textarea",
+        "label": "The hot take",
+        "default": "The sangeet is more important than the ceremony.",
+        "maxLength": 140,
+        "required": true
+      },
+      {
+        "key": "responsePrompt",
+        "type": "text",
+        "label": "Response prompt (Caveat aside)",
+        "default": "I said what I said.",
+        "maxLength": 60
+      },
+      {
+        "key": "ctaText",
+        "type": "textarea",
+        "label": "CTA text",
+        "default": "Drop your take in the comments 👇",
+        "maxLength": 80
+      }
+    ]
+  },
+  {
+    "slug": "hot-takes-carousel",
+    "name": "Hot Takes — Carousel",
+    "series_slug": "hot-takes",
+    "pillar": "engage",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "HotTakeCarousel",
+    "is_active": true,
+    "sort_order": 7,
+    "editable_fields": [
+      {
+        "key": "takes.0",
+        "type": "textarea",
+        "label": "Take 1",
+        "default": "The baraat horse is overrated.",
+        "maxLength": 140,
+        "required": true
+      },
+      {
+        "key": "takes.1",
+        "type": "textarea",
+        "label": "Take 2",
+        "default": "Nobody remembers what the centerpieces looked like.",
+        "maxLength": 140
+      },
+      {
+        "key": "takes.2",
+        "type": "textarea",
+        "label": "Take 3",
+        "default": "Spending more on food and less on decor is always the right call.",
+        "maxLength": 140
+      },
+      {
+        "key": "takes.3",
+        "type": "textarea",
+        "label": "Take 4",
+        "default": "If your lehenga doesn't have pockets, what's the point.",
+        "maxLength": 140
+      },
+      {
+        "key": "takes.4",
+        "type": "textarea",
+        "label": "Take 5",
+        "default": "Skip the photo booth. Pay a roving photographer instead.",
+        "maxLength": 140
+      },
+      {
+        "key": "coverSubtitle",
+        "type": "text",
+        "label": "Cover subtitle",
+        "default": "Five opinions, zero apologies.",
+        "maxLength": 80
+      },
+      {
+        "key": "closeHeadline",
+        "type": "text",
+        "label": "Close slide headline",
+        "default": "Which one stung?",
+        "maxLength": 60
+      },
+      {
+        "key": "closeSubtitle",
+        "type": "text",
+        "label": "Close slide subtitle",
+        "default": "Comment your take or fight us in the DMs.",
+        "maxLength": 100
+      }
+    ]
+  },
+  {
+    "slug": "countdown-post",
+    "name": "The Countdown — Post",
+    "series_slug": "the-countdown",
+    "pillar": "educate",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "CountdownPost",
+    "is_active": true,
+    "sort_order": 5,
+    "editable_fields": [
+      {
+        "key": "countdownNumber",
+        "type": "number",
+        "label": "Countdown number",
+        "default": 6,
+        "min": 1,
+        "required": true
+      },
+      {
+        "key": "countdownUnit",
+        "type": "select",
+        "label": "Unit",
+        "default": "months",
+        "options": [
+          { "value": "months", "label": "Months" },
+          { "value": "weeks", "label": "Weeks" },
+          { "value": "days", "label": "Days" }
+        ],
+        "required": true
+      },
+      {
+        "key": "taskHeadline",
+        "type": "text",
+        "label": "Task headline",
+        "default": "Lock in your vendors",
+        "maxLength": 60,
+        "required": true
+      },
+      {
+        "key": "taskDetail",
+        "type": "textarea",
+        "label": "Task detail",
+        "default": "Photographer, decorator, caterer — the calendar fills up fast.",
+        "maxLength": 200
+      },
+      {
+        "key": "annotation",
+        "type": "text",
+        "label": "Annotation (Caveat aside)",
+        "default": "trust us on this",
+        "maxLength": 60
+      },
+      {
+        "key": "urgencyLevel",
+        "type": "select",
+        "label": "Urgency level",
+        "default": "getting-real",
+        "options": [
+          { "value": "chill", "label": "Chill (12+ months)" },
+          { "value": "getting-real", "label": "Getting real (3–6 months)" },
+          { "value": "panic", "label": "Panic (under 1 month)" }
+        ],
+        "required": true
+      }
+    ]
+  },
+  {
+    "slug": "countdown-carousel",
+    "name": "The Countdown — Carousel",
+    "series_slug": "the-countdown",
+    "pillar": "educate",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "CountdownCarousel",
+    "is_active": true,
+    "sort_order": 6,
+    "editable_fields": [
+      {
+        "key": "coverTitle",
+        "type": "text",
+        "label": "Cover title",
+        "default": "Your Wedding Countdown",
+        "maxLength": 60
+      },
+      {
+        "key": "coverSubtitle",
+        "type": "text",
+        "label": "Cover subtitle",
+        "default": "a timeline for the organized and the panicking alike",
+        "maxLength": 80
+      },
+      {
+        "key": "milestones.0.number",
+        "type": "number",
+        "label": "Milestone 1 — number",
+        "default": 12,
+        "required": true
+      },
+      {
+        "key": "milestones.0.unit",
+        "type": "select",
+        "label": "Milestone 1 — unit",
+        "default": "months",
+        "options": [
+          { "value": "months", "label": "Months" },
+          { "value": "weeks", "label": "Weeks" },
+          { "value": "days", "label": "Days" }
+        ]
+      },
+      {
+        "key": "milestones.0.tasks",
+        "type": "textarea",
+        "label": "Milestone 1 — tasks (one per line)",
+        "default": "Lock the venue\nDecide the guest list\nStart vendor outreach",
+        "maxLength": 280
+      },
+      {
+        "key": "milestones.1.number",
+        "type": "number",
+        "label": "Milestone 2 — number",
+        "default": 6
+      },
+      {
+        "key": "milestones.1.unit",
+        "type": "select",
+        "label": "Milestone 2 — unit",
+        "default": "months",
+        "options": [
+          { "value": "months", "label": "Months" },
+          { "value": "weeks", "label": "Weeks" },
+          { "value": "days", "label": "Days" }
+        ]
+      },
+      {
+        "key": "milestones.1.tasks",
+        "type": "textarea",
+        "label": "Milestone 2 — tasks (one per line)",
+        "default": "Send save-the-dates\nBook photographer\nFinalize outfits",
+        "maxLength": 280
+      },
+      {
+        "key": "milestones.2.number",
+        "type": "number",
+        "label": "Milestone 3 — number",
+        "default": 1
+      },
+      {
+        "key": "milestones.2.unit",
+        "type": "select",
+        "label": "Milestone 3 — unit",
+        "default": "weeks",
+        "options": [
+          { "value": "months", "label": "Months" },
+          { "value": "weeks", "label": "Weeks" },
+          { "value": "days", "label": "Days" }
+        ]
+      },
+      {
+        "key": "milestones.2.tasks",
+        "type": "textarea",
+        "label": "Milestone 3 — tasks (one per line)",
+        "default": "Final fitting\nConfirm headcount\nPay vendor balances",
+        "maxLength": 280
+      },
+      {
+        "key": "closeHeadline",
+        "type": "text",
+        "label": "Close slide headline",
+        "default": "The Marigold tracks all of this for you.",
+        "maxLength": 80
+      },
+      {
+        "key": "closeCta",
+        "type": "text",
+        "label": "Close slide CTA",
+        "default": "Start your plan →",
+        "maxLength": 40
+      }
+    ]
+  },
+  {
+    "slug": "mood-board-post",
+    "name": "Mood Board — Post",
+    "series_slug": "mood-board",
+    "pillar": "inspire",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "MoodBoardPost",
+    "is_active": true,
+    "sort_order": 2,
+    "editable_fields": [
+      {
+        "key": "styleLabel",
+        "type": "text",
+        "label": "Style label",
+        "default": "Romantic Garden",
+        "maxLength": 40,
+        "required": true
+      },
+      {
+        "key": "annotation",
+        "type": "text",
+        "label": "Annotation (Caveat aside)",
+        "default": "soft, lush, candle-lit",
+        "maxLength": 60
+      },
+      {
+        "key": "colorPalette",
+        "type": "textarea",
+        "label": "Colour palette (hex codes, one per line)",
+        "default": "#F4C2C2\n#D4A853\n#8A6070\n#FBEAF0\n#A8B89F",
+        "maxLength": 200,
+        "helpText": "4–5 hex codes. Doubles as the panel placeholder colour when an image is missing."
+      },
+      {
+        "key": "images",
+        "type": "textarea",
+        "label": "Image URLs (one per line, up to 4)",
+        "default": "",
+        "maxLength": 800,
+        "helpText": "Optional. Leave blank to use palette colours as placeholders."
+      }
+    ]
+  },
+  {
+    "slug": "color-palette-post",
+    "name": "Mood Board — Colour Palette",
+    "series_slug": "mood-board",
+    "pillar": "inspire",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "ColorPalettePost",
+    "is_active": true,
+    "sort_order": 3,
+    "editable_fields": [
+      {
+        "key": "paletteName",
+        "type": "text",
+        "label": "Palette name",
+        "default": "Garden Romance",
+        "maxLength": 40,
+        "required": true
+      },
+      {
+        "key": "seasonNote",
+        "type": "text",
+        "label": "Season note",
+        "default": "Spring — soft & sun-warmed",
+        "maxLength": 60
+      },
+      {
+        "key": "colors.0.hex",
+        "type": "text",
+        "label": "Colour 1 — hex",
+        "default": "#F4C2C2",
+        "required": true
+      },
+      {
+        "key": "colors.0.name",
+        "type": "text",
+        "label": "Colour 1 — name",
+        "default": "Blush",
+        "maxLength": 30
+      },
+      {
+        "key": "colors.1.hex",
+        "type": "text",
+        "label": "Colour 2 — hex",
+        "default": "#D4A853"
+      },
+      {
+        "key": "colors.1.name",
+        "type": "text",
+        "label": "Colour 2 — name",
+        "default": "Gold",
+        "maxLength": 30
+      },
+      {
+        "key": "colors.2.hex",
+        "type": "text",
+        "label": "Colour 3 — hex",
+        "default": "#8A6070"
+      },
+      {
+        "key": "colors.2.name",
+        "type": "text",
+        "label": "Colour 3 — name",
+        "default": "Mauve",
+        "maxLength": 30
+      },
+      {
+        "key": "colors.3.hex",
+        "type": "text",
+        "label": "Colour 4 — hex",
+        "default": "#FBEAF0"
+      },
+      {
+        "key": "colors.3.name",
+        "type": "text",
+        "label": "Colour 4 — name",
+        "default": "Cream Pink",
+        "maxLength": 30
+      },
+      {
+        "key": "colors.4.hex",
+        "type": "text",
+        "label": "Colour 5 — hex",
+        "default": "#A8B89F"
+      },
+      {
+        "key": "colors.4.name",
+        "type": "text",
+        "label": "Colour 5 — name",
+        "default": "Sage",
+        "maxLength": 30
+      }
+    ]
+  },
+  {
+    "slug": "diary-entry-post",
+    "name": "Real Bride Diaries — Post",
+    "series_slug": "real-bride-diaries",
+    "pillar": "connect",
+    "format": "post",
+    "dimensions": { "width": 1080, "height": 1080 },
+    "component_name": "DiaryEntryPost",
+    "is_active": true,
+    "sort_order": 3,
+    "editable_fields": [
+      {
+        "key": "dayOrWeek",
+        "type": "text",
+        "label": "Day or week label",
+        "default": "Day 142",
+        "maxLength": 30,
+        "required": true
+      },
+      {
+        "key": "dateLabel",
+        "type": "text",
+        "label": "Date label",
+        "default": "March 12",
+        "maxLength": 30
+      },
+      {
+        "key": "diaryText",
+        "type": "textarea",
+        "label": "Diary entry",
+        "default": "Tried on the lehenga today. Cried in the changing room. The aunties cried too. We are all going to be fine.",
+        "maxLength": 600,
+        "required": true
+      },
+      {
+        "key": "brideIdentifier",
+        "type": "text",
+        "label": "Bride identifier",
+        "default": "— P., Mumbai",
+        "maxLength": 40
+      },
+      {
+        "key": "planningStage",
+        "type": "text",
+        "label": "Planning stage",
+        "default": "3 months out",
+        "maxLength": 40
+      },
+      {
+        "key": "marginDoodle",
+        "type": "select",
+        "label": "Margin doodle",
+        "default": "heart",
+        "options": [
+          { "value": "heart", "label": "Heart" },
+          { "value": "flower", "label": "Flower" },
+          { "value": "stressed", "label": "Stressed" },
+          { "value": "sparkle", "label": "Sparkle" },
+          { "value": "ring", "label": "Ring" }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "countdown-reel",
     "name": "The Countdown — Reel",
     "series_slug": "the-countdown",
@@ -12978,6 +13501,21 @@
         "required": true
       }
     ]
+  },
+  {
+    "slug": "diary-reel-muhurat",
+    "name": "Real Bride Diaries — Karaoke Reel",
+    "series_slug": "real-bride-diaries",
+    "pillar": "connect",
+    "format": "reel",
+    "dimensions": {
+      "width": 1080,
+      "height": 1920
+    },
+    "component_name": "DiaryEntryReel",
+    "is_active": true,
+    "sort_order": 5,
+    "editable_fields": []
   },
   {
     "slug": "diary-snippet-reel",

@@ -6,15 +6,13 @@
  * an ideation tool.
  */
 
-import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
+import { callNvidia, NVIDIA_MODELS } from "@/lib/ai/nvidia-client";
 import { loadBrandConfig, loadContentSeries } from "@/lib/db/data-loader";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-const MODEL_ID = "claude-sonnet-4-20250514";
 
 interface ConceptRequest {
   idea: string;
@@ -38,12 +36,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+  const apiKey = process.env.NVIDIA_API_KEY?.replace(/^"|"$/g, "").trim();
+  if (!apiKey || apiKey.length < 10) {
     return NextResponse.json(
       {
         ok: false,
-        error: "ANTHROPIC_API_KEY is not set. Add it to .env.local first.",
+        error: "NVIDIA_API_KEY is not set. Add it to .env.local first.",
       },
       { status: 500 },
     );
@@ -106,26 +104,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   ].join("\n");
 
   try {
-    const client = new Anthropic({ apiKey });
-    const response = await client.messages.create({
-      model: MODEL_ID,
-      max_tokens: 1500,
+    const text = await callNvidia({
       system,
-      messages: [{ role: "user", content: userMessage }],
+      userMessage,
+      model: NVIDIA_MODELS.general,
+      maxTokens: 1500,
+      temperature: 0.7,
     });
-
-    const text = response.content
-      .filter((block): block is Anthropic.TextBlock => block.type === "text")
-      .map((block) => block.text)
-      .join("\n")
-      .trim();
-
-    if (!text) {
-      return NextResponse.json(
-        { ok: false, error: "Claude returned an empty response." },
-        { status: 500 },
-      );
-    }
 
     return NextResponse.json({ ok: true, concept: text });
   } catch (err) {

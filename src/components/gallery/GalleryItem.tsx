@@ -5,8 +5,10 @@ import {
   TemplateFrame,
   type TemplateFormat,
 } from "@/components/brand/TemplateFrame";
-import { exportImage } from "@/lib/export/export-image";
+import { exportImage, exportThumbnailDataUrl } from "@/lib/export/export-image";
 import { getTemplateBySlug } from "@/lib/db/data-loader";
+import { saveAssetRecord } from "@/lib/db/asset-store";
+import { uploadToBucket, dataUrlToBlob } from "@/lib/export/storage-upload";
 import {
   getAllSubmissions,
   vendorCategoryLabel,
@@ -120,10 +122,6 @@ export function GalleryItem({
     setBusy(true);
     setError(null);
     try {
-      console.log(`[export] ${filename} — starting`, {
-        node: innerRef.current,
-        rect: innerRef.current.getBoundingClientRect(),
-      });
       const blob = await exportImage(innerRef.current, {
         filename,
         download: true,
@@ -133,10 +131,68 @@ export function GalleryItem({
         // capture so the cloned subtree paints at full 1080px.
         overrideTransform: "scale(1)",
       });
-      console.log(`[export] ${filename} — captured`, {
-        size: blob.size,
-        type: blob.type,
-      });
+
+      // Persist a metadata record so the Asset Library can show this export.
+      try {
+        const slugForRecord =
+          customizeTemplateSlug ?? `gallery-${filename}`;
+        const recordId = (typeof crypto !== "undefined" && "randomUUID" in crypto)
+          ? crypto.randomUUID()
+          : `asset_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+        const objectKey = `${recordId}.png`;
+
+        // Upload full PNG to private `assets` bucket.
+        let assetPath: string | undefined;
+        try {
+          const up = await uploadToBucket("assets", objectKey, blob);
+          assetPath = up.path;
+        } catch (e) {
+          console.warn("[export] asset upload failed", e);
+        }
+
+        // Build a thumbnail and upload to public `thumbnails` bucket.
+        const thumbScale = 320 / dims.width;
+        const thumbnailDataUrl = await exportThumbnailDataUrl(
+          innerRef.current,
+          Math.round(dims.width * thumbScale),
+          Math.round(dims.height * thumbScale),
+        );
+        let thumbPath: string | undefined;
+        let thumbPublicUrl: string | undefined;
+        try {
+          const thumbBlob = dataUrlToBlob(thumbnailDataUrl);
+          const up = await uploadToBucket("thumbnails", `${recordId}.jpg`, thumbBlob);
+          thumbPath = up.path;
+          thumbPublicUrl = up.publicUrl;
+        } catch (e) {
+          console.warn("[export] thumbnail upload failed", e);
+        }
+
+        // Local cache + Supabase row.
+        saveAssetRecord({
+          id: recordId,
+          calendar_item_id: `gallery_${filename}`,
+          template_slug: slugForRecord,
+          series_slug: seriesSlug,
+          file_type: "png",
+          file_path: assetPath,
+          file_url: assetPath ? undefined : URL.createObjectURL(blob),
+          thumbnail: thumbPublicUrl ?? thumbnailDataUrl,
+          thumbnail_path: thumbPath,
+          filename: `${filename}.png`,
+          dimensions: dims,
+          file_size_bytes: blob.size,
+          render_config: {
+            template_slug: slugForRecord,
+            format,
+            content_data: {},
+            caption: null,
+            hashtags: [],
+          },
+        });
+      } catch (saveErr) {
+        console.warn(`[export] ${filename} — could not save asset record`, saveErr);
+      }
     } catch (err) {
       console.error(`[export] ${filename} — failed`, err);
       setError(err instanceof Error ? err.message : String(err));
@@ -268,7 +324,7 @@ export function GalleryItem({
         {!hideCustomize && customizeTemplateSlug && (
           <button
             type="button"
-            onClick={() => setCustomizeOpen((v) => !v)}
+            onClick={() => setCustomizeOpen(true)}
             style={{
               fontFamily: "'Syne', sans-serif",
               fontSize: 11,
@@ -276,14 +332,14 @@ export function GalleryItem({
               textTransform: "uppercase",
               letterSpacing: 1.6,
               padding: "10px 14px",
-              background: customizeOpen ? "var(--wine)" : "transparent",
-              color: customizeOpen ? "var(--cream)" : "var(--wine)",
+              background: "transparent",
+              color: "var(--wine)",
               border: "1px solid var(--wine)",
               borderRadius: 4,
               cursor: "pointer",
             }}
           >
-            {customizeOpen ? "Close customize" : "Customize sample"}
+            Customize sample
           </button>
         )}
 
@@ -322,10 +378,12 @@ export function GalleryItem({
       </div>
 
       {customizeOpen && customizeTemplateSlug && (
-        <CustomizeExpander
-          templateSlug={customizeTemplateSlug}
-          onClose={() => setCustomizeOpen(false)}
-        />
+        <CustomizeDialog onClose={() => setCustomizeOpen(false)}>
+          <CustomizeExpander
+            templateSlug={customizeTemplateSlug}
+            onClose={() => setCustomizeOpen(false)}
+          />
+        </CustomizeDialog>
       )}
 
       {error && (
@@ -350,6 +408,88 @@ export function GalleryItem({
           onCreated={handleCreated}
         />
       )}
+    </div>
+  );
+}
+
+interface CustomizeDialogProps {
+  onClose: () => void;
+  children: ReactNode;
+}
+
+function CustomizeDialog({ onClose, children }: CustomizeDialogProps) {
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 1000,
+        background: "rgba(75,21,40,0.55)",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "5vh 16px",
+        overflowY: "auto",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: 960,
+          background: "var(--cream)",
+          border: "1px solid rgba(75,21,40,0.15)",
+          borderRadius: 12,
+          boxShadow: "0 20px 50px rgba(75,21,40,0.35)",
+          padding: 20,
+        }}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close customize dialog"
+          style={{
+            position: "absolute",
+            top: 12,
+            right: 12,
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            border: "1px solid rgba(75,21,40,0.2)",
+            background: "var(--cream)",
+            color: "var(--wine)",
+            fontFamily: "'Syne', sans-serif",
+            fontSize: 14,
+            fontWeight: 700,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1,
+          }}
+        >
+          ×
+        </button>
+        {children}
+      </div>
     </div>
   );
 }

@@ -345,14 +345,20 @@ export interface AssetRecord {
   template_slug: string;
   series_slug?: string;
   file_type: AssetFileType;
-  /** A data URL or blob URL — we don't persist the binary itself. */
-  file_url: string;
   /**
-   * Small base64 data URL preview (~320px wide). Persists across sessions in
-   * localStorage so the Asset Library can render thumbnails after a reload,
-   * unlike `file_url` (a session-scoped blob URL that the browser revokes).
+   * Session-scoped data URL or blob URL — only valid in the current tab.
+   * Optional now that file_path holds the canonical Supabase Storage key.
+   */
+  file_url?: string;
+  /** Supabase Storage object key inside the `assets` bucket. */
+  file_path?: string;
+  /**
+   * Small thumbnail. Either a base64 data URL (legacy) OR a public URL from
+   * the `thumbnails` bucket. Either way, safe to drop into <img src>.
    */
   thumbnail?: string;
+  /** Supabase Storage object key inside the `thumbnails` bucket. */
+  thumbnail_path?: string;
   filename: string;
   dimensions: TemplateDimensions;
   file_size_bytes: number | null;
